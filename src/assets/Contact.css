@@ -1,0 +1,182 @@
+.popup {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background-color: #333;
+    color: #fff;
+    padding: 15px 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+    z-index: 1000;
+    animation: fadeInOut 3s ease-in-out;
+  }
+  
+  @keyframes fadeInOut {
+    0% { opacity: 0; transform: translateY(10px); }
+    10% { opacity: 1; transform: translateY(0); }
+    90% { opacity: 1; transform: translateY(0); }
+    100% { opacity: 0; transform: translateY(10px); }
+  }
+/* .err{
+    background-color: rgb(227, 51, 51);
+}
+.suc{
+    background-color: rgb(12, 113, 12);
+} */
+
+.main2 {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 800;
+  }
+  
+  .grid2 {
+    margin-top: -50px;
+    height: 22%;
+    width: 40%;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 13px;
+    border-radius: 4px;
+    /* background-color: rgb(0, 0, 0); */
+    padding: 20px;
+    margin-bottom: 20px;
+    border-radius: 10px;
+  }
+  
+  .email {
+    grid-column: 1 / span 3;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .email span{
+    background-color: #434343;
+    border-radius: 6px;
+    padding: 3px;
+  }
+  .linkd {
+    grid-column: 4 / span ;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .x , .github{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .dark-mode-form {
+    max-width: 700px;
+    padding: 20px;
+    background-color: #000000;
+    border-radius: 20px;
+    box-shadow: 0 0 10px rgba(90, 89, 89, 0.5);
+  animation: 0.8s ease-in-out slideFromTop;
+
+  }
+  
+  .form-input {
+    background-color: #333;
+    color: #fff;
+    border: none;
+    padding: 10px;
+    margin-bottom: 20px;
+    width: 95%;
+  }
+  
+  .form-button {
+    background-color: #2297d1;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 10px;
+    cursor: pointer;
+    width: 100%;
+    margin-top: 20px;
+  }
+  .d:hover{
+    background-color: #2297d1;
+    /* scale: 1.2; */
+    transition: 0.4s ease;
+    cursor: pointer;
+  }
+  .gg {
+    /* animation-play-state: paused; */
+    /* animation: easeInOut 0.5s forwards; */
+    background-color: rgb(40, 39, 39);
+    /* font-weight: 800; */
+    color: white;
+    /* text-align: center; */
+    /* padding: 2px 0 0 19px; */
+    border-radius: 10px;
+  animation: 0.8s ease-in-out slideFromTop;
+
+  }
+/*   
+  .email {
+    animation-delay: 0s;
+  }
+  
+  .linkd {
+    animation-delay: 0.5s;
+  }
+  
+  .x {
+    animation-delay: 1s;
+  }
+  
+  .github {
+    animation-delay: 1.5s;
+  }
+  */
+  @keyframes slideFromTop {
+    0%{
+      transform: translateY(-20%);
+      opacity: 0;
+    }
+    100%{
+      transform: translateY(0%);
+      opacity: 1;
+    }
+  } 
+
+  @media (max-width: 768px) {
+    .grid2 {
+      grid-template-columns: repeat(2, 1fr);
+    }
+    .dark-mode-form {
+      max-width: 300px;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    
+    .grid2 {
+      /* grid-template-columns: 1fr; */
+  
+    }
+    .email{
+        grid-column: 1 / span 10;
+    }
+    .email span{
+        font-size: 0.6rem;
+    }
+    .linkd{
+        grid-column: 1 / span 1;
+    }
+    .x{
+        grid-column: 2 / span 6;
+    }
+    .github{
+        grid-column: 8 / span 3;
+    }
+    .dark-mode-form {
+      max-width: 350px;
+    }
+  }
