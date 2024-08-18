@@ -9,7 +9,7 @@ const Loader = ({ onLoadComplete }) => {
     const interval = setInterval(() => {
       setProgress(prev => {
         if (prev < 100) {
-          return prev + 2;
+          return prev + 1;
         } else {
           clearInterval(interval);
           setTimeout(() => {
