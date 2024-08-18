@@ -57,7 +57,7 @@ const Projects = () => {
                 title: "Taskify", 
                 description: "A full-stack Todo application that allows users to manage their tasks with features like authentication, Google sign-in, and CRUD operations.", 
                 githubLink: "https://github.com/SadanandMiskin/Taskify",
-                liveLink: "",
+                liveLink: "https://todo.sadanandmiskin.xyz/login",
                 imageUrl: taskify, 
                 technologies: ["Vue.js", "Express", "PostgreSQL"]
             },
