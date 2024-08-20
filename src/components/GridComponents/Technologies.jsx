@@ -1,5 +1,6 @@
 import { RiJavascriptFill , RiNodejsLine, RiReactjsLine, RiJavaLine, RiHtml5Fill   } from "react-icons/ri";
 import { SiExpress , SiMongodb, SiDocker,SiEjs , SiMysql, SiSocketdotio, SiCss3 , SiTypescript   } from "react-icons/si";
+import { FiFigma } from "react-icons/fi";
 
 const Technologies = () => {
   return (
@@ -26,6 +27,7 @@ const Technologies = () => {
       <div className="icon-row">
         <RiHtml5Fill size={25} color="orange"/>
         <SiCss3 size={25} color="blue"/>
+        <FiFigma size={25} color="white" />
       </div>
     </div>
   </div>

@@ -9,12 +9,12 @@ const Loader = ({ onLoadComplete }) => {
     const interval = setInterval(() => {
       setProgress(prev => {
         if (prev < 100) {
-          return prev + 1;
+          return Math.round(prev + 1.87);
         } else {
           clearInterval(interval);
           setTimeout(() => {
             onLoadComplete();
-          }, 180); 
+          }, 130); 
           return prev;
         }
       });
@@ -26,7 +26,7 @@ const Loader = ({ onLoadComplete }) => {
   return (
     <div className="loader-container">
       {/* <div className="loader"> */}
-        {/* <div className="loader-progress" style={{ width: `${progress}%` }}>{progress}</div> */}
+        <div className="loader-progress" style={{ width: `${progress}%` }}></div>
         
         {/* <span className="loader-percentage">{progress}</span> */}
       {/* </div> */}
