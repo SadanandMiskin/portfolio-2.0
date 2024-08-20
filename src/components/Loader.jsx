@@ -9,12 +9,12 @@ const Loader = ({ onLoadComplete }) => {
     const interval = setInterval(() => {
       setProgress(prev => {
         if (prev < 100) {
-          return Math.round(prev + 1.87);
+          return Math.round(prev + 1.37);
         } else {
           clearInterval(interval);
           setTimeout(() => {
             onLoadComplete();
-          }, 130); 
+          }, 180); 
           return prev;
         }
       });
