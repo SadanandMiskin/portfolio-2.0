@@ -7,6 +7,7 @@ import { git, linkedin, sendMail, X } from '../functions/Onclicks';
 
 const Contact = () => {
   const [popupVisible, setPopupVisible] = useState(false);
+  const [sending, setSending] = useState(false)
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -30,7 +31,7 @@ const Contact = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    
+    setSending(true)
     const mailMessage = {
       name: formData.name,
       email: formData.email,
@@ -47,6 +48,7 @@ const Contact = () => {
       });
       
       if (response.status === 200) {
+        setSending(false)
         setPopupVisible(true); 
         setFormData({
           name: '',
@@ -80,6 +82,12 @@ const Contact = () => {
         </div>
       </div>
 
+      {sending ? (
+        <form className="dark-mode-form">
+        <p>Sending...</p>
+        </form>        
+      ) : 
+      (
       <form className="dark-mode-form" onSubmit={handleSubmit}>
         <label htmlFor="name">Name:</label>
         <input
@@ -120,6 +128,7 @@ const Contact = () => {
           Send
         </button>
       </form>
+      )}
 
       {popupVisible && (
         <div className="popup" style={{backgroundColor: 'green'}}>

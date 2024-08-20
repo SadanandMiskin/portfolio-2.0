@@ -23,7 +23,10 @@
 .suc{
     background-color: rgb(12, 113, 12);
 } */
-
+.cen{
+  display: flex;
+  align-items: center;
+}
 .main2 {
     display: flex;
     flex-direction: column;
