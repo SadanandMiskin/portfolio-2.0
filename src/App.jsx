@@ -7,6 +7,7 @@ import { useState, useEffect } from 'react';
 import Contact from './components/Contact';
 import Blog from './components/Blog';
 import Loader from './components/Loader';
+import NotFound from './components/NotFound'; // Import your NotFound component
 
 function App() {
   const [loading, setLoading] = useState(true);
@@ -28,6 +29,7 @@ function App() {
               <Route path="/projects" element={<Projects />} />
               <Route path="/blog" element={<Blog />} />
               <Route path="/contact" element={<Contact />} />
+              <Route path="*" element={<NotFound />} /> 
             </Routes>
           </div>
         </>
