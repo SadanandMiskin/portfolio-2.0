@@ -14,7 +14,7 @@
   }
   
   .loader {
-    width: 70%;
+    width: 30%;
     height: 10px;
     background-color: #333;
     margin-bottom: 20px;
@@ -25,7 +25,7 @@
   
   .loader-progress {
     height: 20px;
-    background-color: #f39c12;
+    background-color: #12b7f3;
     transition: width 0.3s ease;
   }
   

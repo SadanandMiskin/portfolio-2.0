@@ -357,14 +357,14 @@ p.para{
 }
 
 .exp{
-  height: min-content;
+  height: max-content;
   grid-column: 2 / span 4 ;
   /* grid-row: 5 / span 3; */
   grid-row: 5 / span 7 ;
 
   margin-top: -1.7vh;
   animation: 0.5s ease-in-out slideFromBottom;
-  padding: 10px 0 30px 0;
+  padding: 4px 0 10px 0;
 }
 .exp h4{
   padding: 0 5%;

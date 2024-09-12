@@ -25,13 +25,13 @@ const Loader = ({ onLoadComplete }) => {
 
   return (
     <div className="loader-container">
-      {/* <div className="loader"> */}
+      <div className="loader">
         <div className="loader-progress" style={{ width: `${progress}%` }}></div>
         
         {/* <span className="loader-percentage">{progress}</span> */}
-      {/* </div> */}
+      </div>
       <p className="loader-text">{progress}%</p>
-      <p className='loader-text2'>It is Happening</p>
+      <p className='loader-text2'>....</p>
     </div>
   );
 };
