@@ -20,8 +20,8 @@ const Loader = ({ onLoadComplete }) => {
             return prev;
           }
         });
-      }, 700)
-    }, 15); 
+      }, 600)
+    }, 13); 
 
     return () => clearInterval(interval);
   }, [onLoadComplete]);
