@@ -2,23 +2,41 @@ import  { useEffect, useState } from "react";
 import '../assets/Blog.css'
  const Blog = () => {
     const [posts, setPosts] = useState(null);
+    const [err , setErr] = useState(null)
 
     useEffect(() => {
-        fetch('https://api.rss2json.com/v1/api.json?rss_url=https://medium.com/feed/@miskinsadanand')
+        fetch('https://api.rss2json.com/v1/api.json?rss_url=https%3A%2F%2Fmedium.com%2Ffeed%2F%40miskinsadanand&api_key=ae3bqxuc5zegwuv5zzdhkf7coq72fsejixwthlcr')
             .then(res => res.json())
             .then(data => {
                 setPosts(data);
             })
-            .catch(err => console.log(err));
+            .catch((err) => {
+               
+                setErr(err)
+                console.log('erreerer' , err)
+            
+            }
+                
+            );
     }, []);
 
-        if(posts == null){
-            return (
-               <div className="loading">
-                 <h2>Loading....</h2>
-               </div>
-            )
-        }
+    if (err) {
+        return (
+          <div className="loading">
+            <h2>There was an Error..</h2>
+            {/* <p>{err.message}</p> */}
+          </div>
+        );
+      }
+    
+      if (!posts) {
+        return (
+          <div className="loading">
+            <h2>Loading....</h2>
+          </div>
+        );
+      }
+       
     return (
         <div className="n">
             <div className="content">
