@@ -1,10 +1,25 @@
+:root {
+  --bg-color: #6234d7;
+  --nav-bg-color: #383d46;
+  --text-color: #fafafa;
+  --hover-color: #1e69c4;
+  --active-color: #567eb8;
+}
+
+body {
+  background-color: var(--bg-color);
+  margin: 0;
+  padding: 0;
+  font-family: 'Arial', sans-serif;
+}
+
 html, body{
   /* font-family: 'Montserrat', sans-serif; */
   
   height: 100%;
   margin: 0;
   overflow:visible;
-  background-color: rgb(0, 0, 0);
+  /* background-color: rgb(0, 0, 0); */
 }
 /* *{
   border: 1px solid black;
@@ -54,52 +69,86 @@ html, body{
 
 
 
-.header{
+.header {
   display: flex;
   justify-content: center;
-  /* margin-bottom: 80px; */
+  /* padding: 20px 0; */
+  padding-top: 8px;
 }
+
 .navigate {
-  
-  box-shadow: rgba(197, 196, 196, 0.419) 0px 4px 12px;
-  width: 23%;
+  background-color: var(--nav-bg-color);
+  border-radius: 13px;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
   display: flex;
-  justify-content: space-between;
-  margin-top: 34px;
-  padding: 12px;
-  background-color: rgb(28, 27, 27);
-  border-radius: 9px;
+  justify-content: center;
+  /* padding: 10px 0 7px 5px; */
+  transition: all 0.3s ease;
+  max-width: 80%;
+  /* max-width: 600px; */
 }
 
 .nav-link {
-  color: white;
-  padding: 4px;
+  color: var(--text-color);
+  font-size: 1rem;
+  font-weight: 600;
+  padding: 12px 20px;
   text-decoration: none;
-  transition: background-color 0.3s ease;
+  transition: all 0.3s ease;
+  border-radius: 13px;
+  margin: 0 5px;
+  position: relative;
+  overflow: hidden;
 }
 
-.nav-link:hover {
-  background-color: #ffffff;
-  color: #131313;
-  padding: 2px 4px;
-  border-radius: 5px;
+.nav-link:hover,
+.nav-link:focus,
+.nav-link.active {
+  background-color: var(--hover-color);
+  color: #ffffff;
+  transform: translateY(-3px);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
 }
 
-/* 
-.header {
-  background-color: #f0f0f0;
-  padding: 1rem;
-  text-align: center;
+.nav-link.active::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 3px;
+  background-color: var(--active-color);
+}
+
+@media (min-width: 480px) and (max-width: 768px) {
+  .navigate {
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .nav-link {
+    flex-basis: calc(50% - 20px);
+  }
+}
+
+/* Styles for very small devices */
+/* @media (max-width: 320px) {
+  .nav-link {
+    font-size: 0.9rem;
+    padding: 12px 15px;
+  }
 } */
 
-.navigate {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+/* Optional: Add a subtle pulse animation to the active link */
+@keyframes pulse {
+  0% { box-shadow: 0 0 0 0 rgba(69, 184, 233, 0.4); }
+  70% { box-shadow: 0 0 0 10px rgba(69, 195, 233, 0); }
+  100% { box-shadow: 0 0 0 0 rgba(233, 69, 96, 0); }
 }
 
-.navigate a {
-  margin: 0 1rem;
+.nav-link.active {
+  animation: pulse 2s infinite;
 }
 
 .main{

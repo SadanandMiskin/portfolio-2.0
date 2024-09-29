@@ -22,16 +22,23 @@ function App() {
         <Loader onLoadComplete={handleLoadComplete} />
       ) : (
         <>
-          <Navigation />
-          <div className="content-container">
-            <Routes>
+        <div className="layout-container">
+        <Navigation />
+        <main className="main-content">
+          {/* <MainContent /> */}
+          <Routes>
               <Route path="/" element={<Home />} />
               <Route path="/projects" element={<Projects />} />
               <Route path="/blog" element={<Blog />} />
               <Route path="/contact" element={<Contact />} />
               <Route path="*" element={<NotFound />} /> 
             </Routes>
-          </div>
+        </main>
+      </div>
+          {/* <Navigation />
+          <div className="content-container">
+            
+          </div> */}
         </>
       )}
     </BrowserRouter>
