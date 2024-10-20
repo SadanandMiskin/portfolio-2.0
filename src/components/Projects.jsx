@@ -59,7 +59,7 @@ const Projects = () => {
                 description: "Developed an Online Tic-Tac-Toe game using WebSockets, Node.js, and MongoDB for real-time gameplay.Enabled players to create a room with a unique ID and play with a friend or a random opponent online", 
                 githubLink: "https://github.com/SadanandMiskin/HiveDeal",
                 liveLink: "https://e-comm-fe.vercel.app/",
-                imageUrl: hive, 
+                imageUrl: xo, 
                 technologies: ["Vue.js", "Express", "PostgreSQL"]
             },
             { 
