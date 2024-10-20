@@ -3,6 +3,7 @@ import '../assets/Project.css' // We'll create this file for styles
 import empIm from '../assets/Photos/emp.webp'
 import hive from '../assets/Photos/hive.webp'
 import gitc from '../assets/Photos/gitc.webp'
+import xo from '../assets/Photos/XO.webp'
 import taskify from '../assets/Photos/taskify.webp'
 import { RiGithubFill } from "react-icons/ri";
 import { HiOutlineArrowTopRightOnSquare } from "react-icons/hi2";
@@ -48,6 +49,14 @@ const Projects = () => {
             { 
                 title: "HiveDeal", 
                 description: "Collaborated on the development of an e-commerce website having Buyer, Admin privileges with Authencation. Adding functionalities like easy cart creation, adding, and removing items with a seamless checkout journey.", 
+                githubLink: "https://github.com/SadanandMiskin/XO-Showdown",
+                liveLink: "https://xoshowdown.vercel.app/",
+                imageUrl: hive, 
+                technologies: ["Vue.js", "Express", "PostgreSQL"]
+            },
+            { 
+                title: "XO Showdown", 
+                description: "Developed an Online Tic-Tac-Toe game using WebSockets, Node.js, and MongoDB for real-time gameplay.Enabled players to create a room with a unique ID and play with a friend or a random opponent online", 
                 githubLink: "https://github.com/SadanandMiskin/HiveDeal",
                 liveLink: "https://e-comm-fe.vercel.app/",
                 imageUrl: hive, 
