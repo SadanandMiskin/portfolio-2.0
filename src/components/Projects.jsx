@@ -21,11 +21,11 @@ const Project = ({ title, description, imageUrl, technologies = [], index , gith
             <div className='project-info'>
                 <h3>{title}</h3>
                 <p>{description}</p>
-                {/* <div className='project-tech'>
+                <div className='project-tech'>
                     {technologies.map((tech, index) => (
                         <span key={index} className='tech-tag'>{tech}</span>
                     ))}
-                </div> */}
+                </div>
                 <div className='project-links'>
                     <a href={githubLink} target='_blank' className='project-link'><RiGithubFill size={40} />
                     </a>
@@ -54,7 +54,7 @@ const Projects = () => {
                 liveLink: "https://e-comm-fe.vercel.app/",
                 
                 imageUrl: hive, 
-                technologies: ["Vue.js", "Express", "PostgreSQL"]
+                technologies: ["React", "Express", "MongoDB" , "Redux Toolkit"]
             },
             { 
                 title: "XO Showdown", 
@@ -62,7 +62,7 @@ const Projects = () => {
                 githubLink: "https://github.com/SadanandMiskin/XO-Showdown",
                 liveLink: "https://xoshowdown.vercel.app/",
                 imageUrl: xo, 
-                technologies: ["Vue.js", "Express", "PostgreSQL"]
+                technologies: ["React", "Express", "WebSockets"]
             },
             { 
                 title: "Taskify", 
@@ -70,7 +70,7 @@ const Projects = () => {
                 githubLink: "https://github.com/SadanandMiskin/Taskify",
                 liveLink: "https://todo.sadanandmiskin.xyz/login",
                 imageUrl: taskify, 
-                technologies: ["Vue.js", "Express", "PostgreSQL"]
+                technologies: ["React", "Express", "MongoDB" , "JWT" , "Google Auth"]
             },
             { 
                 title: "EmpVerify", 
@@ -78,7 +78,7 @@ const Projects = () => {
                 imageUrl: empIm ,
                 githubLink: "https://github.com/sadanandmiskin/empverify",
                 liveLink: null,
-                technologies: ["Solidity", "Node.js", "MongoDB", "EJS"]
+                technologies: ["Solidity", "Node.js", "MongoDB", "EJS", "Ganache"]
             },
             
             { 
@@ -86,7 +86,7 @@ const Projects = () => {
                 description: "Watches new issues for any repository user provides and notifies via email", 
                 githubLink: "https://github.com/SadanandMiskin/GitCrawler",
                 imageUrl: gitc, 
-                technologies: ["Vue.js", "Express", "PostgreSQL"]
+                technologies: ["Node", "Express", "NodeMailer", "EJS"]
             },
         ])
 

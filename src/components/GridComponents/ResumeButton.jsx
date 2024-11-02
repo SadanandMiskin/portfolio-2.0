@@ -7,7 +7,7 @@ const ResumeButton = () => {
     <>
     <div className='res'>
     {/* https://drive.google.com/file/d/1-Bld6VniO49O-gucQAx6mzrqBZ07-Rsu/view?usp=sharing */}
-    <a href='https://www.dropbox.com/scl/fi/54dwbh0rxl7mmqe17pbvh/SadanandMiskin__Resume.pdf?rlkey=4gpzbx1pmraw2a9k1dn18nu71&st=gm6i9w00&dl=0' target='_blank'><button className="button-61" role="button">Download Resume</button></a>
+    <a href='https://drive.google.com/file/d/1NW_iZ7SlPACAQuDNnd1WjfD_tdQk9UdL/view?usp=sharing' target='_blank'><button className="button-61" role="button">Download Resume</button></a>
     
         {/* <div className='socials'>
             <RiLinkedinBoxFill size={0} />
