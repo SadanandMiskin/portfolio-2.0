@@ -7,7 +7,7 @@ const ResumeButton = () => {
     <>
     <div className='res'>
     {/* https://drive.google.com/file/d/1-Bld6VniO49O-gucQAx6mzrqBZ07-Rsu/view?usp=sharing */}
-    <a href='https://drive.google.com/file/d/1NW_iZ7SlPACAQuDNnd1WjfD_tdQk9UdL/view?usp=sharing' target='_blank'><button className="button-61" role="button">Download Resume</button></a>
+    <a href='https://drive.google.com/file/d/1y14-SXjZnC5qVKfE8aj1Zk13TWCR0gzo/view?usp=sharing' target='_blank'><button className="button-61" role="button">Download Resume</button></a>
     
         {/* <div className='socials'>
             <RiLinkedinBoxFill size={0} />
