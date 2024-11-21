@@ -6,6 +6,8 @@ import gitc from '../assets/Photos/gitc.webp'
 import xo from '../assets/Photos/XO.webp'
 import taskify from '../assets/Photos/taskify.webp'
 import notf from '../assets/Photos/notflix.webp'
+import prf from '../assets/Photos/p.png'
+
 
 import { RiGithubFill } from "react-icons/ri";
 import { HiOutlineArrowTopRightOnSquare } from "react-icons/hi2";
@@ -48,6 +50,14 @@ const Projects = () => {
 
     useEffect(() => {
         setProjects([
+            {
+                title: "ProfilesMe",
+                description: "ProfilesMe is a profile builder platform similar to guns.lol that allows users to create a single, comprehensive profile link to showcase all their online presence.",
+                githubLink: "https://github.com/SadanandMiskin/profilesMe",
+                liveLink: "https://profilesme.site",
+                technologies: ["React", "Express", "MySQL" , "MongoDB" , "typeScript" , "AWS-EC2"],
+                imageUrl: prf
+            },
             {
                 title: "NotFlix",
                 description: "Developed a Netflix clone with JWT authentication, advanced search, and YouTube trailer streaming using the TMDB API, with Redux for state management.",
