@@ -8,7 +8,7 @@ import Contact from './components/Contact';
 import Blog from './components/Blog';
 import Loader from './components/Loader';
 import NotFound from './components/NotFound'; // Import your NotFound component
-
+import { Analytics } from "@vercel/analytics/react"
 function App() {
   const [loading, setLoading] = useState(true);
 
@@ -17,6 +17,9 @@ function App() {
   };
 
   return (
+
+    <>
+    <Analytics />
     <BrowserRouter>
       {loading ? (
         <Loader onLoadComplete={handleLoadComplete} />
@@ -31,18 +34,21 @@ function App() {
               <Route path="/projects" element={<Projects />} />
               <Route path="/blog" element={<Blog />} />
               <Route path="/contact" element={<Contact />} />
-              <Route path="*" element={<NotFound />} /> 
+              <Route path="*" element={<NotFound />} />
             </Routes>
         </main>
       </div>
           {/* <Navigation />
           <div className="content-container">
-            
+
           </div> */}
         </>
       )}
     </BrowserRouter>
+
+    </>
   );
+
 }
 
 export default App;

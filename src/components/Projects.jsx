@@ -7,6 +7,8 @@ import xo from '../assets/Photos/XO.webp'
 import taskify from '../assets/Photos/taskify.webp'
 import notf from '../assets/Photos/notflix.webp'
 import prf from '../assets/Photos/p.png'
+import kum from '../assets/Photos/kum.webp'
+
 
 
 import { RiGithubFill } from "react-icons/ri";
@@ -73,6 +75,14 @@ const Projects = () => {
                 liveLink: "https://xoshowdown.vercel.app/",
                 imageUrl: xo,
                 technologies: ["React", "Express", "WebSockets"]
+            },
+            {
+                title: "Kum Kum",
+                description: "Designed and developed an end-to-end solution for Kum-Kum Beauty Salon, enabling customers to pre-book appointments",
+                githubLink: "https://github.com/SadanandMiskin/kum-kum",
+                liveLink: "https://kum-kum.vercel.app/",
+                imageUrl: kum,
+                technologies: ["EJS", "Express", "NodeMailer"]
             },
             {
                 title: "Taskify",
