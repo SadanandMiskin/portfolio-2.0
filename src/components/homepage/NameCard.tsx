@@ -1,4 +1,4 @@
-import { FaDownload, FaGithub, FaLinkedinIn } from 'react-icons/fa';
+import {  FaEye, FaGithub, FaLinkedinIn } from 'react-icons/fa';
 import {  MdLocationCity, MdMailOutline } from 'react-icons/md';
 
 
@@ -77,7 +77,7 @@ const NameCard = () => {
       <a href='
         https://drive.google.com/file/d/1-GteVh_J6-NBk1cX51Dv0n2h53U-OSdl/view?usp=sharing' target='_blank'>
       <button className='bg-gradient-to-r from-red-500 to-orange-500  text-white font-semibold  p-1 px-2 rounded-md flex gap-2 items-center'>
-            <FaDownload />  Download Resume
+            <FaEye />  View Resume
         </button>
       </a>
       </div>
