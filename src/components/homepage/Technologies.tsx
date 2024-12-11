@@ -1,21 +1,23 @@
 
 import { FaReact, FaNodeJs, FaDatabase, FaGitAlt, FaJava } from "react-icons/fa";
-import { SiJavascript, SiTypescript, SiTailwindcss, SiMongodb, SiExpress, SiVite, SiVercel } from "react-icons/si";
+import { FaDocker } from "react-icons/fa6";
+import { SiJavascript, SiTypescript, SiTailwindcss, SiMongodb, SiExpress, SiVite } from "react-icons/si";
 
 const Work = () => {
   const technologies = [
     { icon: <FaReact />, name: "React" },
     { icon: <SiJavascript />, name: "JavaScript" },
     { icon: <SiTypescript />, name: "TypeScript" },
+    { icon: <SiMongodb />, name: "MongoDB" },
+    { icon: <SiExpress />, name: "Express" },
     {icon: <FaJava/> , name:  'Java'},
     { icon: <FaNodeJs />, name: "Node.js" },
     { icon: <FaDatabase />, name: "MySQL" },
+    {icon: <FaDocker/> , name: "Docker"},
     { icon: <SiTailwindcss />, name: "TailwindCSS" },
-    { icon: <SiMongodb />, name: "MongoDB" },
-    { icon: <SiExpress />, name: "Express" },
     { icon: <SiVite />, name: "Vite" },
     { icon: <FaGitAlt />, name: "Git" },
-    { icon: <SiVercel />, name: "Vercel" },
+    // { icon: <SiVercel />, name: "Vercel" },
   ];
 
   return (

@@ -19,9 +19,18 @@ const Navbar = () => {
   }
 
   return (
-    <header className="w-full bg-transparent py-3">
-      <nav className='flex flex-col md:flex-row items-center justify-around max-w-7xl mx-auto px-4 text-md font-medium font-mono'>
+    <header className="w-full bg-transparent py-3 ">
+      <nav className='flex flex-col md:flex-row items-center justify-around max-w-7xl mx-auto px-4 text-md font-medium font-mono '>
         <div className='flex gap-4 items-center justify-start'>
+        <ul className='flex items-center space-x-4 text-white '>
+          <li className="flex hover:text-gray-300 dark:text-black cursor-pointer transition-colors duration-300">
+            <button onClick={toggleDark}>
+              {
+                !isDarkMode ? <MdModeNight className='text-white h-max w-7' /> : <MdSunny className='h-max w-7'/>
+              }
+            </button>
+          </li>
+        </ul>
           <Link
             to="/"
             className={`text-xl font-bold text-white dark:text-black hover:text-gray-300 transition-colors duration-300 ${location.pathname === '/' ? 'font-extrabold' : ''}`}
@@ -29,7 +38,7 @@ const Navbar = () => {
             SM
           </Link>
           <li className='dark:text-black flex justify-center items-center animate-pulse' style={{fontSize: '9px'}}>
-            <p className='bg-green-500/50 rounded-lg py-1 px-2 text-white dark:text-black'>Open-to-Work</p>
+            <p className='bg-green-500/70 rounded-lg py-1 px-2 text-black'>Open-to-Work</p>
           </li>
         </div>
         <div className="flex items-center space-x-6">
@@ -45,15 +54,7 @@ const Navbar = () => {
             </li>
           </ul>
         </div>
-        <ul className='flex space-x-4 text-white'>
-          <li className="hover:text-gray-300 dark:text-black cursor-pointer transition-colors duration-300">
-            <button onClick={toggleDark}>
-              {
-                !isDarkMode ? <MdModeNight className='text-white h-max w-7' /> : <MdSunny className='h-max w-7'/>
-              }
-            </button>
-          </li>
-        </ul>
+
       </nav>
     </header>
   );
