@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import axios from 'axios';
-import { RiGithubFill, RiTwitterXFill, RiLinkedinBoxFill, RiMailLine } from 'react-icons/ri';
+import { RiGithubFill, RiTwitterXFill, RiLinkedinBoxFill, RiMailLine, RiLoader4Line } from 'react-icons/ri';
 
 const Contact = () => {
   const [formData, setFormData] = useState({
@@ -55,9 +55,11 @@ const Contact = () => {
         headers: { Authorization: 'Bearer sadanandbhai' }
       });
 
-      if (response.status === 200) {
+      if (response.data == true) {
         setStatus('success');
         setFormData({ name: '', email: '', message: '' });
+      } else if (response.data == 'unauthorized'){
+        setStatus('error')
       }
     } catch (error) {
       setStatus('error');
@@ -67,12 +69,12 @@ const Contact = () => {
 
   return (
     <div className="container mx-auto px-4 py-12 flex  justify-center min-h-screen">
-      <div className="w-full max-w-2xl  overflow-hidden">
+      <div className="w-full max-w-2xl overflow-hidden">
         {/* Social Links Section */}
         <div className=" p-8 md:p-10">
-          <h1 className="text-4xlxl md:text-4xl font-bold text-white dark:text-black mb-6 text-center">Contact Me</h1>
+          <h1 className="text-4xl md:text-4xl font-bold text-white dark:text-black mb-6 text-center">Contact Me</h1>
 
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-4 justify-center items-center ">
+          <div className=" flex flex-wrap flex-row justify-center gap-6 ">
             {socialLinks.map((social, index) => (
               <a
                 key={index}
@@ -124,13 +126,22 @@ const Contact = () => {
               className="w-full p-3 border border-gray-300 dark:border-gray-600 rounded-lg h-32 focus:outline-none focus:ring-2 focus:ring-blue-500  dark:text-gray-700"
             />
 
-            <button
-              type="submit"
-              disabled={status === 'sending'}
-              className="w-full p-3 bg-gradient-to-r dark:bg-black dark:text-white bg-yellow-300 text-black rounded-lg hover:opacity-90 transition-opacity disabled:opacity-50"
-            >
-              {status === 'sending' ? 'Sending...' : 'Send Message'}
-            </button>
+
+<button
+  type="submit"
+  disabled={status === 'sending'}
+  className="w-full p-3 bg-gradient-to-r dark:bg-black dark:text-white bg-yellow-300 text-black rounded-lg hover:opacity-90 transition-opacity disabled:opacity-50 flex items-center justify-center gap-2"
+>
+  {status === 'sending' ? (
+    <>
+      <RiLoader4Line className="animate-spin" />
+      Sending...
+    </>
+  ) : (
+    'Send Message'
+  )}
+</button>
+
           </form>
 
           {status === 'success' && (
@@ -141,7 +152,7 @@ const Contact = () => {
 
           {status === 'error' && (
             <div className="mt-4 p-3 bg-red-100 text-red-800 rounded-lg text-center">
-              Failed to send message. Please try again.
+              Failed to send message. Please try again or contact on email.
             </div>
           )}
         </div>

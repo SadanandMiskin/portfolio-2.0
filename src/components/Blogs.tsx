@@ -60,9 +60,9 @@ const Blogs: React.FC = () => {
 
   if (err) {
     return (
-      <div className="min-h-screen flex  items-center justify-center bg-zinc-950 text-white">
+      <div className="min-h-screen flex  items-center justify-cente text-white">
         <div className="text-center">
-          <h2 className="text-3xl font-bold mb-4">Oops! Something went wrong</h2>
+          <h2 className="text-3xl font-bold mb-4 dark:text-black">Oops! Something went wrong</h2>
           <p className="text-gray-400">Unable to fetch blog posts</p>
         </div>
       </div>
@@ -71,11 +71,12 @@ const Blogs: React.FC = () => {
 
   if (!posts) {
     return (
-      <div className="min-h-screen max-w-4xl w-full flex items-center justify-center text-white">
-        <div className="animate-pulse">
-          <h2 className="text-3xl font-bold">Loading Blogs...</h2>
-        </div>
+      <div className="min-h-screen flex  items-center justify-cente text-white">
+      <div className="text-center">
+        <h2 className="text-4xl font-bold mb-4 dark:text-black">Loading Blogs...</h2>
+        {/* <p className="text-gray-400">Unable to fetch blog posts</p> */}
       </div>
+    </div>
     );
   }
 

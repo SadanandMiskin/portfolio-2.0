@@ -1,4 +1,4 @@
-import { FaGithub, FaLinkedinIn } from 'react-icons/fa';
+import { FaDownload, FaGithub, FaLinkedinIn } from 'react-icons/fa';
 import {  MdLocationCity, MdMailOutline } from 'react-icons/md';
 
 
@@ -7,7 +7,7 @@ const NameCard = () => {
     <div className="flex flex-col justify-center p-2">
       <img
         src='/s.jpg'
-        className='w-32 rounded-full mb-4  border-solid border-x-2 border-gray-300'
+        className='w-32 rounded-full mb-4 border-solid border-x-2 border-gray-300'
 
       />
       <div className="border rounded-lg border-gray-500 shadow-lg p-6 max-w-3xl w-full h-max text-white ">
@@ -68,12 +68,18 @@ const NameCard = () => {
         </div>
 
         {/* Location */}
-        <p className="mt-2 dark:text-gray-700 text-gray-400 text-lg flex items-center gap-1"><MdLocationCity />Software Engineer</p>
+        <p className="mt-2 dark:text-gray-700 text-gray-400 text-lg flex items-center gap-1"><MdLocationCity />Full Stack Dev.</p>
 
         {/* Description */}
         <p className="text-gray-400 dark:text-gray-700 py-2">
         I have a strong passion for software technologies and am dedicated to pushing projects to completion with enthusiasm and perseverance, I'm excited for any opportunity I get, hopp in with excitement.
         </p>
+      <a href='
+        https://drive.google.com/file/d/1-GteVh_J6-NBk1cX51Dv0n2h53U-OSdl/view?usp=sharing' target='_blank'>
+      <button className='bg-gradient-to-r from-red-500 to-orange-500  text-white font-semibold  p-1 px-2 rounded-md flex gap-2 items-center'>
+            <FaDownload />  Download Resume
+        </button>
+      </a>
       </div>
     </div>
   );
