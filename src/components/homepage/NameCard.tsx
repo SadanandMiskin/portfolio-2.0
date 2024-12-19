@@ -1,5 +1,5 @@
 import {  FaEye, FaGithub, FaLinkedinIn } from 'react-icons/fa';
-import {  MdLocationCity, MdMailOutline } from 'react-icons/md';
+import {   MdLocationPin, MdMailOutline } from 'react-icons/md';
 
 
 const NameCard = () => {
@@ -68,7 +68,7 @@ const NameCard = () => {
         </div>
 
         {/* Location */}
-        <p className="mt-2 dark:text-gray-700 text-gray-400 text-lg flex items-center gap-1"><MdLocationCity />Full Stack Dev.</p>
+        <p className="mt-2 dark:text-gray-700 text-gray-400 text-lg flex items-center gap-1"><MdLocationPin />Tech Treckinh</p>
 
         {/* Description */}
         <p className="text-gray-400 dark:text-gray-700 py-2">
