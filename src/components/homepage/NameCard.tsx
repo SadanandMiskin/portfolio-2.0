@@ -7,7 +7,7 @@ const NameCard = () => {
   return (
     <div className="flex flex-col justify-center p-2">
       <img
-        src='/s.jpg'
+        src='/sad.jpeg'
         className='w-32 rounded-full mb-4 border-solid border-x-2 border-gray-300'
 
       />
