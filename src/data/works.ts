@@ -33,11 +33,11 @@ export const works: WorkType[] = [
     ],
     desc: 'A profile builder platform',
     features: `
-      - Stream Movies: Watch movies directly without downloading the full file.
-      - Watch Trailers: View trailers for movies, integrated with YouTube.
+      - A profile builder similar to Guns.lol.
+      - Bring all your unique profiles at single place at a single link.
       - Login & Signup: Sign up or log in to access more features.
-      - Search: Search for movies or actors.
-      - Home Page: See popular movies and what's trending.
+      - Get insights of total profile views.
+      - Special video background and a short description looks cook :).
     `,
     image: "/projects/profilesme.png",
   },

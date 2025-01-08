@@ -11,6 +11,14 @@ const Contact = () => {
   const [status, setStatus] = useState('idle');
 
   const socialLinks = [
+
+    {
+      icon: RiMailLine,
+      name: 'Email',
+      username: 'miskinsadanand@gmail.com',
+      link: 'mailto:miskinsadanand@gmail.com',
+      color: 'text-red-500'
+    },
     {
       icon: RiGithubFill,
       name: 'GitHub',
@@ -32,13 +40,7 @@ const Contact = () => {
       link: 'https://linkedin.com/in/sadanandmiskin',
       color: 'text-blue-600'
     },
-    {
-      icon: RiMailLine,
-      name: 'Email',
-      username: 'miskinsadanand@gmail.com',
-      link: 'mailto:miskinsadanand@gmail.com',
-      color: 'text-red-500'
-    }
+
   ];
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
@@ -74,14 +76,14 @@ const Contact = () => {
         <div className=" p-8 md:p-10">
           <h1 className="text-4xl md:text-4xl font-bold text-white dark:text-black mb-6 text-center">Contact Me</h1>
 
-          <div className=" flex flex-wrap flex-row justify-center gap-6 ">
+          <div className=" flex flex-wrap flex-row justify-center gap-6">
             {socialLinks.map((social, index) => (
               <a
                 key={index}
                 href={social.link}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex flex-col items-center space-y-2 hover:scale-105 transition-transform"
+                className="flex flex-col items-center space-y-2 hover:scale-105 transition-transform "
               >
                 <social.icon className={`text-3xl md:text-4xl text-white dark:text-black`} />
                 <div className="text-center">
