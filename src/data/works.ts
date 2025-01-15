@@ -1,6 +1,7 @@
 import { IconType } from 'react-icons';
 import { DiMongodb } from 'react-icons/di';
 import { FaReact, FaAws, FaNodeJs } from 'react-icons/fa';
+import { GiGemini } from 'react-icons/gi';
 import { SiEjs, SiEthereum, SiExpress, SiMinutemailer, SiRedux, SiSolidity } from 'react-icons/si';
 
 export interface Tech {
@@ -21,7 +22,27 @@ export interface WorkType {
 
 export const works: WorkType[] = [
   {
-    id: 1,
+    id: 2,
+    title: "Chat0sm",
+    github: "https://github.com/SadanandMiskin/chat0sm",
+    liveLink: "https://chat.0sm.bar",
+    technologies: [
+      { logo: FaReact, t: 'React' },
+      { logo: SiExpress, t: 'Express' },
+      { logo: GiGemini, t: 'Gemini AI' },
+      { logo: DiMongodb, t: 'MongoDB' },
+    ],
+    desc: 'A chatgpt like clone',
+    features: `
+      - A chatGpt like clone using Gemini and google OAuth.
+      - Creates a structured Readme like format for the queries and solutions.
+      - Login & Signup: Sign up or log in to access more features.
+      - Get answer to your any query asked directly to Google's Gemini
+    `,
+    image: "/projects/chat.png",
+  },
+  {
+    id: 2,
     title: "ProfilesMe",
     github: "https://github.com/SadanandMiskin/profilesme",
     liveLink: "https://profilesme.site",
@@ -42,7 +63,7 @@ export const works: WorkType[] = [
     image: "/projects/profilesme.png",
   },
   {
-    id: 2,
+    id: 3,
     title: "NotFlix",
     github: "https://github.com/SadanandMiskin/notflix",
     liveLink: "https://notflixpage.vercel.app/",

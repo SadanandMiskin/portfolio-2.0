@@ -1,21 +1,18 @@
 import { Link, useLocation } from 'react-router-dom';
-import { MdModeNight, MdSunny } from 'react-icons/md';
+import { MdModeNight, MdSunny, MdMenu, MdClose } from 'react-icons/md';
 import { useEffect, useState } from 'react';
 
 const Navbar = () => {
-  // Initialize with system preference, reversed for your setup
   const [isDarkMode, setIsDarkMode] = useState(
     () => !(window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches)
   );
-
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
   const location = useLocation();
 
   useEffect(() => {
     if (!isDarkMode) {
-      // Light mode in your case (system's dark mode)
       document.documentElement.classList.add('dark');
     } else {
-      // Dark mode in your case (system's light mode)
       document.documentElement.classList.remove('dark');
     }
   }, [isDarkMode]);
@@ -24,44 +21,101 @@ const Navbar = () => {
     setIsDarkMode(!isDarkMode);
   }
 
+  function toggleMenu() {
+    setIsMenuOpen(!isMenuOpen);
+  }
+
+  const navLinks = [
+    { path: '/', label: 'Home' },
+
+    { path: '/about', label: 'About' },
+    { path: '/projects', label: 'Projects' },
+    { path: '/contact', label: 'Contact' },
+  ];
+
   return (
-    <header className="w-full bg-transparent py-3 ">
-      <nav className="flex flex-col md:flex-row items-center justify-around max-w-7xl mx-auto px-4 text-md font-medium font-mono">
-        <div className="flex gap-4 items-center justify-start">
-          <ul className="flex items-center space-x-4 text-white">
-            <li className="flex hover:text-gray-300 dark:text-black cursor-pointer transition-colors duration-300">
-              <button onClick={toggleDark}>
-                {
-                  isDarkMode
-                    ? <MdModeNight className="text-white h-max w-7" />
-                    : <MdSunny className="h-max w-7" />
-                }
-              </button>
-            </li>
-          </ul>
-          <Link
-            to="/"
-            className={`text-xl font-bold text-white dark:text-black hover:text-gray-300 transition-colors duration-300 ${location.pathname === '/' ? 'font-extrabold' : ''}`}
-          >
-            SM
-          </Link>
-          <li className="dark:text-black flex justify-center items-center animate-pulse" style={{ fontSize: '9px' }}>
-            <p className="bg-green-500/70 rounded-lg py-1 px-2 text-black">Open-to-Work</p>
-          </li>
+    <header className="w-full bg-transparent py-5 relative mb-6 text-sm">
+      <nav className="max-w-2xl mx-auto px-4 font-medium ">
+        <div className="flex items-center justify-between">
+          {/* Logo Section */}
+          <div className="flex items-center space-x-2">
+            <Link
+              to="/"
+              className={`text-xl font-bold text-white dark:text-black hover:text-gray-300 transition-colors duration-300 ${
+                location.pathname === '/' ? 'font-extrabold' : ''
+              }`}
+            >
+              0-SM
+            </Link>
+            <div className="dark:text-black flex justify-center items-center animate-pulse" style={{ fontSize: '9px' }}>
+              <p className="bg-green-500/70 rounded-lg py-1 px-2 text-black">Open-to-Work</p>
+            </div>
+          </div>
+
+          {/* Desktop Navigation */}
+          <div className="hidden md:flex items-center justify-center flex-1">
+            <ul className="flex space-x-3 text-white">
+              {navLinks.map((link) => (
+                <Link to={link.path}>
+                <li
+                  key={link.path}
+                  className={`px-2 py-1 cursor-pointer dark:text-black hover:text-gray-300 transition-colors duration-300 hover:dark:bg-slate-300/50 hover:rounded-md  ${
+                    location.pathname === link.path ? 'dark:bg-slate-300/50 rounded-md bg-slate-600/50'  : ''
+                  }`}
+                >
+                  {link.label}
+                </li>
+                </Link>
+              ))}
+            </ul>
+          </div>
+
+          {/* Dark Mode Toggle */}
+          <div className="flex items-center">
+            <button
+              onClick={toggleDark}
+              className="hover:text-gray-300 dark:text-black transition-colors duration-300"
+            >
+              {isDarkMode ? (
+                <MdModeNight className="text-white h-6 w-6" />
+              ) : (
+                <MdSunny className="h-6 w-6" />
+              )}
+            </button>
+
+            {/* Mobile Menu Button */}
+            <button
+              onClick={toggleMenu}
+              className="ml-4 p-2 md:hidden text-white dark:text-black hover:text-gray-300 transition-colors duration-300"
+            >
+              {isMenuOpen ? <MdClose className="h-6 w-6" /> : <MdMenu className="h-6 w-6" />}
+            </button>
+          </div>
         </div>
-        <div className="flex items-center space-x-6">
-          <ul className="flex space-x-4 text-white">
-            <li className={`p-4 cursor-pointer dark:text-black hover:text-gray-300 transition-colors duration-300 underline ${location.pathname === '/projects' ? 'font-bold' : ''}`}>
-              <Link to="/projects">Projects</Link>
-            </li>
-            <li className={`p-4 cursor-pointer dark:text-black hover:text-gray-300 transition-colors duration-300 underline ${location.pathname === '/blogs' ? 'font-bold' : ''}`}>
-              <Link to="/blogs">Blogs</Link>
-            </li>
-            <li className={`p-4 cursor-pointer dark:text-black hover:text-gray-300 transition-colors duration-300 underline ${location.pathname === '/contact' ? 'font-bold' : ''}`}>
-              <Link to="/contact">Contact</Link>
-            </li>
-          </ul>
-        </div>
+
+        {/* Mobile Menu */}
+        {isMenuOpen && (
+          <div className="md:hidden absolute top-full left-0 w-full z-10">
+            <ul className="bg-white/10 backdrop-blur-md dark:bg-black/10 rounded-lg mt-2 p-4 space-y-2 shadow-lg">
+              {navLinks.map((link) => (
+                <li
+                  key={link.path}
+                  className={`cursor-pointer text-white dark:text-black hover:text-gray-300 transition-colors duration-300 ${
+                    location.pathname === link.path ? 'font-bold' : ''
+                  }`}
+                >
+                  <Link
+                    to={link.path}
+                    onClick={() => setIsMenuOpen(false)}
+                    className="block p-2"
+                  >
+                    {link.label}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
+        )}
       </nav>
     </header>
   );

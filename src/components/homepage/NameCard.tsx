@@ -1,86 +1,64 @@
-import {  FaEye, FaGithub, FaLinkedinIn } from 'react-icons/fa';
-import { GiPlagueDoctorProfile } from 'react-icons/gi';
-import {    MdMailOutline } from 'react-icons/md';
-
+import { CgArrowTopRight } from 'react-icons/cg';
+// import { FaEye } from 'react-icons/fa';
+import { FcDocument } from 'react-icons/fc';
 
 const NameCard = () => {
+  const socialLinks = [
+    {
+      name: "LinkedIn",
+      href: "https://linkedin.com/in/sadanandmiskin",
+    },
+    {
+      name: "GitHub",
+      href: "https://github.com/SadanandMiskin",
+    },
+    {
+      name: "Email",
+      href: "mailto:miskinsadanand@gmail.com",
+    }
+  ];
+
   return (
     <div className="flex flex-col justify-center p-2">
-      <img
-        src='/sad.jpeg'
-        className='w-32 rounded-full mb-4 border-solid border-x-2 border-gray-300'
-
-      />
-      <div className="border rounded-lg border-gray-500 shadow-lg p-6 max-w-3xl w-full h-max text-white ">
+      <div className="rounded-lg p-6 max-w-2xl w-full h-max text-white">
         {/* Name and Links */}
-        <div className="flex  justify-between i md:flex-row flex-rpw">
-          <h1 className="text-4xl font-bold dark:text-black">Sadanand Miskin</h1>
-          <div className="flex gap-2">
-            <div className='w-max h-max border-solid border-2 border-gray-900 rounded-lg p-1' >
-            <a
-              href="https://linkedin.com/in/sadanandmiskin"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="hover:opacity-80 "
-            >
-              <FaLinkedinIn  className='h-6 w-6 dark:text-black'/>
-              {/* <img
-                src="https://cdn-icons-png.flaticon.com/512/174/174857.png"
-                alt="LinkedIn"
-                className="h-6 w-6"
-              /> */}
-            </a>
-            </div>
-            <div className='w-max h-max border-solid border-2 border-gray-900 rounded-lg p-1' >
-
-            <a
-              href="https://github.com/SadanandMiskin"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="hover:opacity-80"
-            >
-              {/* <img
-                src="https://cdn-icons-png.flaticon.com/512/25/25231.png"
-                alt="GitHub"
-                className="h-6 w-6"
-              /> */}
-              <FaGithub className='h-6 w-6 dark:text-black'/>
-
-            </a>
-            </div>
-            <div className='w-max h-max border-solid border-2 border-gray-900 rounded-lg p-1' >
-
-            <a
-              href="mailto:miskinsadanand@gmail.com"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="hover:opacity-80"
-            >
-              {/* <img
-                src="https://cdn-icons-png.flaticon.com/512/25/25231.png"
-                alt="GitHub"
-                className="h-6 w-6"
-              /> */}
-              <MdMailOutline className='h-6 w-6 dark:text-black'/>
-
-            </a>
-            </div>
-          </div>
+        <div className="flex justify-between md:flex-row flex-row animate-fade-up">
+          <h1 className="text-4xl font-bold dark:text-black ">Sadanand Miskin</h1>
         </div>
 
-        {/* Location */}
-        <p className="mt-2 dark:text-gray-700 text-gray-400 text-lg flex items-center gap-1"><GiPlagueDoctorProfile />In Tech Trecking</p>
-
         {/* Description */}
-        <p className="text-gray-400 dark:text-gray-700 py-2">
-        I have a strong passion for software technologies and am dedicated to pushing projects to completion with enthusiasm and perseverance, I'm excited for any opportunity I get, hopp in with excitement.
+        <p className="text-gray-400 dark:text-gray-700 py-2 animate-fade-up animate-delay-100">
+          Passionate about software, I have enthusiasm and work with dedication, Every opportunity fuels my excitement to create and achieve.
         </p>
-      <a href='
-        https://drive.google.com/file/d/1-GteVh_J6-NBk1cX51Dv0n2h53U-OSdl/view?usp=sharing' target='_blank'>
-      <button className='bg-gradient-to-r from-red-500 to-orange-500  text-white font-semibold  p-1 px-2 rounded-md flex gap-2 items-center'>
-            <FaEye />  View Resume
-        </button>
-      </a>
+
+        {/* Resume Button */}
+        <a
+          href="https://drive.google.com/file/d/1-GteVh_J6-NBk1cX51Dv0n2h53U-OSdl/view?usp=sharing"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <button className="bg-gradient-to-tl from-blue-500 to-purple-900 text-white font-semibold p-1 px-2 rounded-md flex gap-1 items-center animate-fade-up animate-delay-150">
+            <FcDocument size={20} /> View Resume
+          </button>
+        </a>
+
+        {/* Social Links */}
+        <div className="flex gap-3 mt-6">
+          {socialLinks.map((link) => (
+            <a
+              key={link.name}
+              href={link.href}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="dark:bg-slate-200/50 rounded-xl px-2 py-1 hover:bg-gray-800/10 transition-colors duration-300 bg-slate-700/30 animate-fade-up animate-delay-250"
+            >
+              <span className="dark:text-black text-white  flex ">
+                {link.name}
+                <CgArrowTopRight size={20} />
+              </span>
+            </a>
+          ))}
+        </div>
       </div>
     </div>
   );

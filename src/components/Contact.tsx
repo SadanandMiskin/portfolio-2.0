@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import axios from 'axios';
-import { RiGithubFill, RiTwitterXFill, RiLinkedinBoxFill, RiMailLine, RiLoader4Line } from 'react-icons/ri';
+import { RiGithubFill, RiTwitterXFill, RiLinkedinBoxFill, RiMailLine, RiLoader4Line, RiSendPlane2Fill } from 'react-icons/ri';
 
 const Contact = () => {
   const [formData, setFormData] = useState({
@@ -11,7 +11,6 @@ const Contact = () => {
   const [status, setStatus] = useState('idle');
 
   const socialLinks = [
-
     {
       icon: RiMailLine,
       name: 'Email',
@@ -72,18 +71,18 @@ const Contact = () => {
   return (
     <div className="container mx-auto px-4 py-12 flex  justify-center min-h-screen">
       <div className="w-full max-w-2xl overflow-hidden">
+      <h1 className=" md:text-2xl font-bold text-white dark:text-black mb-6 animate-fade-up animate-delay-100">Contact Me</h1>
         {/* Social Links Section */}
         <div className=" p-8 md:p-10">
-          <h1 className="text-4xl md:text-4xl font-bold text-white dark:text-black mb-6 text-center">Contact Me</h1>
 
-          <div className=" flex flex-wrap flex-row justify-center gap-6">
+          <div className="grid grid-cols-2  justify-center gap-6 ">
             {socialLinks.map((social, index) => (
               <a
                 key={index}
                 href={social.link}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex flex-col items-center space-y-2 hover:scale-105 transition-transform "
+                className="flex flex-col items-center space-y-2 hover:scale-105 hover:bg-slate-600/50 rounded-md transition-colors animate-fade-up animate-delay-200"
               >
                 <social.icon className={`text-3xl md:text-4xl text-white dark:text-black`} />
                 <div className="text-center">
@@ -95,8 +94,8 @@ const Contact = () => {
         </div>
 
         {/* Contact Form Section */}
-        <div className="border border-gray-700/30  p-6 md:p-8">
-          <form onSubmit={handleSubmit} className="space-y-4">
+        <div className="border border-gray-400/30  p-6 md:p-8">
+          <form onSubmit={handleSubmit} className="space-y-4 animate-fade-up animate-delay-300">
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
               <input
                 type="text"
@@ -132,7 +131,7 @@ const Contact = () => {
 <button
   type="submit"
   disabled={status === 'sending'}
-  className="w-full p-3 bg-gradient-to-r dark:bg-black dark:text-white bg-yellow-300 text-black rounded-lg hover:opacity-90 transition-opacity disabled:opacity-50 flex items-center justify-center gap-2"
+  className="w-full p-3 bg-gradient-to-r dark:bg-black dark:text-white bg-blue-400 text-black rounded-lg hover:opacity-90 transition-opacity disabled:opacity-50 flex items-center justify-center gap-2"
 >
   {status === 'sending' ? (
     <>
@@ -140,7 +139,10 @@ const Contact = () => {
       Sending...
     </>
   ) : (
-    'Send Message'
+    <>
+    <RiSendPlane2Fill size={20}/>
+    Send Message
+    </>
   )}
 </button>
 

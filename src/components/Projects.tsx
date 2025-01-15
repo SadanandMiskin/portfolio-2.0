@@ -74,10 +74,10 @@ import { BiArrowToRight } from 'react-icons/bi';
 
 const Projects = () => {
   return (
-    <div className="max-w-3xl w-full flex flex-col p-3">
-      
-      <div className="flex flex-col gap-8 max-w-3xl mx-auto w-full">
-        <h1 className="text-4xl font-bold text-center mb-1 text-white dark:text-black">
+    <div className="max-w-2xl w-full flex flex-col p-3">
+
+      <div className="flex flex-col gap-8 max-w-3xl mx-auto w-full  ">
+        <h1 className="text-2xl font-bold  mb-1 text-white dark:text-black animate-fade-up animate-delay-200">
           Project Works
         </h1>
 
@@ -85,7 +85,7 @@ const Projects = () => {
           <Link
             key={work.id}
             to={`/projects/${work.id}`}
-            className="group relative flex flex-col justify-between overflow-hidden rounded-xl bg-zinc-900
+            className="animate-fade-up animate-delay-200 group relative flex flex-col justify-between overflow-hidden rounded-xl bg-zinc-900
                        border border-gray-500/50 dark:border-[rgba(255,255,255,.1)] shadow-sm
                        min-h-[300px] sm:min-h-[400px] md:min-h-[500px]"
             style={{ margin: "unset" }}
@@ -103,7 +103,7 @@ const Projects = () => {
             {/* Content Section */}
             <div className="relative z-10 p-4 text-white flex flex-col justify-between h-full transition-all duration-300 group-hover:translate-y-[-50px]">
               <h2 className="md:text-4xl text-2xl font-semibold">{work.title}</h2>
-              <div className="flex gap-2 sm:gap-2 mt-2 ">
+              <div className="flex gap-1 sm:gap-2 flex-wrap">
                 {work.technologies.map((tech, techIndex) => (
                   <div
                     key={techIndex}
