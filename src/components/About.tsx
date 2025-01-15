@@ -175,7 +175,7 @@ const About: React.FC = () => {
     { front: "/about/b.webp", back: "It's Me :)" },
     { front: "/about/c.webp", back: "I like Sunsets" },
     { front: "/about/d.webp", back: "27/02/2024" },
-    { front: "/about/e.gif", back: "Some Traveling" },
+    { front: "/about/e.mp4", back: "Some Traveling" },
   ];
 
   const fetchPosts = useCallback(async () => {
