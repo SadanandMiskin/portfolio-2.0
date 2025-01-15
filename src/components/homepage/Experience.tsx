@@ -13,7 +13,7 @@ const experiences = [
     role: "Full Stack Web Developer Intern",
     duration: "Oct - Nov 2022",
     description: "Developed responsive web applications using JavaScript, React, Node.js, and MongoDB while improving UI/UX design.",
-    logo: "c.avif" // Replace with actual company logo
+    logo: "c.webp" // Replace with actual company logo
   },
 ];
 
