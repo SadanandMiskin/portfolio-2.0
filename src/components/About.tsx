@@ -172,10 +172,10 @@ const About: React.FC = () => {
   const [isFetched, setIsFetched] = useState<boolean>(false);
 
   const images: ImageItem[] = [
-    { front: "/about/b.jpg", back: "It's Me :)" },
-    { front: "/about/c.jpg", back: "I like Sunsets" },
-    { front: "/about/d.jpg", back: "27/02/2024" },
-    { front: "/about/e.mp4", back: "Some Traveling" },
+    { front: "/about/b.webp", back: "It's Me :)" },
+    { front: "/about/c.webp", back: "I like Sunsets" },
+    { front: "/about/d.webp", back: "27/02/2024" },
+    { front: "/about/e.gif", back: "Some Traveling" },
   ];
 
   const fetchPosts = useCallback(async () => {
