@@ -37,7 +37,7 @@ const NameCard = () => {
           target="_blank"
           rel="noopener noreferrer"
         >
-          <button className="bg-gradient-to-tl from-blue-500 to-purple-900 text-white font-semibold p-1 px-2 rounded-md flex gap-1 items-center animate-fade-up animate-delay-150">
+          <button className="bg-gradient-to-tl from-blue-500 to-purple-900 text-white font-semibold p-1 px-2 rounded-md flex gap-1 items-center animate-fade-up animate-delay-150 hover:bg-gradient-to-br transition-colors duration-100">
             <FcDocument size={20} /> View Resume
           </button>
         </a>

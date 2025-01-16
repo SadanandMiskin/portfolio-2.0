@@ -166,6 +166,25 @@ const LazyVideo: React.FC<{
     </div>
   );
 };
+
+const education = [
+  {
+    institute: 'Nitte Meenakshi Institute of Technology',
+    branch: "Information Science and Eng.",
+    duration: '2024'
+  },
+  {
+    institute: 'Gurukul Independent PU college',
+    branch: "Science- 12th",
+    duration: '2020'
+  },
+  {
+    institute: 'SRN Mehra School',
+    branch: "10th",
+    duration: '2018'
+  }
+]
+
 const About: React.FC = () => {
   const [posts, setPosts] = useState<BlogResponse | null>(null);
   const [err, setErr] = useState<Error | null>(null);
@@ -175,7 +194,7 @@ const About: React.FC = () => {
     { front: "/about/b.webp", back: "It's Me :)" },
     { front: "/about/c.webp", back: "I like Sunsets" },
     { front: "/about/d.webp", back: "27/02/2024" },
-    { front: "/about/e.mp4", back: "Some Traveling" },
+    { front: "/about/e.webp", back: "Some Traveling" },
   ];
 
   const fetchPosts = useCallback(async () => {
@@ -258,22 +277,63 @@ const About: React.FC = () => {
         {/* Rest of the component remains the same */}
         <div className="prose prose-lg mx-auto mb-10 dark:text-gray-600 text-gray-300 flex sm:flex-row flex-col gap-2 animate-fade-up animate-delay-300">
           <p className="pr-14 text-gray-500">about</p>
-          <p className="leading-relaxed dark:text-black text-white">
+          <div>
+          <p className="leading-relaxed dark:text-black text-white ">
 
-            Hey yo! I'm Sadanand from India, I'm a passionate Dev. with quite interest in software and Tech, I love to write code understand problems
-            and then make some tweaks.
-            <br />
-            Although If I'm not on my Desk then I might me  out exploring real-life or spending time with friends, family.
-            <br />
+Hey yo! I'm Sadanand from India, I'm a passionate Dev. with quite interest in software and Tech, I love to write code understand problems
+and then make some tweaks. React out to me  <a href='/contact' className='text-blue-700 underline font-semibold flex w-min '>Here<CgArrowTopRight/></a>
 
-            I'm looking for opportunities when I can work and tune my skills with also learning from the industry experts, and also It feels so nice
-            to learn from a person who actually know things and work with them.
+Although If I'm not on my Desk then I might me  out exploring real-life or spending time with friends, family.
+</p>
 <br />
-When I'm not coding, I'm writing about technology and sharing my knowledge
-            with the community through my blog.
-          </p>
+<p className='leading-relaxed dark:text-black text-white '>
+
+I'm looking for opportunities when I can work and tune my skills with also learning from the industry experts, and also It feels so nice
+to learn from a person who actually know things and work with them.
+<br />
+
+
+While I'm not coding, I'm writing about technology and sharing my knowledge
+with the community through my blog.
+</p>
+          </div>
         </div>
 
+        <div className="flex flex-col sm:flex-row gap-2 animate-fade-up animate-delay-300 mb-8">
+            <h2 className=" mb-12 pr-7 text-gray-400">
+              education
+            </h2>
+            <div className=" w-full space-y-2">
+              {education.map((item) => (
+                <a
+
+                  key={item.institute}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="block"
+                >
+                  <div className="dark:bg-gray-200/50 bg-gray-800/50 rounded-md overflow-hidden hover:shadow-xl transition-shadow duration-300 px-3 py-3">
+                    <div className="space-y-1 flex  justify-between gap-3">
+                      <div className='flex flex-col'>
+                      <h3 className="text-white dark:text-black text-md flex gap-1">
+                        {/* <CgArrowTopRight size={20} /> */}
+                        {item.institute}
+                      </h3>
+                      <p className='text-sm text-gray-500'>
+                        {item.branch}
+                      </p>
+                      </div>
+                      <div className="flex items-center justify-between text-sm text-gray-400">
+                        <div className="flex items-center space-x-2">
+                          <span>{item.duration}</span>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </a>
+              ))}
+            </div>
+          </div>
         {/* Blogs Section */}
         {err ? (
           <div className="text-center animate-fade-up animate-delay-300">

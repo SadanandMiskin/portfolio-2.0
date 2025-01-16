@@ -131,7 +131,7 @@ const Contact = () => {
 <button
   type="submit"
   disabled={status === 'sending'}
-  className="w-full p-3 bg-gradient-to-r dark:bg-black dark:text-white bg-blue-400 text-black rounded-lg hover:opacity-90 transition-opacity disabled:opacity-50 flex items-center justify-center gap-2"
+  className="w-full p-3 dark:bg-black dark:text-white bg-blue-400 text-black rounded-lg hover:opacity-90 transition-opacity disabled:opacity-50 flex items-center justify-center gap-2 hover:dark:bg-gray-700"
 >
   {status === 'sending' ? (
     <>

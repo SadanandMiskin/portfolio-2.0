@@ -20,7 +20,7 @@ const experiences = [
 const Experience = () => {
   return (
     <section className="max-w-2xl mx-auto p-4 mt-8 w-full">
-      <h2 className="text-3xl font-bold text-center dark:text-gray-800 text-white mb-8 animate-fade-up animate-delay-200">
+      <h2 className="text-2xl font-bold text-center dark:text-gray-800 text-white mb-8 animate-fade-up animate-delay-200">
         Experience
       </h2>
       <div>
@@ -35,7 +35,7 @@ const Experience = () => {
                 <img
                   src={exp.logo}
                   alt={`${exp.company} logo`}
-                  className="w-16 h-16 rounded-full object-cover bg-white/10 p-2"
+                  className="w-16 h-16 rounded-full object-contain bg-white/10 "
                 />
               </div>
 

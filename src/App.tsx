@@ -12,7 +12,7 @@ import About from "./components/About";
 const App = () => {
   return (
     <BrowserRouter>
-    <main className="bg-zinc-950 dark:bg-white max-h-full h-full flex flex-col items-center overflow-y-hidden">
+    <main className="bg-zinc-950 dark:bg-white max-h-full h-full flex flex-col items-center overflow-y-hidden ">
       <Navbar />
         <Routes>
           <Route path="/" element={<Homepage />} />
