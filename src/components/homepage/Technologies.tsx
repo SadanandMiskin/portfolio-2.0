@@ -29,16 +29,16 @@ const Work = () => {
             key={index}
             className="group relative flex items-center gap-3 px-3 py-2
                      bg-white/10 dark:bg-black/10 backdrop-blur-md
-                     border border-white/20 dark:border-black/20
+                     border border-gray-50/20 dark:border-gray-700/20
                      rounded-xl
-                     hover:bg-white/20 dark:hover:bg-black/20
+                     hover:bg-white/20 hover:bg-gradient-to-bl hover:from-blue-500/50 hover:via-orange-300/20 dark:hover:to-fuchsia-400/20 hover:backdrop-blur-md
                      hover:scale-105 transform
                      transition-all duration-300 ease-out animate-fade-up animate-delay-300"
           >
             <div className="text-2xl transition-transform duration-300 group-hover:scale-110">
               {tech.icon}
             </div>
-            <span className="text-sm text-white dark:text-black">
+            <span className="text-sm text-white dark:text-black transition-transform duration-300 group-hover:scale-110">
               {tech.name}
             </span>
             <div className="absolute inset-0 bg-gradient-to-r from-white/5 to-transparent dark:from-black/5
