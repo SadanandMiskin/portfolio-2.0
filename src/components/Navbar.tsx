@@ -30,12 +30,13 @@ const Navbar = () => {
 
     { path: '/about', label: 'About' },
     { path: '/projects', label: 'Works' },
+		{path: '/r', label: 'Resume'},
     { path: '/contact', label: 'Contact' },
   ];
 
   return (
     <header className="w-full bg-transparent py-5 relative mb-6 text-sm mt-4">
-      <nav className="max-w-2xl mx-auto px-4 font-medium ">
+      <nav className="max-w-3xl mx-auto px-4 font-medium ">
         <div className="flex items-center justify-between">
           {/* Logo Section */}
           <div className="flex items-center space-x-2">
@@ -314,7 +315,7 @@ z"/>
                 <li
                   key={link.path}
                   className={`cursor-pointer text-white dark:text-black hover:text-gray-300 transition-colors duration-300 ${
-                    location.pathname === link.path ? 'font-bold bg-gray-500/50 rounded-lg' : ''
+                    location.pathname === link.path ? 'font-bold bg-gray-500/50 backdrop-blur-md rounded-lg' : ''
                   }`}
                 >
                   <Link

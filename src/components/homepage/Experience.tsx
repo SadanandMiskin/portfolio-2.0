@@ -27,7 +27,7 @@ const Experience = () => {
         {experiences.map((exp, index) => (
           <div
             key={index}
-            className="bg-gray-800/30 dark:bg-gray-100/30 rounded-lg p-6 hover:shadow-lg transition-all duration-300 backdrop-blur-sm animate-fade-up animate-delay-300"
+            className="bg-gray-800/30 dark:bg-gray-100/30 rounded-lg p-6 hover:shadow-lg transition-all duration-300 backdrop-blur-sm animate-fade-up animate-delay-300 mb-3"
           >
             <div className="flex items-start gap-4">
               {/* Company Logo */}

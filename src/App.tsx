@@ -8,6 +8,7 @@ import Projects from "./components/Projects";
 import Contact from "./components/Contact";
 import NotFoundPage from "./components/NotFoundPage";
 import About from "./components/About";
+import Resume from "./components/Resume";
 
 const App = () => {
   return (
@@ -21,6 +22,8 @@ const App = () => {
           <Route path="/contact" element={<Contact />} />
           <Route path="/projects/:id" element={<ProjectDetail />} />
           <Route path="*" element={<NotFoundPage />} />
+          <Route path="/r" element={ <Resume driveLink="https://drive.google.com/file/d/1-GteVh_J6-NBk1cX51Dv0n2h53U-OSdl/preview" />} />
+
         </Routes>
       <Footer />
     </main>
