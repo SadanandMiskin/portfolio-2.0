@@ -50,9 +50,6 @@ const Contact = () => {
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setStatus('sending');
-    setTimeout(() => {
-        setStatus('success')
-    }, 1000);
 
     try {
       const response = await axios.post('https://surf-tasteful-swing.glitch.me/messageme', formData, {
