@@ -19,16 +19,17 @@ const NameCard = () => {
   ];
 
   return (
-    <div className="flex flex-col justify-center p-2">
-      <div className="rounded-lg p-6 max-w-2xl w-full h-max text-white">
+    <div className="flex flex-col justify-center p-2 w-full">
+      <div className="rounded-lg p-6 max-w-2xl h-max text-white ">
         {/* Name and Links */}
-        <div className="flex justify-between md:flex-row flex-row animate-fade-up">
+        <div className="flex justify-between md:flex-row flex-row animate-fade-up mb-2">
           <h1 className="text-4xl font-bold dark:text-black ">Sadanand Miskin</h1>
         </div>
 
         {/* Description */}
-        <p className="text-gray-400 dark:text-gray-700 py-2 animate-fade-up animate-delay-100">
-          Passionate about software, I have enthusiasm and work with dedication, Every opportunity fuels my excitement to create and achieve.
+        <p className="text-gray-400 dark:text-gray-700 py-2 animate-fade-up inline mt-2">
+          A Software Developer - Passionate, Enthusiast, Dedicated.
+
         </p>
 
         {/* Resume Button */}
@@ -37,7 +38,7 @@ const NameCard = () => {
           target="_blank"
           rel="noopener noreferrer"
         >
-          <button className="bg-gradient-to-tl from-blue-500 to-purple-900 text-white font-semibold p-1 px-2 rounded-md flex gap-1 items-center animate-fade-up animate-delay-150 hover:bg-gradient-to-br transition-colors duration-100">
+          <button className="mt-1 bg-gradient-to-tl from-blue-500 to-purple-900 text-white font-semibold p-1 px-2 rounded-md flex gap-1 items-center animate-fade-up animate-delay-150 hover:bg-gradient-to-br transition-colors duration-100">
             <FcDocument size={20} /> View Resume
           </button>
         </a>

@@ -82,7 +82,7 @@ const Contact = () => {
                 href={social.link}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex flex-col items-center space-y-2 hover:scale-105 hover:bg-slate-600/50 rounded-md transition-colors animate-fade-up animate-delay-200"
+                className="flex flex-col items-center space-y-2 hover:scale-105 hover:bg-blue-300/50 rounded-md transition-colors animate-fade-up animate-delay-200"
               >
                 <social.icon className={`text-3xl md:text-4xl text-white dark:text-black`} />
                 <div className="text-center">

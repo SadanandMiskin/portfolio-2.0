@@ -130,7 +130,7 @@ const Projects = () => {
           </Link>
         ))}
       </div>
-      <p className='mt-3 text-lg flex justify-center underline text-green-600'>Many more on Github {`->`}</p>
+      <p className='mt-3 text-lg flex justify-center underline text-green-600'><a href='https://github.com/sadanandmiskin' target='_blank'>Many more on Github {`->`}</a></p>
     </div>
   );
 };

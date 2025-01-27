@@ -1,5 +1,5 @@
 import React, { useState, useCallback, useEffect, useRef } from 'react';
-import { CgArrowTopRight } from 'react-icons/cg';
+import { CgArrowTopRight, CgSpinner } from 'react-icons/cg';
 
 interface BlogPost {
   guid: string;
@@ -22,39 +22,8 @@ interface ImageItem {
 const LoadingSpinner: React.FC = () => (
   <div className="absolute inset-0 flex items-center justify-center bg-gray-100/10 backdrop-blur-sm">
     <div className="w-8 h-8 relative">
-      <svg
-        className="animate-spin"
-        viewBox="0 0 100 100"
-        xmlns="http://www.w3.org/2000/svg"
-      >
-        <circle
-          cx="50"
-          cy="50"
-          r="45"
-          stroke="#E2E8F0"
-          strokeWidth="8"
-          fill="none"
-        />
-        <circle
-          cx="50"
-          cy="50"
-          r="45"
-          stroke="#3B82F6"
-          strokeWidth="8"
-          fill="none"
-          strokeLinecap="round"
-          strokeDasharray="283"
-          strokeDashoffset="283"
-        >
-          <animate
-            attributeName="stroke-dashoffset"
-            values="283;70;283"
-            dur="1.6s"
-            repeatCount="indefinite"
-            keyTimes="0;0.5;1"
-          />
-        </circle>
-      </svg>
+          <CgSpinner color="blue" className="inline w-10 h-10 text-gray-200 animate-spin dark:text-gray-600 fill-blue-600"/>
+
     </div>
   </div>
 );
@@ -191,9 +160,9 @@ const About: React.FC = () => {
   const [isFetched, setIsFetched] = useState<boolean>(false);
 
   const images: ImageItem[] = [
-    { front: "/about/b.webp", back: "It's Me :)" },
-    { front: "/about/c.webp", back: "I like Sunsets" },
-    { front: "/about/d.webp", back: "27/02/2024" },
+    { front: "/about/s.jpg", back: ":) :) :)" },
+    { front: "/about/c.webp", back: "Chasing Horizons" },
+    { front: "/about/d.webp", back: "🐶 Ganu" },
     { front: "/about/e.webp", back: "Some Traveling" },
   ];
 
@@ -231,9 +200,9 @@ const About: React.FC = () => {
         <h5 className="text-2xl md:text-3xl font-bold mb-12 dark:text-black text-white animate-fade-up animate-delay-150">
           About Me
         </h5>
-        <p className="font-extralight mb-2 text-center dark:text-gray-700 text-gray-400 animate-jump-in animate-delay-300">
+        {/* <p className="font-extralight mb-2 text-center dark:text-gray-700 text-gray-400 animate-jump-in animate-delay-300">
           ( Hover )
-        </p>
+        </p> */}
         {/* Flipping Cards */}
         <div className="grid grid-cols-2 md:grid-cols-4 mb-12">
           {images.map((image, index) => (
@@ -263,8 +232,8 @@ const About: React.FC = () => {
                 </div>
                 {/* Back of card */}
                 <div className="absolute w-full h-full [transform:rotateY(180deg)] [backface-visibility:hidden]">
-                  <div className="w-full h-full bg-gradient-to-tr from-orange-900 via-yellow-900 to-purple-900 rounded-lg shadow-lg flex items-center justify-center">
-                    <p className="text-white font-bold p-4 text-end">
+                  <div className="w-full h-full bg-gradient-to-tr from-cyan-900 via-yellow-900 to-purple-900 rounded-lg shadow-lg flex items-center justify-start">
+                    <p className="text-white font-bold p-4">
                       {image.back}
                     </p>
                   </div>
@@ -281,7 +250,7 @@ const About: React.FC = () => {
           <p className="leading-relaxed dark:text-black text-white ">
 
 Hey yo! I'm Sadanand from India, I'm a passionate Dev. with quite interest in software and Tech, I love to write code understand problems
-and then make some tweaks. React out to me  <a href='/contact' className='text-blue-700 underline font-semibold flex w-min '>Here<CgArrowTopRight/></a>
+and then make some tweaks. Reach out to me  <a href='/contact' className='text-blue-700 underline font-semibold flex w-min '>Here<CgArrowTopRight/></a>
 
 Although If I'm not on my Desk then I might me  out exploring real-life or spending time with friends, family.
 </p>
