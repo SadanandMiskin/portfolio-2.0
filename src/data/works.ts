@@ -22,7 +22,7 @@ export interface WorkType {
 
 export const works: WorkType[] = [
   {
-    id: 2,
+    id: 1,
     title: "Chat0sm",
     github: "https://github.com/SadanandMiskin/chat0sm",
     liveLink: "https://chat.0sm.bar",
