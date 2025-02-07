@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import { CgArrowTopRight } from 'react-icons/cg';
 import { useLocation } from 'react-router-dom';
 
