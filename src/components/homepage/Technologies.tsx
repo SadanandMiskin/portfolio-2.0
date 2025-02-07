@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import { FaReact, FaNodeJs, FaDatabase, FaGitAlt, FaPython } from "react-icons/fa";
 import { FaDocker } from "react-icons/fa6";
 import { SiJavascript, SiTypescript, SiTailwindcss, SiMongodb, SiExpress, SiVite } from "react-icons/si";
