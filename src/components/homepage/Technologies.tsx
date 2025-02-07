@@ -1,8 +1,21 @@
-import { FaReact, FaNodeJs, FaDatabase, FaGitAlt,  FaPython } from "react-icons/fa";
+import React, { useState, useEffect } from 'react';
+import { FaReact, FaNodeJs, FaDatabase, FaGitAlt, FaPython } from "react-icons/fa";
 import { FaDocker } from "react-icons/fa6";
 import { SiJavascript, SiTypescript, SiTailwindcss, SiMongodb, SiExpress, SiVite } from "react-icons/si";
+import { useLocation } from 'react-router-dom';
 
 const Work = () => {
+  const [isVisible, setIsVisible] = useState(false);
+  const location = useLocation();
+
+  useEffect(() => {
+    setIsVisible(false);
+    const timer = setTimeout(() => {
+      setIsVisible(true);
+    }, 100);
+
+    return () => clearTimeout(timer);
+  }, [location]);
   const technologies = [
     { icon: <FaReact className="text-blue-400" />, name: "React" },
     { icon: <SiJavascript className="text-yellow-400" />, name: "JavaScript" },
@@ -19,8 +32,9 @@ const Work = () => {
   ];
 
   return (
-    <div className="py-8 px-4 max-w-2xl mx-auto mt-4">
-      <h2 className="text-2xl font-bold text-center mb-8 text-white dark:text-black animate-fade-up animate-delay-250">
+    <div className={`py-8 px-4 max-w-2xl mx-auto mt-4 transition-all duration-800 transform
+      ${isVisible ? 'blur-none opacity-100 translate-y-0' : 'blur-lg opacity-0 translate-y-8'}`}>
+      <h2 className={`text-2xl font-bold text-center mb-8 text-white dark:text-black  ${isVisible ? 'blur-none opacity-100 translate-y-0' : 'blur-lg opacity-0 translate-y-8'}`}>
         I work with...
       </h2>
       <div className="flex flex-wrap gap-4 justify-center px-5">
@@ -33,7 +47,14 @@ const Work = () => {
                      rounded-xl
                      hover:bg-white/20 hover:bg-gradient-to-bl hover:from-blue-500/50 hover:via-orange-300/20 dark:hover:to-fuchsia-400/20 hover:backdrop-blur-md
                      hover:scale-105 transform
-                     transition-all duration-300 ease-out animate-fade-up animate-delay-300"
+                     transition-all duration-300 ease-out"
+            style={{
+              transitionDelay: `${index * 50}ms`,
+              opacity: isVisible ? 1 : 0,
+              transform: isVisible
+                ? 'translateY(0) scale(1)'
+                : 'translateY(20px) scale(0.95)'
+            }}
           >
             <div className="text-2xl transition-transform duration-300 group-hover:scale-110">
               {tech.icon}

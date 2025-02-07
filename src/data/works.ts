@@ -32,7 +32,7 @@ export const works: WorkType[] = [
       { logo: GiGemini, t: 'Gemini AI' },
       { logo: DiMongodb, t: 'MongoDB' },
     ],
-    desc: 'A chatgpt like clone',
+    desc: 'A ChatGPT-like clone is an AI-powered conversational agent designed to simulate human-like text interactions. ',
     features: `
       - A chatGpt like clone using Gemini and google OAuth.
       - Creates a structured Readme like format for the queries and solutions.
@@ -52,7 +52,7 @@ export const works: WorkType[] = [
       { logo: FaAws, t: 'EC2' },
       { logo: DiMongodb, t: 'MongoDB' },
     ],
-    desc: 'A profile builder platform',
+    desc: 'A profile builder platform, inspired by guns.lol, allows users to create and customize unique, shareable profiles with dynamic visuals and personalized details.',
     features: `
       - A profile builder similar to Guns.lol.
       - Bring all your unique profiles at single place at a single link.
@@ -93,7 +93,7 @@ export const works: WorkType[] = [
       { logo: SiExpress, t: 'Express' },
       { logo: SiMinutemailer, t: 'NodeMailer' },
     ],
-    desc: 'My freelance project',
+    desc: 'A freelance project for a beauty parlour offering an online pre-booking service, enabling customers to schedule appointments.',
     features: `
       - Enables users to pre-book various beauty services directly through the website.
       - Utilizes NodeMailer for sending automated confirmation emails to users upon booking.

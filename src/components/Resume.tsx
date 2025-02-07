@@ -8,15 +8,13 @@ const Resume: React.FC<ResumeProps> = ({ driveLink }) => {
     const [isReadyToShow, setReadyToShow] = useState(false);
 
     useEffect(() => {
-        // Timer to show the iframe after the delay
         const timer = setTimeout(() => {
             setReadyToShow(true);
-        }, 1500);
+        }, 1000);
 
-        return () => clearTimeout(timer); // Cleanup the timer on unmount
+        return () => clearTimeout(timer);
     }, []);
 
-    // Convert Google Drive viewable link to direct download link
     const fileId = driveLink.match(/\/d\/(.*?)\//)?.[1];
     const downloadLink = fileId
         ? `https://drive.google.com/uc?id=${fileId}&export=download`
@@ -24,7 +22,9 @@ const Resume: React.FC<ResumeProps> = ({ driveLink }) => {
 
     return (
         <div className="flex flex-col items-center w-full h-screen dark:bg-white p-4">
-            <h1 className="mb-7 text-3xl font-bold font-mono dark:text-black text-white">Resume</h1>
+            <h1 className=" text-4xl font-bold mb-8 text-white dark:text-black flex justify-center tracking-tighter">
+        Sadanand's Resume
+      </h1>
             <div className="mb-4">
                 <a
                     href={downloadLink}

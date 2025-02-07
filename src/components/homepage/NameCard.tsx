@@ -1,8 +1,20 @@
+import React, { useEffect, useState } from 'react';
 import { CgArrowTopRight } from 'react-icons/cg';
-// import { FaEye } from 'react-icons/fa';
-import { FcDocument } from 'react-icons/fc';
+import { useLocation } from 'react-router-dom';
 
 const NameCard = () => {
+  const [isVisible, setIsVisible] = useState(false);
+  const location = useLocation();
+
+  useEffect(() => {
+    setIsVisible(false);
+    const timer = setTimeout(() => {
+      setIsVisible(true);
+    }, 100);
+
+    return () => clearTimeout(timer);
+  }, [location]);
+
   const socialLinks = [
     {
       name: "LinkedIn",
@@ -20,40 +32,29 @@ const NameCard = () => {
 
   return (
     <div className="flex flex-col justify-center p-2 w-full">
-      <div className="rounded-lg p-6 max-w-2xl h-max text-white ">
+      <div className={`rounded-lg p-6 max-w-2xl h-max text-white transition-all duration-500 transform
+        ${isVisible ? 'blur-none opacity-100 translate-y-0' : 'blur-lg opacity-0 translate-y-8'}`}>
         {/* Name and Links */}
-        <div className="flex justify-between md:flex-row flex-row animate-fade-up mb-2">
-          <h1 className="text-4xl font-bold dark:text-black ">Sadanand Miskin</h1>
+        <div className="flex justify-center md:flex-row flex-row mb-2">
+          <h1 className="text-5xl font-bold dark:text-black tracking-tighter">Sadanand Miskin</h1>
         </div>
 
         {/* Description */}
-        <p className="text-gray-400 dark:text-gray-700 py-2 animate-fade-up inline mt-2">
+        <p className="text-gray-400 dark:text-gray-700 py-2 mt-2 flex justify-center flex-wrap">
           A Software Developer - Passionate, Enthusiast, Dedicated.
-
         </p>
 
-        {/* Resume Button */}
-        <a
-          href="https://drive.google.com/file/d/1-GteVh_J6-NBk1cX51Dv0n2h53U-OSdl/view?usp=sharing"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <button className="mt-1 bg-gradient-to-tl from-blue-500 to-purple-900 text-white font-semibold p-1 px-2 rounded-md flex gap-1 items-center animate-fade-up animate-delay-150 hover:bg-gradient-to-br transition-colors duration-100">
-            <FcDocument size={20} /> View Resume
-          </button>
-        </a>
-
         {/* Social Links */}
-        <div className="flex gap-3 mt-6">
+        <div className="gap-3 mt-6 flex justify-center">
           {socialLinks.map((link) => (
             <a
               key={link.name}
               href={link.href}
               target="_blank"
               rel="noopener noreferrer"
-              className="dark:bg-slate-200/50 rounded-xl px-2 py-1 hover:bg-gray-800/10 transition-colors duration-300 bg-slate-700/30 animate-fade-up animate-delay-250"
+              className="dark:bg-slate-200/50 rounded-xl px-2 py-1 hover:bg-gray-800/10 transition-colors duration-200 bg-slate-700/30"
             >
-              <span className="dark:text-black text-white  flex ">
+              <span className="dark:text-black text-white flex">
                 {link.name}
                 <CgArrowTopRight size={20} />
               </span>

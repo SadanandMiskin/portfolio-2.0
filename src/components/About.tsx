@@ -1,5 +1,6 @@
 import React, { useState, useCallback, useEffect, useRef } from 'react';
 import { CgArrowTopRight, CgSpinner } from 'react-icons/cg';
+import { useLocation } from 'react-router-dom';
 
 interface BlogPost {
   guid: string;
@@ -155,6 +156,19 @@ const education = [
 ]
 
 const About: React.FC = () => {
+  const [isVisible, setIsVisible] = useState(false);
+  const location = useLocation();
+
+  useEffect(() => {
+    setIsVisible(false);
+    const timer = setTimeout(() => {
+      setIsVisible(true);
+    }, 100);
+
+    return () => clearTimeout(timer);
+  }, [location]);
+
+
   const [posts, setPosts] = useState<BlogResponse | null>(null);
   const [err, setErr] = useState<Error | null>(null);
   const [isFetched, setIsFetched] = useState<boolean>(false);
@@ -197,7 +211,7 @@ const About: React.FC = () => {
   return (
     <div className="min-h-screen w-full py-12">
       <div className="max-w-2xl mx-auto px-4">
-        <h5 className="text-2xl md:text-3xl font-bold mb-12 dark:text-black text-white animate-fade-up animate-delay-150">
+        <h5 className="text-2xl flex justify-center md:text-3xl font-bold mb-6 dark:text-black text-white animate-fade-up animate-delay-150">
           About Me
         </h5>
         {/* <p className="font-extralight mb-2 text-center dark:text-gray-700 text-gray-400 animate-jump-in animate-delay-300">
@@ -247,7 +261,8 @@ const About: React.FC = () => {
         <div className="prose prose-lg mx-auto mb-10 dark:text-gray-600 text-gray-300 flex sm:flex-row flex-col gap-2 animate-fade-up animate-delay-300">
           <p className="pr-14 text-gray-500">about</p>
           <div>
-          <p className="leading-relaxed dark:text-black text-white ">
+          <p className={`leading-relaxed dark:text-black text-white transition-all duration-400 ease-out
+  ${isVisible ? 'opacity-100 blur-none translate-y-0' : 'opacity-0 blur-lg translate-y-8'}`}>
 
 Hey yo! I'm Sadanand from India, I'm a passionate Dev. with quite interest in software and Tech, I love to write code understand problems
 and then make some tweaks. Reach out to me  <a href='/contact' className='text-blue-700 underline font-semibold flex w-min '>Here<CgArrowTopRight/></a>
@@ -255,7 +270,8 @@ and then make some tweaks. Reach out to me  <a href='/contact' className='text-b
 Although If I'm not on my Desk then I might me  out exploring real-life or spending time with friends, family.
 </p>
 <br />
-<p className='leading-relaxed dark:text-black text-white '>
+<p className={`leading-relaxed dark:text-black text-white transition-all duration-700 ease-out
+  ${isVisible ? 'opacity-100 blur-none translate-y-0' : 'opacity-0 blur-lg translate-y-8'}`}>
 
 I'm looking for opportunities when I can work and tune my skills with also learning from the industry experts, and also It feels so nice
 to learn from a person who actually know things and work with them.
