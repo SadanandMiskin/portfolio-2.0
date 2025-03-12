@@ -262,7 +262,7 @@ z"/>
                </div>
             </Link>
             <div className="dark:text-black flex justify-center items-center animate-pulse" style={{ fontSize: '9px' }}>
-              <p className="bg-green-500/70 rounded-lg py-1 px-2 text-black">Open-to-Work</p>
+              <p className="bg-green-500/70 rounded-lg  px-2 text-black">Open-to-Work</p>
             </div>
           </div>
 

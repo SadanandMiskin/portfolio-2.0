@@ -174,10 +174,10 @@ const About: React.FC = () => {
   const [isFetched, setIsFetched] = useState<boolean>(false);
 
   const images: ImageItem[] = [
-    { front: "/about/s.jpg", back: ":) :) :)" },
-    { front: "/about/c.webp", back: "Chasing Horizons" },
+    { front: "/about/sam.jpeg", back: ":) :) :)" },
+    { front: "/about/e.jpg", back: "Chasing Horizons" },
     { front: "/about/d.webp", back: "🐶 Ganu" },
-    { front: "/about/e.webp", back: "Some Traveling" },
+    { front: "/about/c.webp", back: "Some Traveling" },
   ];
 
   const fetchPosts = useCallback(async () => {
@@ -218,13 +218,13 @@ const About: React.FC = () => {
           ( Hover )
         </p> */}
         {/* Flipping Cards */}
-        <div className="grid grid-cols-2 md:grid-cols-4 mb-12">
+        <div className="grid grid-cols-2 md:grid-cols-4 mb-12 px-3">
           {images.map((image, index) => (
             <div
               key={index}
               className="relative h-48 group [perspective:1000px]"
               style={{
-                transform: `rotate(${Math.random() * 10 - 2}deg)`,
+                // transform: `rotate(${Math.random() * 10 - 2}deg)`,
                 transition: 'transform 0.3s ease'
               }}
             >
@@ -240,7 +240,7 @@ const About: React.FC = () => {
                     <LazyImage
                       src={image.front}
                       alt={`About ${index + 1}`}
-                      className="w-full h-full object-cover rounded-lg shadow-lg "
+                      className="w-full h-full object-cover rounded-xl shadow-lg "
                     />
                   )}
                 </div>

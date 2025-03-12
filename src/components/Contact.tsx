@@ -63,7 +63,7 @@ const Contact = () => {
     >
       <div className="w-full max-w-2xl overflow-hidden">
         {/* Heading */}
-        <h1 className={`md:text-2xl font-bold text-white dark:text-black mb-6 transition-all duration-300 ease-in-out
+        <h1 className={`md:text-4xl flex justify-center font-bold text-white dark:text-black mb-6 transition-all duration-300 ease-in-out
           ${isVisible ? 'opacity-100 blur-none translate-y-0' : 'opacity-0 blur-md translate-y-5'}`}
         >
           Contact Me

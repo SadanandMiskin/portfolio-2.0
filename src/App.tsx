@@ -22,7 +22,7 @@ const App = () => {
           <Route path="/contact" element={<Contact />} />
           <Route path="/projects/:id" element={<ProjectDetail />} />
           <Route path="*" element={<NotFoundPage />} />
-          <Route path="/r" element={ <Resume driveLink="https://drive.google.com/file/d/1-GteVh_J6-NBk1cX51Dv0n2h53U-OSdl/preview" />} />
+          <Route path="/r" element={ <Resume driveLink="https://drive.google.com/file/d/1buDyrIGowWRZB2JdybjKYm3ttu2dlzZa/preview" />} />
 
         </Routes>
       <Footer />

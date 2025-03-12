@@ -1,7 +1,9 @@
+// import Contact from './Contact'
 import Experience from './homepage/Experience'
 
 import NameCard from './homepage/NameCard'
 import Work from './homepage/Technologies'
+// import Projects from './Projects'
 // import Works from './homepage/Works'
 
 const Homepage = () => {
