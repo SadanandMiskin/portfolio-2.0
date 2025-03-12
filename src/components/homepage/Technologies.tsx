@@ -1,38 +1,69 @@
-
-import { FaReact, FaNodeJs, FaDatabase, FaGitAlt, FaJava } from "react-icons/fa";
+import { useState, useEffect } from 'react';
+import { FaReact, FaNodeJs, FaDatabase, FaGitAlt, FaPython } from "react-icons/fa";
 import { FaDocker } from "react-icons/fa6";
 import { SiJavascript, SiTypescript, SiTailwindcss, SiMongodb, SiExpress, SiVite } from "react-icons/si";
+import { useLocation } from 'react-router-dom';
 
 const Work = () => {
+  const [isVisible, setIsVisible] = useState(false);
+  const location = useLocation();
+
+  useEffect(() => {
+    setIsVisible(false);
+    const timer = setTimeout(() => {
+      setIsVisible(true);
+    }, 100);
+
+    return () => clearTimeout(timer);
+  }, [location]);
   const technologies = [
-    { icon: <FaReact />, name: "React" },
-    { icon: <SiJavascript />, name: "JavaScript" },
-    { icon: <SiTypescript />, name: "TypeScript" },
-    { icon: <SiMongodb />, name: "MongoDB" },
-    { icon: <SiExpress />, name: "Express" },
-    {icon: <FaJava/> , name:  'Java'},
-    { icon: <FaNodeJs />, name: "Node.js" },
-    { icon: <FaDatabase />, name: "MySQL" },
-    {icon: <FaDocker/> , name: "Docker"},
-    { icon: <SiTailwindcss />, name: "TailwindCSS" },
-    { icon: <SiVite />, name: "Vite" },
-    { icon: <FaGitAlt />, name: "Git" },
-    // { icon: <SiVercel />, name: "Vercel" },
+    { icon: <FaReact className="text-blue-400" />, name: "React" },
+    { icon: <SiJavascript className="text-yellow-400" />, name: "JavaScript" },
+    { icon: <SiTypescript className="text-blue-500" />, name: "TypeScript" },
+    { icon: <SiMongodb className="text-green-500" />, name: "MongoDB" },
+    { icon: <SiExpress className="text-gray-400" />, name: "Express" },
+    { icon: <FaPython className="text-blue-500" />, name: "Python" },
+    { icon: <FaNodeJs className="text-green-600" />, name: "Node.js" },
+    { icon: <FaDatabase className="text-blue-600" />, name: "MySQL" },
+    { icon: <FaDocker className="text-blue-500" />, name: "Docker" },
+    { icon: <SiTailwindcss className="text-cyan-400" />, name: "TailwindCSS" },
+    { icon: <SiVite className="text-purple-500" />, name: "Vite" },
+    { icon: <FaGitAlt className="text-orange-500" />, name: "Git" },
   ];
 
   return (
-    <div className="py-8 px-4 max-w-4xl w-full">
-      <h2 className="text-3xl md:text-3xl font-bold text-center mb-6 text-white dark:text-black">
+    <div className={`py-8 px-4 max-w-2xl mx-auto mt-4 transition-all duration-800 transform
+      ${isVisible ? 'blur-none opacity-100 translate-y-0' : 'blur-lg opacity-0 translate-y-8'}`}>
+      <h2 className={`text-2xl font-bold text-center mb-8 text-white dark:text-black  ${isVisible ? 'blur-none opacity-100 translate-y-0' : 'blur-lg opacity-0 translate-y-8'}`}>
         I work with...
       </h2>
-      <div className="flex flex-wrap gap-3 justify-center">
+      <div className="flex flex-wrap gap-4 justify-center px-5">
         {technologies.map((tech, index) => (
           <div
             key={index}
-            className="flex flex-row items-center gap-2 px-4 py-2 bg-gray-300 dark:bg-gray-950/80 border border-gray-300 dark:border-white rounded-md hover:bg-slate-500 dark:hover:bg-slate-700 transition-colors duration-200"
+            className="group relative flex items-center gap-3 px-3 py-2
+                     bg-white/10 dark:bg-black/10 backdrop-blur-md
+                     border border-gray-50/20 dark:border-gray-700/20
+                     rounded-xl
+                     hover:bg-white/20 hover:bg-gradient-to-bl hover:from-blue-500/50 hover:via-orange-300/20 dark:hover:to-fuchsia-400/20 hover:backdrop-blur-md
+                     hover:scale-105 transform
+                     transition-all duration-300 ease-out"
+            style={{
+              transitionDelay: `${index * 50}ms`,
+              opacity: isVisible ? 1 : 0,
+              transform: isVisible
+                ? 'translateY(0) scale(1)'
+                : 'translateY(20px) scale(0.95)'
+            }}
           >
-            <span className="text-black dark:text-white text-xl">{tech.icon}</span>
-            <span className="text-sm font-medium text-gray-700 dark:text-white">{tech.name}</span>
+            <div className="text-2xl transition-transform duration-300 group-hover:scale-110">
+              {tech.icon}
+            </div>
+            <span className="text-sm text-white dark:text-black transition-transform duration-300 group-hover:scale-110">
+              {tech.name}
+            </span>
+            <div className="absolute inset-0 bg-gradient-to-r from-white/5 to-transparent dark:from-black/5
+                          rounded-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
           </div>
         ))}
       </div>

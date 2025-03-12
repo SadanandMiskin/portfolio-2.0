@@ -4,20 +4,26 @@ import Homepage from "./components/Homepage";
 import Navbar from "./components/Navbar";
 import ProjectDetail from "./components/ProjectDetail";
 import Projects from "./components/Projects";
-import Blogs from "./components/Blogs";
+// import Blogs from "./components/About";
 import Contact from "./components/Contact";
+import NotFoundPage from "./components/NotFoundPage";
+import About from "./components/About";
+import Resume from "./components/Resume";
 
 const App = () => {
   return (
     <BrowserRouter>
-    <main className="bg-zinc-950 dark:bg-white max-h-full h-full flex flex-col items-center overflow-y-hidden">
+    <main className="bg-zinc-950 dark:bg-white max-h-full h-full flex flex-col items-center overflow-y-hidden ">
       <Navbar />
         <Routes>
           <Route path="/" element={<Homepage />} />
           <Route path="/projects" element={<Projects />} />
-          <Route path="/blogs" element={<Blogs />} />
+          <Route path="/about" element={<About />} />
           <Route path="/contact" element={<Contact />} />
           <Route path="/projects/:id" element={<ProjectDetail />} />
+          <Route path="*" element={<NotFoundPage />} />
+          <Route path="/r" element={ <Resume driveLink="https://drive.google.com/file/d/1buDyrIGowWRZB2JdybjKYm3ttu2dlzZa/preview" />} />
+
         </Routes>
       <Footer />
     </main>

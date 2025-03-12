@@ -1,8 +1,10 @@
+// import Contact from './Contact'
 import Experience from './homepage/Experience'
 
 import NameCard from './homepage/NameCard'
 import Work from './homepage/Technologies'
-import Works from './homepage/Works'
+// import Projects from './Projects'
+// import Works from './homepage/Works'
 
 const Homepage = () => {
   return (
@@ -11,7 +13,7 @@ const Homepage = () => {
       <NameCard />
       <Work />
       <Experience />
-      <Works />
+      {/* <Works /> */}
 
     </section>
   )
