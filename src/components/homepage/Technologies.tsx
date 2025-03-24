@@ -32,7 +32,7 @@ const Work = () => {
   ];
 
   return (
-    <div className={`py-8 px-4 max-w-2xl mx-auto mt-4 transition-all duration-800 transform
+    <div className={`py-8 px-4 max-w-3xl mx-auto mt-2 transition-all duration-800 transform
       ${isVisible ? 'blur-none opacity-100 translate-y-0' : 'blur-lg opacity-0 translate-y-8'}`}>
       <h2 className={`text-2xl font-bold text-center mb-8 text-white dark:text-black  ${isVisible ? 'blur-none opacity-100 translate-y-0' : 'blur-lg opacity-0 translate-y-8'}`}>
         I work with...

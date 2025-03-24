@@ -210,7 +210,7 @@ const About: React.FC = () => {
 
   return (
     <div className="min-h-screen w-full py-12">
-      <div className="max-w-2xl mx-auto px-4">
+      <div className="max-w-3xl mx-auto px-4">
         <h5 className="text-2xl flex justify-center md:text-3xl font-bold mb-6 dark:text-black text-white animate-fade-up animate-delay-150">
           About Me
         </h5>

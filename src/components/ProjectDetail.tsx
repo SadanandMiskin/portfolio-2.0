@@ -72,6 +72,8 @@ const ProjectDetail = () => {
   if (!project) {
     return <p className="text-center text-lg mt-10">Project not found!</p>;
   }
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+
 
   return (
     <div className="max-w-2xl mx-auto p-6">

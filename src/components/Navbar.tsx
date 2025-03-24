@@ -27,10 +27,10 @@ const Navbar = () => {
 
   const navLinks = [
     { path: '/', label: 'Home' },
+    { path: '/projects', label: 'Project' },
+    // { path: '/about', label: 'About' },
+		{path: '/blogs', label: 'Blogs'},
 
-    { path: '/about', label: 'About' },
-    { path: '/projects', label: 'Works' },
-		{path: '/r', label: 'Resume'},
     { path: '/contact', label: 'Contact' },
   ];
 
@@ -44,14 +44,15 @@ const Navbar = () => {
               to="/"
               className={`text-xl font-bold text-white dark:text-black hover:text-gray-300 transition-colors duration-300 ${
                 location.pathname === '/' ? 'font-extrabold' : ''
-              }`}
+              }
+							`}
             >
               {/* <img src='/p.svg' /> */}
               {/* <object type="image/svg+xml" data="p.svg"></object>
                */}
                <div className='w-6 h-6 '>
              {isDarkMode ? (  <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg"  x="0px" y="0px"
-	 width="100%" viewBox="0 0 116 140" enable-background="new 0 0 116 140" >
+	 width="100%" viewBox="0 0 116 140" enableBackground="new 0 0 116 140" >
 <path fill="" opacity="1.000000" stroke="none"
 	d="
 M59.000000,141.000000
@@ -155,7 +156,7 @@ M44.035217,21.233807
 	C45.187527,39.377380 42.886093,32.484764 44.035217,21.233807
 z"/>
 </svg>) : (  <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg"  x="0px" y="0px"
-	 width="100%" viewBox="0 0 116 140" enable-background="new 0 0 116 140" >
+	 width="100%" viewBox="0 0 116 140" enableBackground="new 0 0 116 140" >
 <path fill="#ffff" opacity="1.000000" stroke="none"
 	d="
 M59.000000,141.000000

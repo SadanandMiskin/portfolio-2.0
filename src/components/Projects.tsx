@@ -31,13 +31,13 @@ const Projects = () => {
   return (
     <div
       ref={containerRef}
-      className={`max-w-2xl mx-auto w-full p-4 md:p-6 transition-opacity duration-700 ${
+      className={`max-w-3xl mx-auto w-full p-4 md:p-6 transition-opacity duration-700 ${
         isVisible ? 'opacity-100' : 'opacity-0'
       }`}
     >
       <h1 className={`text-4xl font-bold mb-8 text-white dark:text-black duration-900 flex justify-center tracking-tighter transition-all  ease-in-out
           ${isVisible ? 'opacity-100 blur-none translate-y-0' : 'opacity-0 blur-md translate-y-5'}`}>
-        Check out My Works
+        All Projects
       </h1>
 
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6">

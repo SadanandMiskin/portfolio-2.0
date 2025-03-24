@@ -1,7 +1,8 @@
 import { IconType } from 'react-icons';
 import { DiMongodb } from 'react-icons/di';
-import { FaReact, FaAws, FaNodeJs } from 'react-icons/fa';
+import { FaReact, FaAws, FaNodeJs, FaDocker } from 'react-icons/fa';
 import { GiGemini } from 'react-icons/gi';
+import { GrConnect } from 'react-icons/gr';
 import { SiEjs, SiEthereum, SiExpress, SiMinutemailer, SiRedux, SiSolidity } from 'react-icons/si';
 
 export interface Tech {
@@ -21,8 +22,30 @@ export interface WorkType {
 }
 
 export const works: WorkType[] = [
+
   {
     id: 1,
+    title: "IntervAI",
+    github: 'https://github.com/intervAI',
+    liveLink: "https://int.0sm.bar",
+    technologies: [
+      {logo: SiExpress, t: 'Express'},
+      {logo: GrConnect, t: 'WebSocket'},
+      {logo: FaAws , t: 'EC2'},
+      {logo: FaDocker , t: 'Docker'},
+      {logo: FaReact, t: 'React'}
+    ],
+    desc: 'AI interview prep platform with real-time Q&A, feedback via WebSockets, and detailed session reports.',
+    features: `
+    - AI-generated interview questions based on job descriptions.
+    - Real-time Q&A and feedback using WebSockets.
+    - AI-powered answer evaluation with ratings and improvements.
+    - Detailed interview feedback reports on the dashboard.`,
+    image: '/projects/int.png'
+  },
+
+  {
+    id: 2,
     title: "Chat0sm",
     github: "https://github.com/SadanandMiskin/chat0sm",
     liveLink: "https://chat.0sm.bar",
@@ -42,7 +65,7 @@ export const works: WorkType[] = [
     image: "/projects/chat.png",
   },
   {
-    id: 2,
+    id: 3,
     title: "ProfilesMe",
     github: "https://github.com/SadanandMiskin/profilesme",
     liveLink: "https://profilesme.site",
@@ -63,7 +86,7 @@ export const works: WorkType[] = [
     image: "/projects/profilesme.png",
   },
   {
-    id: 3,
+    id: 4,
     title: "NotFlix",
     github: "https://github.com/SadanandMiskin/notflix",
     liveLink: "https://notflixpage.vercel.app/",
@@ -84,7 +107,7 @@ export const works: WorkType[] = [
   },
 
   {
-    id:4,
+    id:5,
     title: "Kum Kum",
     github: "https://github.com/SadanandMiskin/kum-kum",
     liveLink: "https://kum-kum.vercel.app/",
@@ -103,7 +126,7 @@ export const works: WorkType[] = [
     image: "/projects/kum.png",
   },
   {
-    id: 5,
+    id: 6,
     title: "EmpVerify",
     github: "https://github.com/sadanandmiskin/empverify",
     image: '/projects/emp.png',
@@ -121,7 +144,7 @@ export const works: WorkType[] = [
     ]
   },
   {
-    id: 6,
+    id: 7,
     title: "GitCrawler",
     github: "https://github.com/SadanandMiskin/GitCrawler",
     image: '/projects/gitc.png',
