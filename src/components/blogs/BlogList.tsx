@@ -1,4 +1,4 @@
-import React from 'react'
+
 import { Link } from 'react-router-dom'
 // import { FileText } from 'lucide-react'
 import blogs from './blogs.json'
