@@ -17,7 +17,7 @@ Our application flow should like this:
 	|- Frontend
 		 |- Dockerfile
 		 |- ....
-  |- docker-comopse.yml
+    |- docker-comopse.yml
 ```
 
 ### Writing DockerFile
@@ -208,9 +208,9 @@ docker-compose up --backend
 - 3.11.1.3:5173 -> Frontend server
 
 *But you want to use in `yourdomain.com`, How do you do?*
-#### Setting up the Reverse Proxy using a Domain:
+## Setting up the Reverse Proxy using a Domain:
 
-#### Set Up DNS Records
+### Set Up DNS Records
 
 - Go to your domain registrar (e.g., GoDaddy, Namecheap) and follow these steps:
 	1. **For the Frontend (Vite)**:
@@ -226,7 +226,7 @@ docker-compose up --backend
 	    - **TTL:** `600`
 
 
-#### SSH into your instance:
+### SSH into your instance:
 Caddy is a reverse proxy like Nginx, more easy to setup
 - Install `Caddy` in your instance:
 ```bash
