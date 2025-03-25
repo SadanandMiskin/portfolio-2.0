@@ -2,16 +2,16 @@
   {
     "title": "Deploying Containerized application in EC2 with Reverse proxy.",
     "date": "March 23, 2025",
-    "file": "1"
+    "file": "blog1"
   },
   {
     "title": "Redux Toolkit: Modern way to manage State in React.",
     "date": "Nov 2, 2024",
-    "file": "2"
+    "file": "blog2"
   },
   {
     "title": "Promise v/s Async/Await",
     "date": "Jun 15, 2024",
-    "file": "3"
+    "file": "blog3"
   }
 ]

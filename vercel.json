@@ -2,6 +2,10 @@
   "version": 2,
   "routes": [
     {
+      "src": "/posts/(.*)",
+      "dest": "/public/posts/$1"
+    },
+    {
       "src": "/static/(.*)",
       "headers": {
         "cache-control": "public, max-age=31536000, immutable"

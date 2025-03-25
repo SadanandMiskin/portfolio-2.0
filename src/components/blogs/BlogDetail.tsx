@@ -18,7 +18,7 @@ export const BlogDetail = () => {
 
   useEffect(() => {
     setLoading(true)
-    fetch(`/posts/blog${file.filename}.md`)
+    fetch(`/posts/${file.filename}.md`)
       .then((res) => res.text())
       .then((text) => {
         setContent(text)
