@@ -6,7 +6,7 @@ The best example for containerizing an application is `Docker`.
 -  Let us deploy a containerized application consists of `frontend`, `backend`, `Redis`, `MongoDB`.
 Our application flow should like this:
 
-![Flow](https://github.com/user-attachments/assets/b07ed142-748f-4e7e-b9f6-a47be6bc2922)
+![Flow](image.png)
 
 ### Project Structure
 ```
@@ -126,11 +126,13 @@ The file also defines one named volumes:
 
 ## Setup AWS EC2 Instance
 
-- Select Free tier in Ec2 create instance
-![EC2 Instance Init](https://github.com/user-attachments/assets/58b47b8f-01a2-4248-84c4-ed7e0d7f348c)
+- Select Free tier in Ec2 create instance.
 
-- Select your key-pair and create instance, Allow the traffic from internet
-![EC2 Instance](https://github.com/user-attachments/assets/0fa30d70-1e49-4b78-91af-a6a7048a3ddb)
+![EC2 Instance Int](12.png)
+
+- Select your key-pair and create instance, Allow the traffic from internet.
+
+![EC2 Instance](13.png)
 
 #### Make changes in Frontend and Backend code for letting Application accessed throughout internet
 
@@ -201,7 +203,8 @@ docker-compose up --backend
 ```
 
 - When you do `docker ps` and check all containers are runnnig:
-![Pasted image 20250323115328](https://github.com/user-attachments/assets/a783404e-d30c-40ca-8824-06dbe84dde57)
+
+![Pasted](14.png)
 
 *Suppose your instance Public IP address is 3.11.1.3 accessible on internet via:*
 - 3.11.1.3:3000 -> Backend server

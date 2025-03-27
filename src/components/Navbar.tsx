@@ -35,7 +35,7 @@ const Navbar = () => {
   ];
 
   return (
-    <header className="w-full bg-transparent py-5 relative mb-6 text-sm mt-4">
+    <header className="w-full bg-transparent py-1 relative mb-6 text-sm mt-4">
       <nav className="max-w-3xl mx-auto px-4 font-medium ">
         <div className="flex items-center justify-between">
           {/* Logo Section */}
