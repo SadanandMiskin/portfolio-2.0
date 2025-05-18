@@ -54,7 +54,7 @@ const Works = () => {
                          ? 'opacity-100 translate-y-0 scale-100 backdrop-blur-lg'
                          : 'opacity-0 translate-y-10 scale-95'
                      }`}
-            style={{ transitionDelay: `${index * 200}ms` }}
+            style={{ transitionDelay: `${index * 20}ms` }}
           >
             {/* Project Image */}
             <div className="relative h-48 overflow-hidden">

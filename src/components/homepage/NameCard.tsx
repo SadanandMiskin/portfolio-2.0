@@ -76,7 +76,6 @@ const NameCard = () => {
             />
           </div>
         </div>
-     
       </div>
     </div>
   );
