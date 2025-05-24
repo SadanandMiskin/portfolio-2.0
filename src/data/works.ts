@@ -89,7 +89,7 @@ export const works: WorkType[] = [
     id: 4,
     title: "NotFlix",
     github: "https://github.com/SadanandMiskin/notflix",
-    liveLink: "https://notflixpage.vercel.app/",
+    liveLink: "https://moviezclone.vercel.app/",
     technologies: [
       { logo: FaReact, t: 'React' },
       { logo: SiRedux, t: 'Redux Toolkit' },
