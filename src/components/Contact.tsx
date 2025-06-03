@@ -39,7 +39,7 @@ const Contact = () => {
     setStatus('sending');
 
     try {
-      const response = await axios.post('https://surf-tasteful-swing.glitch.me/messageme', formData, {
+      const response = await axios.post('https://mail.0sm.bar', formData, {
         headers: { Authorization: 'Bearer sadanandbhai' }
       });
 

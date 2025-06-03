@@ -187,6 +187,23 @@ tar -xzf folder.tar.gz -C /path/to/destination
 
 * Install Docker
 ```bash
+sudo apt-get install \
+    ca-certificates \
+    curl \
+    gnupg \
+    lsb-release
+```
+```bash
+sudo mkdir -p /etc/apt/keyrings
+curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo gpg --dearmor -o /etc/apt/keyrings/docker.gpg
+```
+```
+echo \
+  "deb [arch=$(dpkg --print-architecture) signed-by=/etc/apt/keyrings/docker.gpg] https://download.docker.com/linux/ubuntu \
+  $(lsb_release -cs) stable" | sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
+```
+
+```bash
 sudo apt-get update
 sudo apt-get install docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
 ```
@@ -264,5 +281,39 @@ api.yourdomain.com {
 sudo systemctl restart caddy
 sudo systemctl status caddy
 ```
+
+## If you are on a IPV6 only network:
+###  When you're on an IPv6-only VPS:
+- You don't get a public IPv4 address.
+- Docker's default IPv4 NAT won't work.
+- Services like Google OAuth, package managers, and API endpoints may fail inside containers.
+
+#### Enabling IPv6 in Docker ensures that your containers can communicate with the outside world, even in an IPv6-only environment.
+- Ensure `/etc/docker/deamon.json` file is proper:
+```json
+	{
+	  "ipv6": true,
+	  "fixed-cidr-v6": "2001:db8:1::/64"
+	}
+```
+
+- Docker Compose file has 2 important things:
+```yml
+	networks:
+		<app_network>:
+			enable_ipv6: true
+```
+* (Optional)
+```yml
+	networks:
+		<your_app_network>:
+			driver: bridge
+```
+After deploying your Docker setup, connect to a container and test internet access:
+
+```bash
+docker exec -it <your_container_name> sh
+```
+`This Configuration ensures internet inside docker container`
 
 *Hurray, The application is accessible around the internet and containerized.*
