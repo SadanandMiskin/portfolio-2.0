@@ -30,7 +30,7 @@ const NameCard = () => {
     },
     {
       name: "Resume",
-      href: "https://drive.google.com/file/d/1buDyrIGowWRZB2JdybjKYm3ttu2dlzZa/view"
+      href: "https://drive.google.com/file/d/1qX3M1mzv0sca5U55jeIwsXSmmdtxFqC7/view"
     },
     {
       name: "Blogs",
