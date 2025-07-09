@@ -6,9 +6,9 @@ export default {
     "./src/**/*.{js,ts,jsx,tsx}",
   ],
   theme: {
-    fontFamily: {
-      'main': ['EB Garamond' , 'serif']
-    },
+    // fontFamily: {
+    //   'main': ['EB Garamond' , 'serif']
+    // },
     extend: {},
   },
   plugins: [

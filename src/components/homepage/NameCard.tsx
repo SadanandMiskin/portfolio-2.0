@@ -68,11 +68,11 @@ const NameCard = () => {
         {/* Image Section */}
         <div className="md:w-1/2 w-full flex justify-center">
           <div className="relative w-60 h-60">
-            <div className="absolute w-full h-full rounded-full animate-spin-slow border-4 border-transparent border-t-cyan-400 border-b-purple-400" />
+            {/* <div className="absolute w-full h-full rounded-full animate-spin-slow border-4 border-transparent border-t-cyan-400 border-b-purple-400" /> */}
             <img
               src="/about/sam.jpeg"
               alt="Sadanand Miskin"
-              className="w-full h-full rounded-full object-cover shadow-xl"
+              className="w-full h-full rounded-full object-cover shadow-[-3px_-8px_62px_-33px_#a2bcd7]"
             />
           </div>
         </div>

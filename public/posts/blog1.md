@@ -1,5 +1,5 @@
 
-### What is Containerized application?
+### # What is Containerized application?
 Application which runs in isolated runtime environment called container. This container will encapsulate the application along with its dependencies only, So that it can be consistent across different hosts.
 The best example for containerizing an application is `Docker`.
 
@@ -8,7 +8,7 @@ Our application flow should like this:
 
 ![Flow](image.png)
 
-### Project Structure
+### # Project Structure:
 ```
 |-app
     |-Backend
@@ -20,7 +20,7 @@ Our application flow should like this:
     |- docker-comopse.yml
 ```
 
-### Writing DockerFile
+### # Writing DockerFile:
 - ##### Frontend:
 We are using Vite + React +TS server for our frontend.
 
@@ -45,7 +45,7 @@ CMD ["serve", "-s", "dist", "-l", "5173"]
 - `CMD` is used when container is created and started.
 
 --- Similarly for Backend
-* #### Backend
+* #### Backend:
 We are using expressJS + TS for backend
 
 ```Dockerfile
@@ -62,7 +62,7 @@ CMD ["tsc" , "&&" , "node" , "dist/index.js"]
 
 * Backend and frontend will be running in a separate containers so we need a `Docker Network` to make sure our data transfer happens, hence we use `docker-compose` to make our life easy.
 
-### Writing docker-compose file
+### # Writing docker-compose file:
 `docker-compose.yml`
 
 ```yml
@@ -115,7 +115,7 @@ volumes:
 	redis-data:
 ```
 This is a Docker Compose file that defines a multi-container application with three services:
-#### Services
+#### # Services
 - **Redis**: Uses the official Redis image, maps port 6379, and sets up a health check.
 - **Backend**: Builds a Docker image from the `./backend` directory, maps port 3000, sets environment variables, and defines a health check.
 - **Frontend**: Builds a Docker image from the `./frontend` directory, maps port 5173, and depends on the healthy state of the **Backend** service.
@@ -124,7 +124,7 @@ The file also defines one named volumes:
 - **redis-data**: Used by the Redis service to persist data.
 
 
-## Setup AWS EC2 Instance
+## # Setup AWS EC2 Instance:
 
 - Select Free tier in Ec2 create instance.
 
@@ -136,7 +136,7 @@ The file also defines one named volumes:
 
 #### Make changes in Frontend and Backend code for letting Application accessed throughout internet
 
-### Frontend
+### Frontend:
 - Make sure your app is bound to `0.0.0.0` instead of `localhost` or `127.0.0.1`.  In **Vite** ( it's `:5173`):
 
 `Update vite.config.ts` :
@@ -155,7 +155,7 @@ export default defineConfig({
 
 ```
 
-### Backend
+### Backend:
 - Ensure your backend server is listening on all network interfaces (`0.0.0.0`) instead of `localhost`:
 
 `update server.ts`
@@ -228,9 +228,9 @@ docker-compose up --backend
 - 3.11.1.3:5173 -> Frontend server
 
 *But you want to use in `yourdomain.com`, How do you do?*
-## Setting up the Reverse Proxy using a Domain:
+## # Setting up the Reverse Proxy using a Domain:
 
-### Set Up DNS Records
+### Set Up DNS Records:
 
 - Go to your domain registrar (e.g., GoDaddy, Namecheap) and follow these steps:
 	1. **For the Frontend (Vite)**:
@@ -282,8 +282,8 @@ sudo systemctl restart caddy
 sudo systemctl status caddy
 ```
 
-## If you are on a IPV6 only network:
-###  When you're on an IPv6-only VPS:
+## # If you are on a IPV6 only network:
+<!-- ###  When you're on an IPv6-only VPS: -->
 - You don't get a public IPv4 address.
 - Docker's default IPv4 NAT won't work.
 - Services like Google OAuth, package managers, and API endpoints may fail inside containers.

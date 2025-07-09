@@ -12,9 +12,10 @@ import Resume from "./components/Resume";
 import { BlogDetail } from "./components/blogs/BlogDetail";
 import { BlogList } from "./components/blogs/BlogList";
 
-
 const App = () => {
   return (
+    // <HelmetProvider>
+
     <BrowserRouter>
     <main className="bg-zinc-950 dark:bg-white max-h-full h-full flex flex-col items-center overflow-y-hidden ">
       <Navbar />
@@ -33,6 +34,7 @@ const App = () => {
       <Footer />
     </main>
     </BrowserRouter>
+    // </HelmetProvider>
 
   );
 };
