@@ -39,7 +39,7 @@ const NameCard = () => {
   ];
 
   return (
-    <div className="flex flex-col justify-center items-center p-2 w-full">
+    <div className="flex max-w-3xl flex-col justify-center items-center p-2 w-full">
       <div className={`rounded-lg p-6 max-w-3xl h-max text-white transition-all duration-500 transform flex flex-col md:flex-row items-center
         ${isVisible ? 'blur-none opacity-100 translate-y-0' : 'blur-lg opacity-0 translate-y-8'}`}>
 
@@ -68,9 +68,8 @@ const NameCard = () => {
         {/* Image Section */}
         <div className="md:w-1/2 w-full flex justify-center">
           <div className="relative w-60 h-60">
-            {/* <div className="absolute w-full h-full rounded-full animate-spin-slow border-4 border-transparent border-t-cyan-400 border-b-purple-400" /> */}
-            <img
-              src="/about/sam.jpeg"
+              <img
+              src="/about/b.webp"
               alt="Sadanand Miskin"
               className="w-full h-full rounded-full object-cover shadow-[-3px_-8px_62px_-33px_#a2bcd7]"
             />

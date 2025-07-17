@@ -47,7 +47,7 @@ export const BlogDetail = () => {
           <span>{Math.round(Math.ceil(content.length) / 60 / 18)} Min Read</span>
         </p>
         </div>
-      <h1 className="pt-3 text-6xl py-9 font-semibold dark:text-gray-900 text-gray-300 mb-8 font-main tracking-tight isolate text-center">{blog?.title}</h1>
+      <h1 className="pt-3 sm:text-6xl text-5xl py-9 font-semibold dark:text-gray-900 text-gray-300 mb-8 font-main tracking-tight isolate text-center">{blog?.title}</h1>
       <article className="prose lg:prose-xl max-w-none">
         <ReactMarkdown
           remarkPlugins={[remarkGfm]}
@@ -56,7 +56,7 @@ export const BlogDetail = () => {
   code({ className, children, ...props }) {
     const match = /language-(\w+)/.exec(className || '')
     return match ? (
-      <div className="my-8 rounded-2xl overflow-hidden shadow-2xl border dark:border-gray-200 border-gray-700">
+      <div className="my-1 rounded-2xl overflow-hidden shadow-2xl border dark:border-gray-200 border-gray-700">
         <div className="bg-gradient-to-r from-gray-800 to-gray-900 text-white px-6 py-3 text-sm font-mono flex items-center justify-between">
           <span className="text-gray-300">{match[1]}</span>
           <div className="flex space-x-2">
@@ -83,7 +83,7 @@ export const BlogDetail = () => {
         </SyntaxHighlighter>
       </div>
     ) : (
-      <code className="px-2 py-1 mx-1 rounded-md dark:bg-gray-900 dark:text-gray-300 bg-gray-700 text-gray-100 font-mono text-sm   ">{children}</code>
+      <code className="px-2 py-1 mx-1 rounded-md dark:bg-gray-900 dark:text-gray-300 bg-zinc-800 text-gray-100 font-mono text-sm   ">{children}</code>
     )
   },
   h1: ({ ...props }) => (
@@ -157,7 +157,7 @@ export const BlogDetail = () => {
   ),
   hr: ({ ...props }) => <hr className="my-12 border-t-2 dark:border-gray-200 border-gray-600 opacity-60" {...props} />,
   pre: ({ ...props }) => (
-    <pre className="dark:bg-gray-900 bg-gray-700 rounded-2xl overflow-x-auto mb-8 mt-2 shadow-lg" {...props} />
+    <pre className="dark:bg-gray-900 bg-zinc-800 rounded-2xl overflow-x-auto mb-8 mt-2 shadow-lg" {...props} />
   ),
   strong: ({ ...props }) => <strong className="font-semibold dark:text-gray-900 text-gray-100" {...props} />,
   em: ({ ...props }) => <em className="italic dark:text-gray-700 text-gray-300" {...props} />
