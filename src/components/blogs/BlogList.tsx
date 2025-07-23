@@ -8,7 +8,7 @@ export const BlogList = () => {
   return (
     <div className={`container mx-auto px-3 py-12 max-w-3xl ${location.pathname == '/blogs' ? 'h-dvh' : ''}`} >
       <div className=" border-gray-300 pb-4 mb-8">
-        <h2 className="text-2xl font-bold flex justify-center  dark:text-gray-800 text-white tracking-tight">
+        <h2 className="text-4xl font-bold flex justify-center  dark:text-gray-800 text-white tracking-tight">
           Writing Blogs
         </h2>
       </div>

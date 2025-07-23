@@ -1,8 +1,13 @@
 [
   {
+    "title": "Practical Git: Commands Every Developer Should Know",
+    "date": "Jul 21, 2025",
+    "file": "blog4"
+  },
+  {
     "title": "Deploying Containerized application in EC2 with Reverse proxy.",
     "date": "March 23, 2025",
-    "file": "blog1"
+    "file": "blog3"
   },
   {
     "title": "Redux Toolkit: Modern way to manage State in React.",
@@ -12,6 +17,7 @@
   {
     "title": "Promise v/s Async/Await",
     "date": "Jun 15, 2024",
-    "file": "blog3"
+    "file": "blog1"
   }
+
 ]

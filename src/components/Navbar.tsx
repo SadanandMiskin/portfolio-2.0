@@ -4,7 +4,7 @@ import { useEffect, useState } from 'react';
 
 const Navbar = () => {
   const [isDarkMode, setIsDarkMode] = useState(
-    () => !(window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches)
+    () => (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches)
   );
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const location = useLocation();
