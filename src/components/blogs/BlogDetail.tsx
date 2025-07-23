@@ -252,7 +252,7 @@ export const BlogDetail = () => {
         return (
           <Link
             key={randomBlog.file}
-            to={`/blog/${randomBlog.file}`}
+            to={`/blogs/${randomBlog.file}`}
             className="group block"
           >
             <article className="h-full dark:bg-white bg-zinc-800 rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 border  overflow-hidden group-hover:scale-[1.02]">
