@@ -78,7 +78,7 @@ export const BlogDetail = () => {
       )}
 
       <div className='w-full dark:bg-zinc-50 bg-black'>
-        <div className="max-w-3xl w-dvw mx-auto px-6 py-20 font-main dark:bg-zinc-50 bg-black">
+        <div className="max-w-5xl w-dvw mx-auto px-6 py-20 font-main dark:bg-zinc-50 bg-black ">
           <div className='dark:text-gray-900 text-gray-300 text-center py-4 flex items-center justify-center'>
             <p className='dark:bg-slate-200 bg-slate-800 p-2 rounded-full px-4 flex gap-4'>
               <span>{blog?.date}  </span>
@@ -88,8 +88,9 @@ export const BlogDetail = () => {
               }</span>
             </p>
           </div>
-          <h1 className="pt-3 sm:text-6xl text-5xl py-9 font-semibold dark:text-gray-900 text-gray-300 mb-8 font-main tracking-tight isolate text-center">{blog?.title}</h1>
-          <article className="prose lg:prose-xl max-w-none">
+          <h1 className="pt-3 sm:text-6xl text-5xl py-9 font-semibold dark:text-gray-900 text-gray-300 mb-8 font-main tracking-tight isolate text-center      text-transparent bg-clip-text bg-gradient-to-b from-gray-400 to-pink-600">{blog?.title}</h1>
+          {/* <div className='flex justify-center min-w-3xl max-w-3xl'> */}
+            <article className="prose lg:prose-xl max-w-3xl ">
             <ReactMarkdown
               remarkPlugins={[remarkGfm]}
               rehypePlugins={[rehypeRaw, rehypeSlug ]}
@@ -235,6 +236,7 @@ export const BlogDetail = () => {
               {content}
             </ReactMarkdown>
           </article>
+          {/* </div> */}
 
            {otherBlogs.length > 0 && (
   <div className="mt-24 pt-16 border-t border-slate-200 dark:border-slate-700">
