@@ -32,9 +32,13 @@ export const BlogDetail = () => {
         console.error('Error loading blog content:', error)
         setLoading(false)
       })
-  window.scrollTo({ top: 0, behavior: 'smooth' });
 
   }, [file])
+
+  useEffect(() => {
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+  }, [])
+
 
   const handleImageClick = (src: string) => {
     setZoomedImage(src)
@@ -54,7 +58,6 @@ export const BlogDetail = () => {
 
   return (
     <>
-      {/* Image Zoom Modal */}
       {zoomedImage && (
         <div
           className="fixed inset-0 bg-black bg-opacity-90 z-50 flex items-center justify-center p-4"
@@ -80,7 +83,7 @@ export const BlogDetail = () => {
       <div className='w-full dark:bg-zinc-50 bg-black'>
         <div className="max-w-5xl w-dvw mx-auto px-6 py-20 font-main dark:bg-zinc-50 bg-black ">
           <div className='dark:text-gray-900 text-gray-300 text-center py-4 flex items-center justify-center'>
-            <p className='dark:bg-slate-200 bg-slate-800 p-2 rounded-full px-4 flex gap-4'>
+            <p className='dark:bg-slate-200 bg-zinc-700/50 p-2 rounded-full px-4 flex gap-4'>
               <span>{blog?.date}  </span>
               <span> - </span>
               <span>{
@@ -98,17 +101,17 @@ export const BlogDetail = () => {
                 code({ className, children, ...props }) {
                   const match = /language-(\w+)/.exec(className || '')
                   return match ? (
-                    <div className="my-1 rounded-2xl overflow-hidden shadow-2xl border dark:border-gray-200 border-gray-700">
-                      <div className="bg-gradient-to-r from-gray-800 to-gray-900 text-white px-6 py-3 text-sm font-mono flex items-center justify-between">
+                    <div className="my-1 rounded-2xl overflow-hidden shadow-2xl border dark:border-gray-200 border-gray-800">
+                      <div className=" text-white px-6 py-2 text-sm font-mono flex items-center justify-between">
                         <span className="text-gray-300">{match[1]}</span>
-                        <div className="flex space-x-2">
+                        {/* <div className="flex space-x-2">
                           <div className="w-3 h-3 bg-red-500 rounded-full"></div>
                           <div className="w-3 h-3 bg-yellow-500 rounded-full"></div>
                           <div className="w-3 h-3 bg-green-500 rounded-full"></div>
-                        </div>
+                        </div> */}
                       </div>
                       <SyntaxHighlighter
-                        style={prismStyles.dark}
+                        style={prismStyles.vscDarkPlus}
                         language={match[1]}
                         PreTag="div"
                         customStyle={{
@@ -118,7 +121,7 @@ export const BlogDetail = () => {
                           lineHeight: '1.6',
                           backgroundColor: '#1a1a1a',
                         }}
-                        showLineNumbers={true}
+                        // showLineNumbers={true}
                         {...props}
                       >
                         {String(children).replace(/\n$/, '')}
@@ -176,7 +179,7 @@ export const BlogDetail = () => {
                     <a
                       href={href}
                       onClick={handleClick}
-                      className="text-blue-500 hover:text-blue-400 dark:text-blue-600 dark:hover:text-blue-700 transition-colors duration-200 underline decoration-2 underline-offset-2"
+                      className="text-cyan-400 hover:text-blue-400 dark:text-blue-600 dark:hover:text-blue-700 transition-colors duration-200 underline decoration-2 underline-offset-2"
                       {...props}
                     />
                   );
@@ -191,7 +194,7 @@ export const BlogDetail = () => {
                 ),
                 blockquote: ({ ...props }) => (
                   <blockquote
-                    className="border-l-4 border-purple-600 bg-purple-400/50 dark:bg-purple-900/30 pl-6 pr-4 py-4 text-gray-800 dark:text-purple-100 my-8 rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300"
+                    className="border-l-4 border-purple-600 bg-purple-700/50 dark:bg-purple-900/30 pl-6 pr-4 py-4 text-gray-800 dark:text-purple-100 my-8 rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300"
                     {...props}
                   />
                 ),

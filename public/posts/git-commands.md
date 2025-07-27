@@ -34,7 +34,7 @@
 - Git is a distributed version control system that tracks versions of files. It is often used to control source code by programmers who are developing software collaboratively.
 
 ### Setting up the local git
-```sh
+```bash
 git config --global user.name "Your Name"
 git config --global user.email "youremail@mail.com"
 ```
@@ -115,13 +115,13 @@ git commit --amend --no-edit # uses the existing commit message but does the sam
 ```
 
 - Adding a signature to the commit
-```sh
+```bash
 git commit -s -m "<msg>"
 ```
 - Results as:
-```sh
+```bash
 git log
-"""
+""
 commit 2dafvrrd59e2251xzfaee473e38 (HEAD -> master)
 Author: User <user@gmail.com>
 Date:   Sat Jul 19 20:34:47 2025 +0530
@@ -129,19 +129,20 @@ Date:   Sat Jul 19 20:34:47 2025 +0530
     <msg>
 
     Signed-off-by: Sadanand Miskin <user@gmail.com>
-"""
+""
 ```
 
 
 > Can you create an empty commit?
 > -> Yes.
 
-```sh
+```bash
 git commit --allow-empty -m "<message>"
 ```
 
 > Why do you need a empty commit?
-> If ever I want to test my CI pipeline over Jenkins etc. .Without creating a new commit or modifying one just creating an empty commit to trigger and test my CI pipeline.\
+
+> If ever I want to test my CI pipeline over Jenkins etc. .Without creating a new commit or modifying one just creating an empty commit to trigger and test my CI pipeline.
 
 
 ### Git Log
@@ -152,12 +153,12 @@ git log
 ```
 
 - Get only number of commits
-```sh
+```bash
 git log -n 2 # top 2 commmits
 ```
 
 - Get short version of logs
-```sh
+```bash
 git log --pretty=short
 # or
 # --pretty=full ,for full
@@ -165,15 +166,15 @@ git log --pretty=short
 ```
 
 - Other method to log (Not much needed)
-```sh
+```bash
 git log --pretty=format:"%h %n %an %ae"
 # hash , message , author-name (you can use any one also)
 ```
 
 - To know what changes happened in each commit
-```sh
+```bash
 git log -p
-"""
+""
 commit 0c26b65f9b4ede5957ddc09303d78b41c21d3b4f
 Author: Sadanand Miskin <user@gmail.com>
 Date:   Sat Jul 19 20:32:18 2025 +0530
@@ -185,27 +186,27 @@ index e69de29..ced8e84 100644
 --- a/a.txt
 +++ b/a.txt
 @@ -0,0 +1 @@
-"""
+""
 ```
 
 > How to display commits of last one week?
-```sh
+```bash
 git log --since="1 week ago"
 # yesterday, 1 month ago, 1 hour ago
 ```
 
 > From this-day to that-day?
-```sh
+```bash
 git log --since="2024-05-06" --until="2025-05-01"
 ```
 
 > By a User:
-```sh
+```bash
 git log --author="<author_name>"
 ```
 
 > Grep inside git
-```sh
+```bash
 git log --grep="<to_find_string>"
 ```
 
@@ -227,13 +228,13 @@ git log --grep="<to_find_string>"
 - Suppose I have 3 commits with file changes and I want to change the recent commit
 
 > *Soft*: When using `soft` the changes are moved back to staging area.
-```sh
+```bash
 git reset --soft <C2_commit_id>
 ```
 
-```sh
+```bash
 git diff --staged
-"""
+""
 diff --git a/a.txt b/a.txt
 index ced8e84..1a51ebe 100644
 --- a/a.txt
@@ -241,16 +242,16 @@ index ced8e84..1a51ebe 100644
 @@ -1 +1,2 @@
  hello from
 +you know what
-"""
+""
 ```
 
 > *Mixed*:  It will bring back to Non staging area.
-```sh
+```bash
 git reset --mixed <c2_commit_id>
 ```
 
 > Hard: The changes you made in C3 will be discarded and deleted and head points to C2
-```sh
+```bash
 git reset --hard <c2_commit_id>
 ```
 
@@ -262,12 +263,12 @@ git reset --hard <c2_commit_id>
 - with example:
 ![](blog4/4.png)
 
-```sh
+```bash
 git revert c3
 # creates a new commit object as c4
 ```
 
-```sh
+```bash
 git checkout <commit_id>
 # You can place head to any commit
 ```
@@ -281,7 +282,7 @@ git checkout <commit_id>
 > Branches are always associated with commit not when `git init`, default as master.
 
 - Create a branch
-```sh
+```bash
 git branch <new_branch>
 ```
 
@@ -296,12 +297,12 @@ git branch <new_branch>
 - where as `new2` branch is in sync with the `master`.
 
 - Checking out to other branch
-```sh
+```bash
 git checkout <new_branch_name>
 ```
 
 or use:
-```sh
+```bash
 git switch <branchname>
 ```
 
@@ -315,16 +316,16 @@ git switch <branchname>
 - Here `new_branch_2` is head but created from reference of `new_branch_1` and it is 2 commits ahead of master branch.
 
 - Deleting a branch:
-```sh
+```bash
 git branch -d <branch_name>
 ```
 
 ##### Merging a branch:
-```sh
+```bash
 git checkout master
 ```
 `
-```sh
+```bash
 git merge new_branch_2
 ```
 
@@ -336,12 +337,12 @@ git merge new_branch_2
 
 
 - To merge any branch to the master branch, first we need to be in master branch
-```sh
+```bash
 git switch master
 ```
 
 - Then use merge command, Whatever the commit is in the Feature branch that will be added to master branch
-```sh
+```bash
 git merge Feature
 ```
 
@@ -410,12 +411,12 @@ git merge Feature
 Apart from using `git merge` we have another method to merge the other branches with `master`.
 
 - check out to master branch:
-```sh
+```bash
 git checkout master
 ```
 
 - cherry-pick the commit id of a feature branch
-```sh
+```bash
 git cherry-pick <any_feature_branch_commit_id_tobe_merged>
 ```
 > Thus a new commit object is created in master branch from feature branch
@@ -441,35 +442,35 @@ git cherry-pick <any_feature_branch_commit_id_tobe_merged>
 > In a new project folder
 
 - Adding a connection with remote repo
-```sh
+```bash
 git remote add origin <url>
 ```
 
 - After that, init-add-commit in your master branch, then push it to remote repo
-```sh
+```bash
 git push -u origin <branch>
 ```
 > After pushing you have a remote tracking branch created which tracks the remote repo and its contents - goes by `origin/<branch>`
 
 #### Revisiting git log
 - This command just refers to the local
-```sh
+```bash
 git branch
 ```
 
 - For remote branches
-```sh
+```bash
 git branch -r
 ```
 
 ### Git Cloning
 - Cloning a remote repository
-```sh
+```bash
 git clone <repo_url.git>
 ```
 
 - Get verbose about the remote
-```sh
+```bash
 git remote -v
 ```
 
@@ -479,7 +480,7 @@ git remote -v
 
 #### Fetch
 - It is used to download the changes from remote repository to your local repository
-```sh
+```bash
 git fetch
 #or
 git fetch origin
@@ -488,24 +489,24 @@ git fetch origin
 > *Note*: It will update only the remote tracking branches i.e `origin/master` but not added to `master`
 
 For syncing the changes in master branch we do,
-```sh
+```bash
 git checkout master
 # then
 git merge origin/master
 ```
 
 - To fetch changes of a certain branch which needed
-```sh
+```bash
 git fetch origin <branch_name>
 ```
 
 - If a project has multiple remote repositories like github, gitlab etc and to get all the changes of these in my local repo
-```sh
+```bash
 git fetch --all
 ```
 
 - Whichever remote tracking branches are deleted, it will remove from local also
-```sh
+```bash
 git fetch --prune
 ```
 
@@ -514,14 +515,14 @@ git fetch --prune
 	 - `git fetch`
 	 - `git merge`
 
-```sh
+```bash
 git pull
 ```
 
 >*Note*: Use git pull only to the protected branches like 'master' , 'main'
 
 > You can pull from any remote branch to any local branch just by using
-```sh
+```bash
 git checkout <local_branch>
 # and
 git pull origin <remote_branch>
@@ -531,7 +532,7 @@ git pull origin <remote_branch>
 - For a cleaner branch history
 
 > git pull:
-```sh
+```bash
 Before:
 A---B---C (remote has commit C)
      \
@@ -562,18 +563,18 @@ Hence we use `git stash` to keep store of  temporary changes in a space  until c
 	- when have modified changes and don't want to commit
 	- moving to other branch with those modified changes
 
-```sh
+```bash
 git stash list
 # stash@{0}: WIP on master: 75b3f1d ok
 ```
 
 - Returning back and want to apply those changes
-```sh
+```bash
 git stash apply <stash_id> # stash@{0}
 ```
 
 - Clear stash list
-```sh
+```bash
 git stash clear
 ```
 

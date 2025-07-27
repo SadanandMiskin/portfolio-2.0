@@ -1,5 +1,6 @@
 // import Contact from './Contact'
 import BlogList from './blogs/BlogList'
+import Contact from './Contact'
 import Experience from './homepage/Experience'
 
 import NameCard from './homepage/NameCard'
@@ -18,6 +19,7 @@ const Homepage = () => {
       <Experience />
       <Works  />
       <BlogList />
+      <Contact />
     </section>
   )
 }

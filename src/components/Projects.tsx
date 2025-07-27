@@ -1,70 +1,50 @@
 import { Link } from 'react-router-dom';
 import { BiArrowToRight, BiGlobe } from 'react-icons/bi';
 import { works } from '../data/works';
-import { useEffect, useState, useRef } from 'react';
+import { useGSAP } from '@gsap/react';
+import gsap from 'gsap';
 
 const Projects = () => {
-  const [isVisible, setIsVisible] = useState(false);
-  const containerRef = useRef<HTMLDivElement>(null);
 
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      (entries) => {
-        if (entries[0].isIntersecting) {
-          setIsVisible(true);
-        }
-      },
-      { threshold: 0.1 }
-    );
+  useGSAP(() => {
+  gsap.from(".a-blog", {
+    y: 5,
+    opacity: 0,
+    stagger: 0.2,
+    duration: 0.7,
+    ease: "power2.inOut"
+  });
+});
 
-    if (containerRef.current) {
-      observer.observe(containerRef.current);
-    }
-
-    return () => {
-      if (containerRef.current) {
-        observer.unobserve(containerRef.current);
-      }
-    };
-  }, []);
 
   return (
     <div
-      ref={containerRef}
-      className={`max-w-3xl mx-auto w-full p-4 md:p-6 transition-opacity duration-700 ${
-        isVisible ? 'opacity-100' : 'opacity-0'
-      }`}
+      className="max-w-3xl mx-auto w-full p-4 md:p-6 opacity-100"
     >
-      <h1 className={`text-4xl font-bold mb-8 text-white dark:text-black duration-900 flex justify-center tracking-tighter transition-all  ease-in-out
-          ${isVisible ? 'opacity-100 blur-none translate-y-0' : 'opacity-0 blur-md translate-y-5'}`}>
+      <h1 className="text-4xl font-bold mb-8 bg-gradient-to-b from-gray-300 via-gray-400 to-zinc-600
+  dark:from-gray-500 dark:via-gray-600 dark:to-zinc-800
+  bg-clip-text text-transparent flex justify-center tracking-tighter">
         All Projects
       </h1>
 
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
         {works.map((work, index) => (
           <Link
-            key={work.id}
+            key={index}
             to={`/projects/${work.id}`}
-            className={`group flex flex-col overflow-hidden rounded-xl bg-black dark:bg-white
-                     border border-gray-500/50 dark:border-gray-400/50
-                     transition-all duration-500 backdrop-blur-sm
+            className="a-blog group flex flex-col overflow-hidden rounded-xl bg-black dark:bg-white
+                     border border-gray-700/50 dark:border-gray-400/50
+
                      hover:shadow-md hover:shadow-zinc-900/20
-                     transform ${
-                       isVisible
-                         ? 'opacity-100 translate-y-0 scale-100 backdrop-blur-lg'
-                         : 'opacity-0 translate-y-10 scale-95'
-                     }`}
-            style={{ transitionDelay: `${index * 200}ms` }}
+                     transform opacity-100 translate-y-0 scale-100 backdrop-blur-lg"
           >
             {/* Project Image */}
             <div className="relative h-48 overflow-hidden">
               <img
                 src={work.image}
                 alt={work.title}
-                className={`h-full w-full object-cover transition-transform duration-500
-                         group-hover:scale-105 ${
-                           isVisible ? 'opacity-100 blur-none' : 'opacity-0 blur-lg'
-                         }`}
+                className="h-full w-full object-cover transition-transform duration-500
+                         group-hover:scale-105 opacity-100 blur-none"
               />
             </div>
 
@@ -83,7 +63,7 @@ const Projects = () => {
                 {work.technologies.map((tech, index) => (
                   <div
                     key={index}
-                    className="flex items-center gap-1 bg-zinc-300/30 px-2 py-1 rounded-md
+                    className="flex items-center gap-1 bg-zinc-500/30 dark:bg-zinc-300/20 px-2 py-1 rounded-md
                              text-sm text-zinc-300 dark:text-black"
                   >
                     <span>{tech.t}</span>
