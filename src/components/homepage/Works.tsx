@@ -35,9 +35,7 @@ const Works = () => {
         isVisible ? 'opacity-100' : 'opacity-0'
       }`}
     >
-      <h1 className={`text-2xl font-bold mb-8 bg-gradient-to-b from-gray-300 via-gray-400 to-zinc-600
-  dark:from-gray-500 dark:via-gray-600 dark:to-zinc-800
-  bg-clip-text text-transparent  duration-900 flex justify-center tracking-tighter transition-all  ease-in-out
+      <h1 className={`text-2xl font-bold mb-8 text-white dark:text-black duration-900 flex justify-center tracking-tighter transition-all  ease-in-out
           ${isVisible ? 'opacity-100 blur-none translate-y-0' : 'opacity-0 blur-md translate-y-5'}`}>
         Featured Projects
       </h1>

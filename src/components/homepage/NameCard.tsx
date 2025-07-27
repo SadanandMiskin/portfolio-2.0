@@ -1,25 +1,37 @@
-import { useEffect, useState } from 'react';
+// import { useEffect, useState } from 'react';
 // import { CgArrowTopRight } from 'react-icons/cg';
 import {  FaGithub } from 'react-icons/fa';
 import { FaFileArrowDown, FaLinkedin } from 'react-icons/fa6';
 import { MdEmail } from 'react-icons/md';
-import { useLocation } from 'react-router-dom';
+// import { useLocation } from 'react-router-dom';
 import { driveLink } from '../../data/resume';
+import gsap from 'gsap';
+import { useGSAP } from '@gsap/react';
 
 // interface
 
 const NameCard = () => {
-  const [isVisible, setIsVisible] = useState(false);
-  const location = useLocation();
+  // const [isVisible, setIsVisible] = useState(false);
+  // const location = useLocation();
 
-  useEffect(() => {
-    setIsVisible(false);
-    const timer = setTimeout(() => {
-      setIsVisible(true);
-    }, 100);
+  // useEffect(() => {
+  //   setIsVisible(false);
+  //   const timer = setTimeout(() => {
+  //     setIsVisible(true);
+  //   }, 100);
 
-    return () => clearTimeout(timer);
-  }, [location]);
+  //   return () => clearTimeout(timer);
+  // }, [location]);
+
+useGSAP(() => {
+  gsap.from('.z' , {
+    y: 80,
+    opacity: 0.1,
+    delay: 0.2,
+     filter: "blur(10px)",
+    ease: "power3.inOut"
+  })
+})
 
   const socialLinks = [
     {
@@ -50,9 +62,9 @@ const NameCard = () => {
   ];
 
   return (
-    <div className="flex max-w-3xl flex-col justify-center items-center p-2 w-full">
+    <div className="z flex max-w-3xl flex-col justify-center items-center p-2 w-full">
       <div className={`rounded-lg p-6 max-w-3xl h-max text-white transition-all duration-500 transform flex flex-col md:flex-row items-center
-        ${isVisible ? 'blur-none opacity-100 translate-y-0' : 'blur-lg opacity-0 translate-y-8'}`}>
+        ${ 'blur-none opacity-100 translate-y-0' }`}>
 
         {/* Name and Description */}
         <div className="md:w-2/3 w-full mb-4 md:mb-0">
