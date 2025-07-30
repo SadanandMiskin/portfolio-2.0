@@ -35,7 +35,7 @@ gsap.from(".a-blog", {
             to={`/blogs/${blog.file}`}
             className="group block a-blog"
           >
-            <div className="relative bg-white/5 dark:bg-gray-50 backdrop-blur-sm border border-white/10 dark:border-gray-200 rounded-xl overflow-hidden h-full transition-all duration-300 hover:bg-white/10 dark:hover:bg-gray-100 hover:border-white/20 dark:hover:border-gray-300 hover:shadow-lg hover:-translate-y-1">
+            <div className="relative bg-black dark:bg-gray-50/5 backdrop-blur-sm border border-white/15 dark:border-gray-200 rounded-xl overflow-hidden h-full transition-all duration-300 hover:bg-zinc-700/10 dark:hover:bg-gray-100 hover:border-white/20 dark:hover:border-gray-300 hover:shadow-lg hover:-translate-y-1">
               {/* Hero Image */}
               <div className="relative h-48 bg-gradient-to-br from-cyan-500/20 via-blue-500/20 to-purple-500/20 dark:from-blue-500/10 dark:via-cyan-500/10 dark:to-purple-500/10">
                 {blog.image ? (

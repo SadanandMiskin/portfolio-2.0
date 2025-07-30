@@ -83,7 +83,7 @@ export const BlogDetail = () => {
       <div className='w-full dark:bg-zinc-50 bg-black'>
         <div className="max-w-5xl w-dvw mx-auto px-6 py-20 font-main dark:bg-zinc-50 bg-black ">
           <div className='dark:text-gray-900 text-gray-300 text-center py-4 flex items-center justify-center'>
-            <p className='dark:bg-slate-200 bg-zinc-700/50 p-2 rounded-full px-4 flex gap-4'>
+            <p className='dark:bg-slate-200 bg-zinc-800/60 p-2 rounded-full px-4 flex gap-4'>
               <span>{blog?.date}  </span>
               <span> - </span>
               <span>{
@@ -260,7 +260,7 @@ export const BlogDetail = () => {
             to={`/blogs/${randomBlog.file}`}
             className="group block"
           >
-            <article className="h-full dark:bg-white bg-zinc-800 rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 border  overflow-hidden group-hover:scale-[1.02]">
+            <article className="h-full dark:bg-white bg-zinc-800/50 rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 border border-zinc-700 overflow-hidden group-hover:scale-[1.02]">
               <div className="p-8">
                 <div className="flex items-center gap-3 text-sm text-slate-500 dark:text-slate-400 mb-4">
                   <div className="flex items-center gap-2">
