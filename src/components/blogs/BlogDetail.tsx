@@ -35,9 +35,9 @@ export const BlogDetail = () => {
 
   }, [file])
 
-  useEffect(() => {
+  // useEffect(() => {
   window.scrollTo({ top: 0, behavior: 'smooth' });
-  }, [])
+  // }, [])
 
 
   const handleImageClick = (src: string) => {
