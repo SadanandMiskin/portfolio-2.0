@@ -1,0 +1,27 @@
+[
+  {
+    "title": "Practical Git: Commands Every Developer Should Know",
+    "date": "Jul 21, 2025",
+    "image": "blogs/blog4/1.png",
+    "file": "git-commands"
+  },
+  {
+    "title": "Deploying Containerized application in EC2 with Reverse proxy.",
+    "date": "March 23, 2025",
+    "image": "blogs/image.png",
+    "file": "deploying-app-on-ec2"
+  },
+  {
+    "title": "Redux Toolkit: Modern way to manage State in React.",
+    "date": "Nov 2, 2024",
+    "image": "blogs/redux.png",
+    "file": "redux-toolkit"
+  },
+  {
+    "title": "Promise v/s Async/Await",
+    "date": "Jun 15, 2024",
+    "image": "blogs/promise.png",
+    "file": "promise-vs-async"
+  }
+
+]

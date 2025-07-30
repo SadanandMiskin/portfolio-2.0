@@ -1,85 +1,109 @@
-import {  FaEye, FaGithub, FaLinkedinIn } from 'react-icons/fa';
-import {  MdLocationCity, MdMailOutline } from 'react-icons/md';
+// import { useEffect, useState } from 'react';
+// import { CgArrowTopRight } from 'react-icons/cg';
+import {  FaGithub } from 'react-icons/fa';
+import { FaFileArrowDown, FaLinkedin } from 'react-icons/fa6';
+import { MdEmail } from 'react-icons/md';
+// import { useLocation } from 'react-router-dom';
+import { driveLink } from '../../data/resume';
+import gsap from 'gsap';
+import { useGSAP } from '@gsap/react';
 
+// interface
 
 const NameCard = () => {
+  // const [isVisible, setIsVisible] = useState(false);
+  // const location = useLocation();
+
+  // useEffect(() => {
+  //   setIsVisible(false);
+  //   const timer = setTimeout(() => {
+  //     setIsVisible(true);
+  //   }, 100);
+
+  //   return () => clearTimeout(timer);
+  // }, [location]);
+
+useGSAP(() => {
+  gsap.from('.z' , {
+    y: 80,
+    opacity: 0.1,
+    delay: 0.2,
+     filter: "blur(10px)",
+    ease: "power3.inOut"
+  })
+})
+
+  const socialLinks = [
+    {
+      name: "LinkedIn",
+      href: "https://linkedin.com/in/sadanandmiskin",
+      icon: FaLinkedin
+    },
+    {
+      name: "GitHub",
+      href: "https://github.com/SadanandMiskin",
+      icon: FaGithub
+    },
+    {
+      name: "Email",
+      href: "mailto:miskinsadanand@gmail.com",
+      icon: MdEmail
+    },
+    {
+      name: "Resume",
+      href: driveLink,
+      icon: FaFileArrowDown
+    },
+    // {
+    //   name: "Blogs",
+    //   href: "/blogs",
+    //   icon: FaFile
+    // }
+  ];
+
   return (
-    <div className="flex flex-col justify-center p-2">
-      <img
-        src='/s.jpg'
-        className='w-32 rounded-full mb-4 border-solid border-x-2 border-gray-300'
+    <div className="z flex max-w-3xl flex-col justify-center items-center p-2 w-full">
+      <div className={`rounded-lg p-6 max-w-3xl h-max text-white transition-all duration-500 transform flex flex-col md:flex-row items-center
+        ${ 'blur-none opacity-100 translate-y-0' }`}>
 
-      />
-      <div className="border rounded-lg border-gray-500 shadow-lg p-6 max-w-3xl w-full h-max text-white ">
-        {/* Name and Links */}
-        <div className="flex  justify-between i md:flex-row flex-rpw">
-          <h1 className="text-4xl font-bold dark:text-black">Sadanand Miskin</h1>
-          <div className="flex gap-2">
-            <div className='w-max h-max border-solid border-2 border-gray-900 rounded-lg p-1' >
-            <a
-              href="https://linkedin.com/in/sadanandmiskin"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="hover:opacity-80 "
-            >
-              <FaLinkedinIn  className='h-6 w-6 dark:text-black'/>
-              {/* <img
-                src="https://cdn-icons-png.flaticon.com/512/174/174857.png"
-                alt="LinkedIn"
-                className="h-6 w-6"
-              /> */}
-            </a>
-            </div>
-            <div className='w-max h-max border-solid border-2 border-gray-900 rounded-lg p-1' >
-
-            <a
-              href="https://github.com/SadanandMiskin"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="hover:opacity-80"
-            >
-              {/* <img
-                src="https://cdn-icons-png.flaticon.com/512/25/25231.png"
-                alt="GitHub"
-                className="h-6 w-6"
-              /> */}
-              <FaGithub className='h-6 w-6 dark:text-black'/>
-
-            </a>
-            </div>
-            <div className='w-max h-max border-solid border-2 border-gray-900 rounded-lg p-1' >
-
-            <a
-              href="mailto:miskinsadanand@gmail.com"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="hover:opacity-80"
-            >
-              {/* <img
-                src="https://cdn-icons-png.flaticon.com/512/25/25231.png"
-                alt="GitHub"
-                className="h-6 w-6"
-              /> */}
-              <MdMailOutline className='h-6 w-6 dark:text-black'/>
-
-            </a>
-            </div>
+        {/* Name and Description */}
+        <div className="md:w-2/3 w-full mb-4 md:mb-0">
+<h1 className="text-5xl font-bold
+  bg-gradient-to-b from-gray-300 via-gray-400 to-zinc-600
+  dark:from-gray-500 dark:via-gray-600 dark:to-zinc-800
+  bg-clip-text text-transparent tracking-tighter">
+  Sadanand Miskin
+</h1>
+          <p className="text-gray-400 dark:text-gray-600 py-2 mt-2">Software Dev - Passionate, Enthusiast, Dedicated.</p>
+          <div className="gap-3 mt-6 flex flex-wrap">
+            {socialLinks.map((link) => (
+              <a
+                key={link.name}
+                href={link.href}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="dark:bg-slate-200/50 rounded-xl px-2 py-1 hover:bg-gray-800/10 transition-colors duration-200 bg-slate-700/30"
+              >
+                <span className="dark:text-gray-600 text-gray-400 flex gap-2">
+                   {link.icon && <link.icon size={20} />}
+                  {link.name}
+                  {/* <link.icon size={20} /> */}
+                </span>
+              </a>
+            ))}
           </div>
         </div>
 
-        {/* Location */}
-        <p className="mt-2 dark:text-gray-700 text-gray-400 text-lg flex items-center gap-1"><MdLocationCity />Full Stack Dev.</p>
-
-        {/* Description */}
-        <p className="text-gray-400 dark:text-gray-700 py-2">
-        I have a strong passion for software technologies and am dedicated to pushing projects to completion with enthusiasm and perseverance, I'm excited for any opportunity I get, hopp in with excitement.
-        </p>
-      <a href='
-        https://drive.google.com/file/d/1-GteVh_J6-NBk1cX51Dv0n2h53U-OSdl/view?usp=sharing' target='_blank'>
-      <button className='bg-gradient-to-r from-red-500 to-orange-500  text-white font-semibold  p-1 px-2 rounded-md flex gap-2 items-center'>
-            <FaEye />  View Resume
-        </button>
-      </a>
+        {/* Image Section */}
+        <div className="md:w-1/2 w-full flex justify-center">
+          <div className="relative w-60 h-60">
+              <img
+              src="/about/b.webp"
+              alt="Sadanand Miskin"
+              className="w-full h-full rounded-full object-cover shadow-[-3px_-8px_62px_-33px_#a2bcd7]"
+            />
+          </div>
+        </div>
       </div>
     </div>
   );

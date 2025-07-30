@@ -1,3 +1,29 @@
+
+@import url('https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400..800;1,400..800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Intel+One+Mono:ital,wght@0,300..700;1,300..700&family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+:root {
+  background-color: black;
+}
+
+/*
+:root{
+  --font-main: "EB Garamound", serif;
+} */
+
+/*
+ @keyframes spin-slow {
+     0% { transform: rotate(0deg); }
+     100% { transform: rotate(360deg); }
+   }
+   .animate-spin-slow {
+     animation: spin-slow 5s linear infinite;
+   } */
+
+   html {
+    scroll-behavior: smooth;
+   }

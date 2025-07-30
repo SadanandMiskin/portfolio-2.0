@@ -1,0 +1,1 @@
+export const driveLink = "https://drive.google.com/file/d/1ZwOtcmO_g8SgzUR0dfINA6hb6b0R2l_Y"

@@ -1,136 +1,106 @@
-// import  { ReactElement } from 'react';
 import { Link } from 'react-router-dom';
-
+import { BiArrowToRight, BiGlobe } from 'react-icons/bi';
 import { works } from '../data/works';
-import { BiArrowToRight } from 'react-icons/bi';
-// import { works } from '../../data/works';
-// interface tech {
-//   logo: ReactElement,
-//   t: string
-// }
-
-// interface workType {
-//   id: number,
-//   title: string,
-//   github: string,
-//   liveLink: string,
-//   image: string,
-//   desc: string,
-//   technologies: tech[]
-// }
-
-//  const works: workType[] = [
-//   {
-//     id:1,
-//     title: "ProfilesMe",
-//     github: "https://github.com/SadanandMiskin/profilesme",
-//     liveLink: "https://profilesme.site",
-//     technologies: [
-//       {
-//       logo: <FaReact/> ,
-//       t: 'React'
-//       },
-//       {
-//         logo: <SiExpress />,
-//         t: 'Express'
-//       },
-//       {
-//         logo: <FaAws />,
-//         t: 'EC2'
-//       },
-//       {
-//         logo: <DiMongodb />,
-//         t: 'MongoDB'
-//       }
-
-//     ],
-//     desc: 'A profile builder platform',
-//     image: "public/projects/profilesme.png",
-//   },
-//   {
-//     id:2,
-//     title: "NotFlix",
-//     github: "https://github.com/SadanandMiskin/notflix",
-//     liveLink: "https://notflixpage.vercel.app/",
-//     technologies: [
-//       {
-//         logo: <FaReact />,
-//         t: 'React'
-//       },
-//       {
-//         logo: <SiRedux />,
-//         t: 'Redux Toolkit'
-//       },
-//       {
-//         logo: <SiExpress />,
-//         t: 'Express'
-//       }
-//     ],
-//     desc: 'A Netflix clone with JWT authentication, advanced search, and YouTube trailer streaming',
-//     image: "public/projects/notflix.png",
-//   }
-//   // Add more work objects here
-// ];
+import { useGSAP } from '@gsap/react';
+import gsap from 'gsap';
 
 const Projects = () => {
-  return (
-    <div className="max-w-3xl w-full flex flex-col p-3">
-      
-      <div className="flex flex-col gap-8 max-w-3xl mx-auto w-full">
-        <h1 className="text-4xl font-bold text-center mb-1 text-white dark:text-black">
-          Project Works
-        </h1>
 
-        {works.map((work) => (
+  useGSAP(() => {
+  gsap.from(".a-blog", {
+    y: 5,
+    opacity: 0,
+    stagger: 0.2,
+    duration: 0.7,
+    ease: "power2.inOut"
+  });
+});
+
+
+  return (
+    <div
+      className="max-w-3xl mx-auto w-full p-4 md:p-6 opacity-100"
+    >
+      <h1 className="text-4xl font-bold mb-8 bg-gradient-to-b from-gray-300 via-gray-400 to-zinc-600
+  dark:from-gray-500 dark:via-gray-600 dark:to-zinc-800
+  bg-clip-text text-transparent flex justify-center tracking-tighter">
+        All Projects
+      </h1>
+
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+        {works.map((work, index) => (
           <Link
-            key={work.id}
+            key={index}
             to={`/projects/${work.id}`}
-            className="group relative flex flex-col justify-between overflow-hidden rounded-xl bg-zinc-900
-                       border border-gray-500/50 dark:border-[rgba(255,255,255,.1)] shadow-sm
-                       min-h-[300px] sm:min-h-[400px] md:min-h-[500px]"
-            style={{ margin: "unset" }}
+            className="a-blog group flex flex-col overflow-hidden rounded-xl bg-black dark:bg-white
+                     border border-gray-700/50 dark:border-gray-400/50
+
+                     hover:shadow-md hover:shadow-zinc-900/20
+                     transform opacity-100 translate-y-0 scale-100 backdrop-blur-lg"
           >
-            {/* Background Image */}
-            <div>
+            {/* Project Image */}
+            <div className="relative h-48 overflow-hidden">
               <img
                 src={work.image}
-                alt={`${work.title} background`}
-                className="absolute left-0 top-0 h-full w-full border-none transition-all duration-300 ease-out opacity-70
-                           [mask-image:linear-gradient(to_top,transparent_20%,#000_100%)] group-hover:scale-105 object-cover"
+                alt={work.title}
+                className="h-full w-full object-cover transition-transform duration-500
+                         group-hover:scale-105 opacity-100 blur-none"
               />
             </div>
 
             {/* Content Section */}
-            <div className="relative z-10 p-4 text-white flex flex-col justify-between h-full transition-all duration-300 group-hover:translate-y-[-50px]">
-              <h2 className="md:text-4xl text-2xl font-semibold">{work.title}</h2>
-              <div className="flex gap-2 sm:gap-2 mt-2 ">
-                {work.technologies.map((tech, techIndex) => (
+            <div className="p-4 flex flex-col flex-grow">
+              <h2 className="text-xl font-semibold text-white mb-1 dark:text-black ">
+                {work.title}
+              </h2>
+
+              <p className="dark:text-zinc-500 text-zinc-300/70 text-sm mb-4 flex-grow">
+                {work.desc}
+              </p>
+
+              {/* Technologies */}
+              <div className="flex flex-wrap gap-1 mb-4">
+                {work.technologies.map((tech, index) => (
                   <div
-                    key={techIndex}
-                    className="md:text-2xl text-sm flex flex-wrap justify-center items-center gap-1 md:gap-1 bg-white/10 py-1 px-2 rounded-md mb-3 border border-solid border-gray-700"
+                    key={index}
+                    className="flex items-center gap-1 bg-zinc-500/30 dark:bg-zinc-300/20 px-2 py-1 rounded-md
+                             text-sm text-zinc-300 dark:text-black"
                   >
-                     <tech.logo />
                     <span>{tech.t}</span>
                   </div>
                 ))}
               </div>
-              <p>{work.desc}</p>
 
-
+              {/* Learn More Button */}
+              <a
+                href={work.liveLink ? work.liveLink : work.github}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <div className="flex items-center gap-1 text-sm font-medium text-white
+                           bg-zinc-800 py-1 px-2 rounded-lg w-fit
+                           group-hover:bg-zinc-700 transition-colors">
+                  <BiGlobe className="w-5 h-5 transition-transform" />
+                  {work.liveLink ? 'Website' : 'Learn More'}
+                </div>
+              </a>
             </div>
-            <Link
-            to={`/projects/${work.id}`}
-            // target="_blank"
-            // rel="noopener noreferrer"
-            className="mb-0 absolute flex items-center gap-2 bottom-0 left-4 bg-white text-center  text-black py-1 px-2 rounded-lg
-                       transition-transform transform translate-y-full group-hover:translate-y-[-10px] duration-300"
-          >
-            Learn More <BiArrowToRight className='w-6 h-6'/>
-          </Link>
           </Link>
         ))}
       </div>
-      <p className='mt-3 text-lg flex justify-center underline text-green-600'>Many more on Github {`->`}</p>
+
+      <div className="mt-8 text-center">
+        <a
+          href="https://github.com/sadanandmiskin"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="inline-flex items-center gap-2 text-green-600 hover:text-green-500
+                   transition-colors font-medium text-lg hover:underline"
+        >
+          Many more on Github
+          <BiArrowToRight className="w-5 h-5" />
+        </a>
+      </div>
     </div>
   );
 };

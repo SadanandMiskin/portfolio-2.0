@@ -1,6 +1,8 @@
 import { IconType } from 'react-icons';
 import { DiMongodb } from 'react-icons/di';
-import { FaReact, FaAws, FaNodeJs } from 'react-icons/fa';
+import { FaReact, FaAws, FaNodeJs, FaDocker } from 'react-icons/fa';
+import { GiGemini } from 'react-icons/gi';
+import { GrConnect } from 'react-icons/gr';
 import { SiEjs, SiEthereum, SiExpress, SiMinutemailer, SiRedux, SiSolidity } from 'react-icons/si';
 
 export interface Tech {
@@ -20,8 +22,50 @@ export interface WorkType {
 }
 
 export const works: WorkType[] = [
+
   {
     id: 1,
+    title: "IntervAI",
+    github: 'https://github.com/intervAI',
+    liveLink: "https://int.0sm.bar",
+    technologies: [
+      {logo: SiExpress, t: 'Express'},
+      {logo: GrConnect, t: 'WebSocket'},
+      {logo: FaAws , t: 'EC2'},
+      {logo: FaDocker , t: 'Docker'},
+      {logo: FaReact, t: 'React'}
+    ],
+    desc: 'AI interview prep platform with real-time Q&A, feedback via WebSockets, and detailed session reports.',
+    features: `
+    - AI-generated interview questions based on job descriptions.
+    - Real-time Q&A and feedback using WebSockets.
+    - AI-powered answer evaluation with ratings and improvements.
+    - Detailed interview feedback reports on the dashboard.`,
+    image: '/projects/int.png'
+  },
+
+  {
+    id: 2,
+    title: "Chat0sm",
+    github: "https://github.com/SadanandMiskin/chat0sm",
+    liveLink: "https://chat.0sm.bar",
+    technologies: [
+      { logo: FaReact, t: 'React' },
+      { logo: SiExpress, t: 'Express' },
+      { logo: GiGemini, t: 'Gemini AI' },
+      { logo: DiMongodb, t: 'MongoDB' },
+    ],
+    desc: 'A ChatGPT-like clone is an AI-powered conversational agent designed to simulate human-like text interactions. ',
+    features: `
+      - A chatGpt like clone using Gemini and google OAuth.
+      - Creates a structured Readme like format for the queries and solutions.
+      - Login & Signup: Sign up or log in to access more features.
+      - Get answer to your any query asked directly to Google's Gemini
+    `,
+    image: "/projects/chat.png",
+  },
+  {
+    id: 3,
     title: "ProfilesMe",
     github: "https://github.com/SadanandMiskin/profilesme",
     liveLink: "https://profilesme.site",
@@ -31,21 +75,21 @@ export const works: WorkType[] = [
       { logo: FaAws, t: 'EC2' },
       { logo: DiMongodb, t: 'MongoDB' },
     ],
-    desc: 'A profile builder platform',
+    desc: 'A profile builder platform, inspired by guns.lol, allows users to create and customize unique, shareable profiles with dynamic visuals and personalized details.',
     features: `
-      - Stream Movies: Watch movies directly without downloading the full file.
-      - Watch Trailers: View trailers for movies, integrated with YouTube.
+      - A profile builder similar to Guns.lol.
+      - Bring all your unique profiles at single place at a single link.
       - Login & Signup: Sign up or log in to access more features.
-      - Search: Search for movies or actors.
-      - Home Page: See popular movies and what's trending.
+      - Get insights of total profile views.
+      - Special video background and a short description looks cook :).
     `,
     image: "/projects/profilesme.png",
   },
   {
-    id: 2,
+    id: 4,
     title: "NotFlix",
     github: "https://github.com/SadanandMiskin/notflix",
-    liveLink: "https://notflixpage.vercel.app/",
+    liveLink: "https://moviezclone.vercel.app/",
     technologies: [
       { logo: FaReact, t: 'React' },
       { logo: SiRedux, t: 'Redux Toolkit' },
@@ -63,7 +107,7 @@ export const works: WorkType[] = [
   },
 
   {
-    id:4,
+    id:5,
     title: "Kum Kum",
     github: "https://github.com/SadanandMiskin/kum-kum",
     liveLink: "https://kum-kum.vercel.app/",
@@ -72,7 +116,7 @@ export const works: WorkType[] = [
       { logo: SiExpress, t: 'Express' },
       { logo: SiMinutemailer, t: 'NodeMailer' },
     ],
-    desc: 'My freelance project',
+    desc: 'A freelance project for a beauty parlour offering an online pre-booking service, enabling customers to schedule appointments.',
     features: `
       - Enables users to pre-book various beauty services directly through the website.
       - Utilizes NodeMailer for sending automated confirmation emails to users upon booking.
@@ -82,7 +126,7 @@ export const works: WorkType[] = [
     image: "/projects/kum.png",
   },
   {
-    id: 5,
+    id: 6,
     title: "EmpVerify",
     github: "https://github.com/sadanandmiskin/empverify",
     image: '/projects/emp.png',
@@ -100,7 +144,7 @@ export const works: WorkType[] = [
     ]
   },
   {
-    id: 6,
+    id: 7,
     title: "GitCrawler",
     github: "https://github.com/SadanandMiskin/GitCrawler",
     image: '/projects/gitc.png',
