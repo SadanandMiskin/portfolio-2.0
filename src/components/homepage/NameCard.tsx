@@ -26,7 +26,7 @@ const NameCard = () => {
 useGSAP(() => {
   gsap.from('.z' , {
     y: 80,
-    opacity: 0.1,
+    opacity: 0,
     delay: 0.2,
      filter: "blur(10px)",
     ease: "power3.inOut"
@@ -70,7 +70,7 @@ useGSAP(() => {
         <div className="md:w-2/3 w-full mb-4 md:mb-0">
 <h1 className="text-5xl font-bold
   bg-gradient-to-b from-gray-300 via-gray-400 to-zinc-600
-  dark:from-gray-500 dark:via-gray-600 dark:to-zinc-800
+  dark:from-gray-600 dark:to-gray-900
   bg-clip-text text-transparent tracking-tighter">
   Sadanand Miskin
 </h1>
@@ -100,7 +100,7 @@ useGSAP(() => {
               <img
               src="/about/b.webp"
               alt="Sadanand Miskin"
-              className="w-full h-full rounded-full object-cover shadow-[-3px_-8px_62px_-33px_#a2bcd7]"
+              className="shape w-full h-full rounded-full object-cover shadow-[-3px_-8px_62px_-33px_#a2bcd7]"
             />
           </div>
         </div>

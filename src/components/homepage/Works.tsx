@@ -36,7 +36,7 @@ const Works = () => {
       }`}
     >
       <h2 className="text-2xl font-bold text-center bg-gradient-to-b from-gray-300 via-gray-400 to-zinc-600
-  dark:from-gray-500 dark:via-gray-600 dark:to-zinc-800
+  dark:from-gray-600 dark:to-gray-900
   bg-clip-text text-transparent tracking-tighter mb-8">
         Featured Projects
       </h2>

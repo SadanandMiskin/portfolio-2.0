@@ -52,7 +52,7 @@ const Work = () => {
     <div className={`py-8 px-4 max-w-3xl mx-auto mt-2 transition-all duration-800 transform
       ${'blur-none opacity-100 translate-y-0' }`}>
       <h2 className={`h2 text-2xl font-bold text-center mb-8 bg-gradient-to-b from-gray-300 via-gray-400 to-zinc-600
-  dark:from-gray-500 dark:via-gray-600 dark:to-zinc-800
+  dark:from-gray-600 dark:to-gray-900
   bg-clip-text text-transparent tracking-tighter ${ 'blur-none opacity-100 translate-y-0'}`}>
         I work with...
       </h2>

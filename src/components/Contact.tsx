@@ -95,7 +95,7 @@ const Contact = () => {
       <div id='c' className="w-full max-w-4xl overflow-hidden">
         {/* Heading */}
         <h1 className={`md:text-4xl text-3xl flex justify-center font-bold bg-gradient-to-b from-gray-300 via-gray-400 to-zinc-600
-  dark:from-gray-500 dark:via-gray-600 dark:to-zinc-800
+  dark:from-gray-600 dark:to-gray-900
   bg-clip-text text-transparent tracking-tighter mb-6 transition-all duration-300 ease-in-out
           ${ 'opacity-100 blur-none translate-y-0' }`}
         >
@@ -138,7 +138,7 @@ const Contact = () => {
           </div>
 
           {/* Contact Form */}
-          <div className={`md:w-xl border border-gray-400/30 p-6 md:p-8 transition-all duration-300 ease-in-out
+          <div className={`md:w-xl border border-gray-400/30 p-6 md:p-8 transition-all duration-300 ease-in-out rounded-md
             ${ 'opacity-100 blur-none translate-y-0'}`}
           >
             <form onSubmit={handleSubmit} className="space-y-4">
@@ -150,7 +150,7 @@ const Contact = () => {
                   value={formData.name}
                   onChange={handleChange}
                   required
-                  className="text-sm w-full p-3 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-blue-500 dark:text-gray-700"
+                  className="text-sm w-full p-3 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-blue-500 dark:text-gray-700 "
                 />
                 <input
                   type="email"

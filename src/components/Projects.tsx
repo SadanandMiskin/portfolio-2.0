@@ -22,7 +22,7 @@ const Projects = () => {
       className="max-w-3xl mx-auto w-full p-4 md:p-6 opacity-100"
     >
       <h1 className="text-4xl font-bold mb-8 bg-gradient-to-b from-gray-300 via-gray-400 to-zinc-600
-  dark:from-gray-500 dark:via-gray-600 dark:to-zinc-800
+  dark:from-gray-600 dark:to-gray-900
   bg-clip-text text-transparent flex justify-center tracking-tighter">
         All Projects
       </h1>

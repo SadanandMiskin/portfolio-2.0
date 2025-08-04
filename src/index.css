@@ -27,3 +27,56 @@
    html {
     scroll-behavior: smooth;
    }
+
+   #cursor-follower {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 20px;
+  height: 20px;
+  border: 2px solid #00f5d4; /* Customize the border color */
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 9999;
+  transform: translate(-50%, -50%);
+  transition: background 0.3s ease, transform 0.3s ease;
+}
+
+
+   .shape{
+  background: linear-gradient(64deg, #f34868 23%, #f24768 23%, #9e00ec 80%);
+
+  border-radius: 55% 45% 68% 32% / 47% 60% 40% 53%;
+  /* transform: rotate(0deg); */
+  will-change: border-radius, transform;
+
+  animation: blob 7s linear infinite
+}
+
+@keyframes blob {
+  0% {
+    border-radius: 55% 45% 68% 32% / 47% 60% 40% 53% ;
+  }
+  25% {
+    border-radius: 32% 68% 41% 59% / 67% 35% 65% 33% ;
+  }
+  50% {
+    border-radius: 32% 68% 66% 34% / 49% 50% 50% 51% ;
+  }
+  75% {
+    border-radius: 426% 74% 30% 70% / 62% 60% 40% 38% ;
+  }
+  100% {
+    border-radius:  55% 45% 68% 32% / 47% 60% 40% 53%;
+  }
+}
+
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(359deg);
+  }
+}

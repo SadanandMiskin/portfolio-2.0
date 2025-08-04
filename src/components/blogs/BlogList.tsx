@@ -22,7 +22,7 @@ gsap.from(".a-blog", {
     <div className={`container mx-auto px-6 py-6 max-w-3xl `}>
       <div className="mb-12 text-center">
         <h2 className="text-4xl font-bold bg-gradient-to-b from-gray-300 via-gray-400 to-zinc-600
-  dark:from-gray-500 dark:via-gray-600 dark:to-zinc-800
+  dark:from-gray-600 dark:to-gray-900
   bg-clip-text text-transparent tracking-tighter ">
           Writing Blogs
         </h2>

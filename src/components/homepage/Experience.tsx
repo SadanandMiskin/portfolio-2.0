@@ -35,7 +35,7 @@ const Experience = () => {
     <section className={`max-w-3xl mx-auto p-4 mt-6 w-full transition-all duration-1000 transform
       ${isVisible ? 'blur-none opacity-100 translate-y-0' : 'blur-lg opacity-0 translate-y-8'}`}>
       <h2 className="text-2xl font-bold text-center bg-gradient-to-b from-gray-300 via-gray-400 to-zinc-600
-  dark:from-gray-500 dark:via-gray-600 dark:to-zinc-800
+  dark:from-gray-600 dark:to-gray-900
   bg-clip-text text-transparent tracking-tighter mb-8">
         Experience
       </h2>
