@@ -12,8 +12,7 @@ import Works from './homepage/Works'
 
 const Homepage = () => {
   return (
-    <section className='max-w-full  mt-4 flex flex-col items-center'>
-
+    <section className="page-shell flex flex-col items-center">
       <NameCard />
       <Work />
       <Experience />

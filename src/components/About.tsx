@@ -51,13 +51,15 @@ const LazyImage: React.FC<{
       { threshold: 0.1 }
     );
 
-    if (imageRef.current) {
-      observer.observe(imageRef.current);
+    const image = imageRef.current;
+
+    if (image) {
+      observer.observe(image);
     }
 
     return () => {
-      if (imageRef.current) {
-        observer.unobserve(imageRef.current);
+      if (image) {
+        observer.unobserve(image);
       }
     };
   }, []);
@@ -103,13 +105,15 @@ const LazyVideo: React.FC<{
       { threshold: 0.1 }
     );
 
-    if (videoRef.current) {
-      observer.observe(videoRef.current);
+    const video = videoRef.current;
+
+    if (video) {
+      observer.observe(video);
     }
 
     return () => {
-      if (videoRef.current) {
-        observer.unobserve(videoRef.current);
+      if (video) {
+        observer.unobserve(video);
       }
     };
   }, []);

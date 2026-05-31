@@ -1,64 +1,52 @@
-import React, { useState,  useRef } from 'react';
+import React, { useRef, useState } from 'react';
 import axios from 'axios';
 import {
-  RiGithubFill, RiTwitterXFill, RiLinkedinBoxFill, RiMailLine,
-  RiLoader4Line, RiSendPlane2Fill
+  RiGithubFill,
+  RiLinkedinBoxFill,
+  RiLoader4Line,
+  RiMailLine,
+  RiSendPlane2Fill,
+  RiTwitterXFill,
 } from 'react-icons/ri';
 import { useGSAP } from '@gsap/react';
-import gsap from 'gsap'
-
+import gsap from 'gsap';
 
 const Contact = () => {
   useGSAP(() => {
-    // gsap.to('#c', {
-    //   scrollTrigger: {
-    //     trigger: '#c',
-    //     start: 'top bottom', // When top of #c hits bottom of viewport
-    //     end: 'bottom bottom',
-    //   },
-    // });
-
     const timeline = gsap.timeline({
       scrollTrigger: {
         trigger: '#c',
-        start: 'top bottom', // When top of #c hits bottom of viewport
+        start: 'top bottom',
         end: 'bottom bottom',
+      },
+    });
+
+    timeline.fromTo(
+      '#c',
+      {
+        opacity: 0,
+        y: 40,
+        filter: 'blur(8px)',
+      },
+      {
+        opacity: 1,
+        y: 0,
+        filter: 'blur(0px)',
+        duration: 0.7,
+        ease: 'power3.out',
       }
-    })
-
-    timeline.fromTo('#c' , {
-      opacity: 0,
-      y: 100
-    }, {
-      opacity: 1,
-      y: 0,
-      ease: 'power3.inOut'
-    })
+    );
   }, []);
-
 
   const [formData, setFormData] = useState({ name: '', email: '', message: '' });
   const [status, setStatus] = useState('idle');
-  // const [isVisible, setIsVisible] = useState(false);
   const containerRef = useRef<HTMLDivElement>(null);
 
-  // useEffect(() => {
-  //   const observer = new IntersectionObserver(
-  //     (entries) => {
-  //       if (entries[0].isIntersecting) setIsVisible(true);
-  //     },
-  //     { threshold: 0.3 }
-  //   );
-
-  //   if (containerRef.current) observer.observe(containerRef.current);
-  //   return () => observer.disconnect();
-  // }, []);
-
   const socialLinks = [
-    { icon: RiMailLine, name: 'Email', username: 'miskinsadanand@gmail.com', link: 'mailto:miskinsadanand@gmail.com', color: 'text-red-500' },
-    { icon: RiGithubFill, name: 'GitHub', username: 'SadanandMiskin', link: 'https://github.com/SadanandMiskin', color: 'text-gray-800 dark:text-gray-200' },
-    { icon: RiTwitterXFill, name: 'X (Twitter)', username: '@ISadanandMiskin', link: 'https://x.com/ISadanandMiskin', color: 'text-gray-800 dark:text-gray-200' },
-    { icon: RiLinkedinBoxFill, name: 'LinkedIn', username: 'sadanandmiskin', link: 'https://linkedin.com/in/sadanandmiskin', color: 'text-blue-600' },
+    { icon: RiMailLine, name: 'Email', link: 'mailto:miskinsadanand@gmail.com' },
+    { icon: RiGithubFill, name: 'GitHub', link: 'https://github.com/SadanandMiskin' },
+    { icon: RiTwitterXFill, name: 'X', link: 'https://x.com/ISadanandMiskin' },
+    { icon: RiLinkedinBoxFill, name: 'LinkedIn', link: 'https://linkedin.com/in/sadanandmiskin' },
   ];
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
@@ -71,7 +59,7 @@ const Contact = () => {
 
     try {
       const response = await axios.post('https://mail.0sm.bar/messageme', formData, {
-        headers: { Authorization: 'Bearer sadanandbhai' }
+        headers: { Authorization: 'Bearer sadanandbhai' },
       });
 
       if (response.data == true) {
@@ -87,125 +75,108 @@ const Contact = () => {
   };
 
   return (
-    <div
-      ref={containerRef}
-      className={`container mx-auto px-4 py-12 flex justify-center  transition-all duration-700 ease-in-out
-        ${ 'opacity-100 blur-none translate-y-0' }`}
-    >
-      <div id='c' className="w-full max-w-4xl overflow-hidden">
-        {/* Heading */}
-        <h1 className={`md:text-4xl text-3xl flex justify-center font-bold bg-gradient-to-b from-gray-300 via-gray-400 to-zinc-600
-  dark:from-gray-600 dark:to-gray-900
-  bg-clip-text text-transparent tracking-tighter mb-6 transition-all duration-300 ease-in-out
-          ${ 'opacity-100 blur-none translate-y-0' }`}
-        >
-          Contact Me
-        </h1>
+    <section ref={containerRef} className="section-block">
+      <div id="c" className="w-full">
+        <div className="mb-7 text-center">
+          <p className="section-kicker">Contact</p>
+          <h1 className="section-title">Let&apos;s build something clear</h1>
+        </div>
 
-        <div className='md:flex md:gap-3'>
-          <div className="md:w-1/3 p-8 md:p-10">
-            {/* Contact Text */}
-            <div className={`mb-6 transition-all duration-300 ease-in-out
-              ${ 'opacity-100 blur-none translate-y-0'}`}
+        <div className="folio-panel grid gap-4 md:grid-cols-[0.75fr_1.25fr]">
+          <aside>
+            <p className="text-xs leading-6 text-[#736d63]">
+              Have an opportunity, collaboration, or project idea? Send a note and I will get back with a focused reply.
+            </p>
+
+            <a
+              href="mailto:miskinsadanand@gmail.com"
+              className="mt-4 inline-flex text-xs font-bold text-[#171514] underline decoration-[#171514]/20 underline-offset-4 hover:decoration-[#171514]"
             >
-              <p className="text-white dark:text-black text-sm leading-relaxed">
-               For any inquiries, you can contact me via email. {' '}
-                <a
-                  href="mailto:miskinsadanand@gmail.com"
-                  className="text-blue-400 dark:text-blue-600 hover:underline"
-                >
-                  miskinsadanand@gmail.com
-                </a>
-              </p>
-            </div>
+              miskinsadanand@gmail.com
+            </a>
 
-            {/* Social Links */}
-            <div className="grid grid-cols-4 justify-center gap-6">
-              {socialLinks.map((social, index) => (
+            <div className="mt-6 grid grid-cols-4 gap-2">
+              {socialLinks.map((social) => (
                 <a
-                  key={index}
+                  key={social.name}
                   href={social.link}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className={`flex flex-col items-center space-y-2 rounded-md transition-all duration-500 ease-in-out
-                    ${'opacity-100 blur-none translate-y-0 scale-100' }
-                    hover:scale-105 0`}
+                  className="grid h-9 place-items-center rounded-full border border-[#171514]/10 bg-[#fbfaf6]/55 text-base text-[#625c53] transition hover:border-[#171514]/25 hover:bg-[#fffdf8] hover:text-[#171514]"
+                  aria-label={social.name}
                 >
-                  <social.icon className="border border-gray-700 rounded-md p-1 text-3xl md:text-4xl text-gray-400 dark:text-black" />
+                  <social.icon />
                 </a>
               ))}
             </div>
-          </div>
+          </aside>
 
-          {/* Contact Form */}
-          <div className={`md:w-xl border border-gray-400/30 p-6 md:p-8 transition-all duration-300 ease-in-out rounded-md
-            ${ 'opacity-100 blur-none translate-y-0'}`}
-          >
-            <form onSubmit={handleSubmit} className="space-y-4">
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+          <div>
+            <form onSubmit={handleSubmit} className="space-y-3">
+              <div className="grid grid-cols-1 gap-3 md:grid-cols-2">
                 <input
                   type="text"
                   name="name"
-                  placeholder="Your Name"
+                  placeholder="Your name"
                   value={formData.name}
                   onChange={handleChange}
                   required
-                  className="text-sm w-full p-3 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-blue-500 dark:text-gray-700 "
+                  className="field"
                 />
                 <input
                   type="email"
                   name="email"
-                  placeholder="Your Email"
+                  placeholder="Your email"
                   value={formData.email}
                   onChange={handleChange}
                   required
-                  className="text-sm w-full p-3 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-blue-500 dark:text-gray-700"
+                  className="field"
                 />
               </div>
 
               <textarea
                 name="message"
-                placeholder="Your Message"
+                placeholder="Your message"
                 value={formData.message}
                 onChange={handleChange}
                 required
-                className="text-sm w-full p-3 border border-gray-300 dark:border-gray-600 rounded-lg h-32 focus:ring-2 focus:ring-blue-500 dark:text-gray-700"
+                className="field h-32 resize-none"
               />
 
               <button
                 type="submit"
                 disabled={status === 'sending'}
-                className="w-full p-3 dark:bg-black dark:text-white bg-blue-400 text-black rounded-lg hover:opacity-90 transition-opacity disabled:opacity-50 flex items-center justify-center gap-2 hover:dark:bg-gray-700"
+                className="quiet-button w-full disabled:cursor-not-allowed disabled:opacity-60"
               >
                 {status === 'sending' ? (
                   <>
                     <RiLoader4Line className="animate-spin" />
-                    Sending...
+                    Sending
                   </>
                 ) : (
                   <>
-                    <RiSendPlane2Fill size={20} />
-                    Send Message
+                    <RiSendPlane2Fill size={18} />
+                    Send message
                   </>
                 )}
               </button>
             </form>
 
             {status === 'success' && (
-              <div className="mt-4 p-3 bg-green-100 text-green-800 rounded-lg text-center">
-                Message sent successfully!
+              <div className="mt-4 rounded-md border border-emerald-700/20 bg-emerald-100/55 p-3 text-center text-xs text-emerald-800 dark:text-emerald-800">
+                Message sent successfully.
               </div>
             )}
 
             {status === 'error' && (
-              <div className="mt-4 p-3 bg-red-100 text-red-800 rounded-lg text-center">
-                Failed to send message. Please try again or contact on email.
+              <div className="mt-4 rounded-md border border-red-700/20 bg-red-100/55 p-3 text-center text-xs text-red-700 dark:text-red-700">
+                Failed to send message. Please try again or contact me by email.
               </div>
             )}
           </div>
         </div>
       </div>
-    </div>
+    </section>
   );
 };
 

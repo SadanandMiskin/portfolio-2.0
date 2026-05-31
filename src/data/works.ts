@@ -1,6 +1,6 @@
 import { IconType } from 'react-icons';
 import { DiMongodb } from 'react-icons/di';
-import { FaReact, FaAws, FaNodeJs, FaDocker } from 'react-icons/fa';
+import { FaReact, FaAws, FaNodeJs, FaDocker, FaPython, FaGithub } from 'react-icons/fa';
 import { GiGemini } from 'react-icons/gi';
 import { GrConnect } from 'react-icons/gr';
 import { SiEjs, SiEthereum, SiExpress, SiMinutemailer, SiRedux, SiSolidity } from 'react-icons/si';
@@ -22,6 +22,45 @@ export interface WorkType {
 }
 
 export const works: WorkType[] = [
+  {
+    id: 8,
+    title: "Fault Tolerance System",
+    github: "https://github.com/SadanandMiskin/realtime-monitoring-sys",
+    technologies: [
+      { logo: FaDocker, t: "Docker" },
+      { logo: GrConnect, t: "Nginx" },
+      { logo: FaPython, t: "Flask" },
+      { logo: GrConnect, t: "Caddy" },
+    ],
+    desc: "Designed a high-availability containerized system with Nginx load balancing across multiple Flask services, ensuring resilient request handling under node failures.",
+    features: `
+      - High-availability containerized architecture.
+      - Nginx load balancing across multiple Flask services.
+      - Resilient request handling during service/node failures.
+      - Caddy-based edge routing for clean local service access.
+    `,
+    image: "https://github.com/user-attachments/assets/9634d080-8834-42b7-8d04-a7c66d3720cc",
+  },
+  {
+    id: 9,
+    title: "Agentic GitOps Pipeline",
+    github: "https://github.com/SadanandMiskin/self-healing-gitops-manifests",
+    technologies: [
+      { logo: GrConnect, t: "Argo CD" },
+      { logo: GrConnect, t: "Kubernetes" },
+      { logo: FaPython, t: "Python AI Agent" },
+      { logo: FaGithub, t: "GitHub PR" },
+      { logo: FaDocker, t: "Prometheus" },
+    ],
+    desc: "Production-style local demo of a small GitOps pipeline where Argo CD deploys a broken Kubernetes app, Prometheus detects the failure, and a Python AI agent proposes a manifest-only fix through a GitHub pull request.",
+    features: `
+      - Argo CD deploys Kubernetes manifests from Git.
+      - Prometheus detects failure in a broken app deployment.
+      - Python AI agent proposes a manifest-only remediation.
+      - GitHub pull request workflow keeps the fix reviewable and auditable.
+    `,
+    image: "https://github.com/user-attachments/assets/911487c3-d3f7-4ff8-92fa-e914b7421b7e",
+  },
 
   {
     id: 1,

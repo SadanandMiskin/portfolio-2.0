@@ -21,8 +21,9 @@ const App = () => {
     // <HelmetProvider>
 
     <BrowserRouter>
-    <main className="bg-zinc-950 dark:bg-white max-h-full h-full flex flex-col items-center overflow-y-hidden ">
+    <main className="app-shell flex min-h-screen flex-col items-center">
       <Navbar />
+      <div className="flex w-full flex-1 flex-col items-center pt-16">
         <Routes>
           <Route path="/" element={<Homepage />} />
           <Route path="/projects" element={<Projects />} />
@@ -35,7 +36,8 @@ const App = () => {
           <Route path="/blogs/:filename" element={<BlogDetail />} />
           <Route path="/blogs" element={<BlogList />} />
         </Routes>
-      <Footer />
+        <Footer />
+      </div>
     </main>
     </BrowserRouter>
     // </HelmetProvider>

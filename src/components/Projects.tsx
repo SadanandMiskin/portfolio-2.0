@@ -1,107 +1,79 @@
 import { Link } from 'react-router-dom';
-import { BiArrowToRight, BiGlobe } from 'react-icons/bi';
+import { BiArrowToRight } from 'react-icons/bi';
 import { works } from '../data/works';
 import { useGSAP } from '@gsap/react';
 import gsap from 'gsap';
 
 const Projects = () => {
-
   useGSAP(() => {
-  gsap.from(".a-blog", {
-    y: 5,
-    opacity: 0,
-    stagger: 0.2,
-    duration: 0.7,
-    ease: "power2.inOut"
+    gsap.from(".a-blog", {
+      y: 16,
+      opacity: 0,
+      stagger: 0.055,
+      duration: 0.45,
+      ease: "power3.out",
+    });
   });
-});
-
 
   return (
-    <div
-      className="max-w-3xl mx-auto w-full p-4 md:p-6 opacity-100"
-    >
-      <h1 className="text-4xl font-bold mb-8 bg-gradient-to-b from-gray-300 via-gray-400 to-zinc-600
-  dark:from-gray-600 dark:to-gray-900
-  bg-clip-text text-transparent flex justify-center tracking-tighter">
-        All Projects
-      </h1>
+    <section className="page-shell py-8">
+      <div className="mb-5">
+        <p className="section-kicker">Archive</p>
+        <h1 className="section-title">Work index</h1>
+      </div>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+      <div className="folio-panel divide-y divide-[#171514]/10">
         {works.map((work, index) => (
           <Link
-            key={index}
+            key={work.id}
             to={`/projects/${work.id}`}
-            className="a-blog group flex flex-col overflow-hidden rounded-xl bg-black dark:bg-white
-                     border border-gray-700/50 dark:border-gray-400/50
-
-                     hover:shadow-md hover:shadow-zinc-900/20
-                     transform opacity-100 translate-y-0 scale-100 backdrop-blur-lg"
+            className="a-blog group grid gap-4 py-4 first:pt-0 last:pb-0 sm:grid-cols-[5.75rem_1fr_auto] sm:items-center"
           >
-            {/* Project Image */}
-            <div className="relative h-48 overflow-hidden">
+            <div className="overflow-hidden rounded-[12px] border border-[#171514]/10 bg-[#ebe6dc]">
               <img
                 src={work.image}
                 alt={work.title}
-                className="h-full w-full object-cover transition-transform duration-500
-                         group-hover:scale-105 opacity-100 blur-none"
+                className="aspect-square h-full w-full object-cover transition duration-500 group-hover:scale-105"
               />
             </div>
 
-            {/* Content Section */}
-            <div className="p-4 flex flex-col flex-grow">
-              <h2 className="text-xl font-semibold text-white mb-1 dark:text-black ">
-                {work.title}
-              </h2>
+            <div>
+              <div className="flex items-center gap-2">
+                <span className="font-code text-[10px] font-semibold text-[#a09a90]">
+                  {String(index + 1).padStart(2, '0')}
+                </span>
+                <h2 className="text-[15px] font-extrabold text-[#171514]">{work.title}</h2>
+              </div>
 
-              <p className="dark:text-zinc-500 text-zinc-300/70 text-sm mb-4 flex-grow">
+              <p className="mt-2 text-[12.5px] leading-6 text-[#736d63]">
                 {work.desc}
               </p>
 
-              {/* Technologies */}
-              <div className="flex flex-wrap gap-1 mb-4">
-                {work.technologies.map((tech, index) => (
-                  <div
-                    key={index}
-                    className="flex items-center gap-1 bg-zinc-500/30 dark:bg-zinc-300/20 px-2 py-1 rounded-md
-                             text-sm text-zinc-300 dark:text-black"
-                  >
-                    <span>{tech.t}</span>
-                  </div>
+              <div className="mt-3 flex flex-wrap gap-x-3 gap-y-1">
+                {work.technologies.map((tech) => (
+                  <span key={tech.t} className="font-code text-[10px] font-semibold uppercase text-[#8a8378]">
+                    {tech.t}
+                  </span>
                 ))}
               </div>
-
-              {/* Learn More Button */}
-              <a
-                href={work.liveLink ? work.liveLink : work.github}
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <div className="flex items-center gap-1 text-sm font-medium text-white
-                           bg-zinc-800 py-1 px-2 rounded-lg w-fit
-                           group-hover:bg-zinc-700 transition-colors">
-                  <BiGlobe className="w-5 h-5 transition-transform" />
-                  {work.liveLink ? 'Website' : 'Learn More'}
-                </div>
-              </a>
             </div>
+
+            <BiArrowToRight className="hidden h-5 w-5 text-[#171514] transition group-hover:translate-x-1 sm:block" />
           </Link>
         ))}
       </div>
 
-      <div className="mt-8 text-center">
+      <div className="mt-5 flex justify-center">
         <a
           href="https://github.com/sadanandmiskin"
           target="_blank"
           rel="noopener noreferrer"
-          className="inline-flex items-center gap-2 text-green-600 hover:text-green-500
-                   transition-colors font-medium text-lg hover:underline"
+          className="ghost-button"
         >
-          Many more on Github
-          <BiArrowToRight className="w-5 h-5" />
+          More on GitHub
         </a>
       </div>
-    </div>
+    </section>
   );
 };
 

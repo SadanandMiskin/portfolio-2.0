@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom';
-import { BiArrowToRight, BiGlobe } from 'react-icons/bi';
+import { BiArrowToRight } from 'react-icons/bi';
 import { works } from '../../data/works';
-import { useEffect, useState, useRef } from 'react';
+import { useEffect, useRef, useState } from 'react';
 
 const Works = () => {
   const [isVisible, setIsVisible] = useState(false);
@@ -10,119 +10,76 @@ const Works = () => {
   useEffect(() => {
     const observer = new IntersectionObserver(
       (entries) => {
-        if (entries[0].isIntersecting) {
-          setIsVisible(true);
-        }
+        if (entries[0].isIntersecting) setIsVisible(true);
       },
       { threshold: 0.2 }
     );
 
-    if (containerRef.current) {
-      observer.observe(containerRef.current);
-    }
+    const container = containerRef.current;
+    if (container) observer.observe(container);
 
     return () => {
-      if (containerRef.current) {
-        observer.unobserve(containerRef.current);
-      }
+      if (container) observer.unobserve(container);
     };
   }, []);
 
   return (
-    <div
+    <section
       ref={containerRef}
-      className={`max-w-3xl mx-auto w-full p-4 mt-6 md:p-6 transition-opacity duration-700 ${
-        isVisible ? 'opacity-100' : 'opacity-0'
-      }`}
+      className={`section-block transition duration-700 ${isVisible ? 'opacity-100' : 'opacity-0'}`}
     >
-      <h2 className="text-2xl font-bold text-center bg-gradient-to-b from-gray-300 via-gray-400 to-zinc-600
-  dark:from-gray-600 dark:to-gray-900
-  bg-clip-text text-transparent tracking-tighter mb-8">
-        Featured Projects
-      </h2>
+      <div className="mb-4 flex items-end justify-between gap-4">
+        <div>
+          <p className="section-kicker">Selected work</p>
+          <h2 className="section-title">Recent builds</h2>
+        </div>
+        <Link to="/projects" className="ghost-button shrink-0">
+          All work
+        </Link>
+      </div>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+      <div className="folio-panel divide-y divide-[#171514]/10">
         {works.slice(0, 4).map((work, index) => (
           <Link
             key={work.id}
             to={`/projects/${work.id}`}
-            className={`group flex flex-col overflow-hidden rounded-xl bg-black dark:bg-white
-                     border border-gray-700/50 dark:border-gray-300/50
-                     transition-all duration-500 backdrop-blur-sm
-                     hover:shadow-md hover:shadow-zinc-900/20
-                     transform ${
-                       isVisible
-                         ? 'opacity-100 translate-y-0 scale-100 backdrop-blur-lg'
-                         : 'opacity-0 translate-y-10 scale-95'
-                     }`}
-            style={{ transitionDelay: `${index * 20}ms` }}
+            className={`group grid gap-4 py-4 first:pt-0 last:pb-0 sm:grid-cols-[5.75rem_1fr_auto] sm:items-center ${
+              isVisible ? 'translate-y-0 opacity-100' : 'translate-y-6 opacity-0'
+            }`}
+            style={{ transitionDelay: `${index * 70}ms` }}
           >
-            {/* Project Image */}
-            <div className="relative h-48 overflow-hidden">
+            <div className="overflow-hidden rounded-[12px] border border-[#171514]/10 bg-[#ebe6dc]">
               <img
                 src={work.image}
                 alt={work.title}
-                className={`h-full w-full object-cover transition-transform duration-500
-                         group-hover:scale-105 ${
-                           isVisible ? 'opacity-100 blur-none' : 'opacity-0 blur-lg'
-                         }`}
+                className="aspect-square h-full w-full object-cover transition duration-500 group-hover:scale-105"
               />
             </div>
 
-            {/* Content Section */}
-            <div className="p-4 flex flex-col flex-grow">
-              <h2 className="text-xl font-semibold text-white mb-1 dark:text-black ">
-                {work.title}
-              </h2>
-
-              {/* <p className="dark:text-zinc-500 text-zinc-300/70 text-sm mb-4 flex-grow">
+            <div>
+              <div className="flex items-center gap-2">
+                <span className="font-code text-[10px] font-semibold text-[#a09a90]">
+                  0{index + 1}
+                </span>
+                <h3 className="text-[15px] font-extrabold text-[#171514]">{work.title}</h3>
+              </div>
+              <p className="mt-2 line-clamp-2 text-[12.5px] leading-6 text-[#736d63]">
                 {work.desc}
-              </p> */}
-
-              {/* Technologies */}
-              <div className="flex flex-wrap gap-1 mb-4">
-                {work.technologies.map((tech, index) => (
-                  <div
-                    key={index}
-                     className="flex items-center gap-1 bg-zinc-500/30 dark:bg-zinc-100 px-2 py-1 rounded-md
-                             text-sm text-zinc-300 dark:text-black"
-                  >
-                    <span>{tech.t}</span>
-                  </div>
+              </p>
+              <div className="mt-3 flex flex-wrap gap-1.5">
+                {work.technologies.slice(0, 3).map((tech) => (
+                  <span key={tech.t} className="font-code text-[10px] font-semibold uppercase text-[#8a8378]">
+                    {tech.t}
+                  </span>
                 ))}
               </div>
-
-              {/* Learn More Button */}
-              <a
-                href={work.liveLink ? work.liveLink : work.github}
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <div className="flex items-center gap-1 text-sm font-medium text-white
-                           bg-zinc-800 py-1 px-2 rounded-lg w-fit
-                           group-hover:bg-zinc-700 transition-colors">
-                  <BiGlobe className="w-5 h-5 transition-transform" />
-                  {work.liveLink ? 'Website' : 'Learn More'}
-                </div>
-              </a>
             </div>
+
+            <BiArrowToRight className="hidden h-5 w-5 text-[#171514] transition group-hover:translate-x-1 sm:block" />
           </Link>
         ))}
       </div>
-
-      <div className="mt-8 text-center">
-        <a
-          href="https://github.com/sadanandmiskin"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="inline-flex items-center gap-2 text-green-600 hover:text-green-500
-                   transition-colors font-medium text-lg hover:underline"
-        >
-          Many more on Github
-          <BiArrowToRight className="w-5 h-5" />
-        </a>
-      </div>
-    </div>
+    </section>
   );
 };
 

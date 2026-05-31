@@ -1,13 +1,14 @@
 import { useEffect, useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 
+const routes = ['projects', 'blogs', 'r'];
+
 const NotFoundPage = () => {
   const navigate = useNavigate();
-  const ar = ['projects', 'blogs', 'Contact'];
   const [randomRoutes, setRandomRoutes] = useState('');
 
   useEffect(() => {
-    setRandomRoutes(ar[Math.floor(Math.random() * 3)]);
+    setRandomRoutes(routes[Math.floor(Math.random() * routes.length)]);
   }, []);
 
   const handleNavigate = () => {
@@ -15,19 +16,22 @@ const NotFoundPage = () => {
   };
 
   return (
-    <div className="flex flex-col items-center justify-center h-screen text-center">
-      <h1 className="text-9xl font-bold dark:text-zinc-500 text-white mb-4 font-mono">404</h1>
-      <h2 className="text-3xl font-bold dark:text-zinc-500 text-white mb-8">
-        You mean{' '}
-        <span className="underline text-cyan-600">
-          <button onClick={handleNavigate} className='underline'>{randomRoutes}</button>
-        </span>
-        ?
-      </h2>
-      <Link to="/" className="bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 text-white font-bold py-2 px-4 rounded-md hover:bg-zinc-700 dark:hover:bg-zinc-300 transition duration-300 ease-in-out">
-        Go Back Home
+    <section className="page-shell flex min-h-[calc(100vh-8rem)] flex-col items-center justify-center text-center">
+      <p className="section-kicker">Not found</p>
+      <h1 className="font-display text-7xl font-bold leading-none text-[#171514] sm:text-8xl">
+        404
+      </h1>
+      <p className="mt-4 max-w-md text-sm leading-7 text-[#736d63]">
+        This page is quiet because it does not exist. Maybe you meant{' '}
+        <button onClick={handleNavigate} className="font-bold text-[#171514] underline underline-offset-4">
+          {randomRoutes || 'projects'}
+        </button>
+        .
+      </p>
+      <Link to="/" className="quiet-button mt-7">
+        Go home
       </Link>
-    </div>
+    </section>
   );
 };
 

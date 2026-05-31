@@ -1,142 +1,99 @@
 import { Link, useLocation } from 'react-router-dom';
-import { MdModeNight, MdSunny, MdMenu, MdClose } from 'react-icons/md';
+import { MdClose, MdMenu } from 'react-icons/md';
 import { useEffect, useState } from 'react';
 
+const navLinks = [
+  { path: '/', label: 'Home' },
+  { path: '/projects', label: 'Work' },
+  { path: '/blogs', label: 'Notes' },
+  // { path: '/r', label: 'CV' },
+];
+
 const Navbar = () => {
-  const [isDarkMode, setIsDarkMode] = useState(
-    () => (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches)
-  );
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const location = useLocation();
 
   useEffect(() => {
-    if (!isDarkMode) {
-      document.documentElement.classList.add('dark');
-    } else {
-      document.documentElement.classList.remove('dark');
-    }
-  }, [isDarkMode]);
-
-  function toggleDark() {
-    setIsDarkMode(!isDarkMode);
-  }
-
-  function toggleMenu() {
-    setIsMenuOpen(!isMenuOpen);
-  }
-
-  const navLinks = [
-    { path: '/', label: 'Home' },
-    { path: '/projects', label: 'Projects' },
-    { path: '/blogs', label: 'Blogs'},
-    { path: '/r', label: 'Resume'},
-    
-    // { path: '/contact', label: 'Contact' },
-  ];
+    document.documentElement.classList.add('dark');
+  }, []);
 
   return (
-    <header className="w-full bg-transparent py-1 relative mb-6 text-sm mt-4">
-      <nav className="max-w-3xl mx-auto px-4 font-medium">
-        <div className="flex items-center justify-between">
-          {/* Logo Section */}
-          <div className="flex items-center space-x-2">
-            <Link
-              to="/"
-              className={`text-xl font-bold text-white dark:text-black hover:text-gray-300 transition-colors duration-300 ${
-                location.pathname === '/' ? 'font-extrabold' : ''
-              }`}
-            >
-              <div className='w-6 h-6'>
-                <h3>SM</h3>
-              </div>
-            </Link>
-            <div className="text-white dark:text-black flex justify-center items-center animate-pulse" style={{ fontSize: '9px' }}>
-              <p className="bg-green-500/70 rounded-lg px-2 text-black">Open-to-Work</p>
-            </div>
-          </div>
+    <header className="fixed left-0 right-0 top-0 z-50 w-full px-4 py-3">
+      <nav className="mx-auto flex max-w-[42rem] items-center justify-between rounded-full border border-[#171514]/10 bg-[#f6f4ee]/90 px-2 py-2 shadow-[0_12px_40px_rgba(23,21,20,0.06)] backdrop-blur-xl">
+        <Link to="/" className="flex items-center gap-2.5 pl-1" aria-label="Sadanand Miskin home">
+          <span className="grid h-7 w-7 place-items-center rounded-full bg-[#171514] text-[10px] font-black text-[#fbfaf6]">
+            SM
+          </span>
+          <span className="font-code hidden text-[11px] font-semibold text-[#524c45] sm:block">
+            sadanand.me
+          </span>
+        </Link>
 
-          {/* Desktop Navigation */}
-          <div className="hidden md:flex items-center justify-center flex-1">
-            <ul className="flex space-x-3 text-white">
-              {navLinks.map((link) => (
-                <Link to={link.path} key={link.path}>
-                  <li
-                    className={`px-2 py-1 cursor-pointer dark:text-black hover:text-gray-300 transition-colors duration-300 hover:dark:bg-slate-300/50 hover:rounded-md ${
-                      location.pathname === link.path ? 'dark:bg-slate-300/50 rounded-md bg-slate-600/50' : ''
-                    }`}
-                  >
-                    {link.label}
-                  </li>
+        <ul className="hidden items-center gap-1 md:flex">
+          {navLinks.map((link) => {
+            const isActive = location.pathname === link.path;
+
+            return (
+              <li key={link.path}>
+                <Link
+                  to={link.path}
+                  className={`rounded-full px-3 py-1.5 text-[11px] font-bold transition duration-200 ${
+                    isActive
+                      ? 'bg-[#171514] text-[#fbfaf6]'
+                      : 'text-[#716a60] hover:bg-[#fbfaf6] hover:text-[#171514]'
+                  }`}
+                >
+                  {link.label}
                 </Link>
-              ))}
-            </ul>
-          </div>
+              </li>
+            );
+          })}
+        </ul>
 
-          {/* Action Buttons */}
-          <div className="flex items-center gap-3">
-            {/* <a href='https://cal.com/sadanandmiskin' target='_blank' rel='noopener noreferrer'>
-              <button className="relative ml-2 px-4 py-2 text-white dark:text-black font-semibold rounded-md overflow-hidden group border-2 border-yellow-500 hover:bg-gray-500/50 dark:hover:bg-gray-400/50 transition duration-300">
-                <span className="absolute inset-0 w-full h-full rounded-md animate-spin-slow bg-gradient-to-r from-gray-500 via-black-500 to-zinc-500 opacity-30 blur-sm"></span>
-                <span className="relative z-10">Get on Call</span>
-              </button>
-            </a> */}
-
-            {/* Dark Mode Toggle */}
-            <button
-              onClick={toggleDark}
-              className="hover:text-gray-300 text-white dark:text-black transition-colors duration-300"
-            >
-              {isDarkMode ? (
-                <MdSunny className="h-6 w-6" />
-              ) : (
-                <MdModeNight className="h-6 w-6" />
-              )}
-            </button>
-
-            {/* Mobile Menu Toggle */}
-            <button
-              onClick={toggleMenu}
-              className="p-2 md:hidden text-white dark:text-black hover:text-gray-300 transition-all duration-300 relative z-50"
-            >
-              {isMenuOpen ? <MdClose className="h-6 w-6" /> : <MdMenu className="h-6 w-6" />}
-            </button>
-          </div>
-        </div>
-
-        {/* Mobile Menu */}
-        <div className={`md:hidden fixed inset-0 z-40 transition-all duration-300 ${isMenuOpen ? 'visible' : 'invisible'}`}>
-          {/* Backdrop */}
-          <div
-            className={`absolute inset-0 bg-black/30 transition-opacity duration-300 ${isMenuOpen ? 'opacity-100' : 'opacity-0'}`}
-            onClick={() => setIsMenuOpen(false)}
-          ></div>
-
-          {/* Menu Panel */}
-          <div className={`absolute top-0 right-0 h-full w-72 max-w-[80vw] dark:bg-white/50 bg-zinc-900/50 backdrop-blur-md  shadow-xl transform transition-transform duration-300 ${isMenuOpen ? 'translate-x-0' : 'translate-x-full'}`}>
-
-            {/* Navigation Links */}
-            <div className="pt-20 px-6">
-              <ul className="space-y-4">
-                {navLinks.map((link) => (
-                  <li key={link.path}>
-                    <Link
-                      to={link.path}
-                      onClick={() => setIsMenuOpen(false)}
-                      className={`block text-lg font-medium py-2 transition-colors duration-200 ${
-                        location.pathname === link.path
-                          ? 'text-blue-600 dark:text-blue-400'
-                          : 'text-gray-300 dark:text-gray-700 hover:text-blue-600 dark:hover:text-blue-400'
-                      }`}
-                    >
-                      {link.label}
-                    </Link>
-                  </li>
-                ))}
-              </ul>
-            </div>
-          </div>
+        <div className="flex items-center gap-2 pr-1">
+          <span className="hidden rounded-full border border-[#171514]/10 bg-[#fbfaf6]/65 px-2.5 py-1 text-[10px] font-bold text-[#5c8b63] sm:inline-flex">
+            available
+          </span>
+          <button
+            onClick={() => setIsMenuOpen(!isMenuOpen)}
+            className="grid h-7 w-7 place-items-center rounded-full border border-[#171514]/10 bg-[#fbfaf6]/65 text-[#524c45] transition hover:bg-[#fffdf8] md:hidden"
+            aria-label="Toggle navigation"
+          >
+            {isMenuOpen ? <MdClose className="h-4 w-4" /> : <MdMenu className="h-4 w-4" />}
+          </button>
         </div>
       </nav>
+
+      <div className={`fixed inset-0 z-30 md:hidden ${isMenuOpen ? 'pointer-events-auto' : 'pointer-events-none'}`}>
+        <button
+          className={`absolute inset-0 bg-[#171514]/25 transition-opacity duration-300 ${isMenuOpen ? 'opacity-100' : 'opacity-0'}`}
+          onClick={() => setIsMenuOpen(false)}
+          aria-label="Close navigation"
+        />
+        <aside
+          className={`absolute right-4 top-16 w-[min(16rem,calc(100vw-2rem))] rounded-[18px] border border-[#171514]/10 bg-[#f6f4ee]/96 p-2 shadow-xl backdrop-blur-xl transition duration-300 ${
+            isMenuOpen ? 'translate-y-0 opacity-100' : '-translate-y-3 opacity-0'
+          }`}
+        >
+          <ul className="space-y-1">
+            {navLinks.map((link) => (
+              <li key={link.path}>
+                <Link
+                  to={link.path}
+                  onClick={() => setIsMenuOpen(false)}
+                  className={`block rounded-full px-3 py-2 text-[11px] font-bold transition ${
+                    location.pathname === link.path
+                      ? 'bg-[#171514] text-[#fbfaf6]'
+                      : 'text-[#716a60] hover:bg-[#fbfaf6]'
+                  }`}
+                >
+                  {link.label}
+                </Link>
+              </li>
+            ))}
+          </ul>
+        </aside>
+      </div>
     </header>
   );
 };

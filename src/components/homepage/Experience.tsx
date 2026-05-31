@@ -1,20 +1,32 @@
-import  { useState, useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { useLocation } from 'react-router-dom';
 
 const experiences = [
   {
+    company: "Cisco Systems Pvt. Ltd",
+    role: "Technical Consulting Engineer",
+    duration: "Aug 2025 - Present",
+    mark: "CS",
+    highlights: [
+      "Resolved enterprise ACI incidents by analyzing APIC logs, fault records, and fabric telemetry, reducing customer downtime by 30%.",
+      "Restored and migrated 5+ ACI pods, including 3 full rebuilds, by reconfiguring tenants, bridge domains, and contracts with zero data loss.",
+      "Diagnosed complex L2/L3 connectivity issues across multi-tenant fabrics using TCP/IP, ARP, and MAC learning analysis.",
+      "Automated troubleshooting workflows with Python-assisted scripting to streamline issue triaging and improve engineer efficiency by 20%.",
+    ],
+  },
+  {
     company: "ICICI Prudential AMC",
     role: "Full Stack Developer Intern",
     duration: "Jun - July 2024",
-    description: "Worked on building and maintaining full-stack applications using React, Node.js, and MySQL with cross-functional teams.",
-    logo: "/ICIPR.webp"
+    logo: "/ICIPR.webp",
+    highlights: ["Built full-stack app surfaces with React, Node.js, and MySQL."],
   },
   {
     company: "Compsoft Technologies Pvt Ltd",
     role: "Full Stack Web Developer Intern",
     duration: "Oct - Nov 2022",
-    description: "Developed responsive web applications using JavaScript, React, Node.js, and MongoDB while improving UI/UX design.",
-    logo: "c.webp"
+    logo: "c.webp",
+    highlights: ["Developed responsive web apps across React, Node.js, and MongoDB."],
   },
 ];
 
@@ -24,66 +36,57 @@ const Experience = () => {
 
   useEffect(() => {
     setIsVisible(false);
-    const timer = setTimeout(() => {
-      setIsVisible(true);
-    }, 100);
-
+    const timer = setTimeout(() => setIsVisible(true), 100);
     return () => clearTimeout(timer);
   }, [location]);
 
   return (
-    <section className={`max-w-3xl mx-auto p-4 mt-6 w-full transition-all duration-1000 transform
-      ${isVisible ? 'blur-none opacity-100 translate-y-0' : 'blur-lg opacity-0 translate-y-8'}`}>
-      <h2 className="text-2xl font-bold text-center bg-gradient-to-b from-gray-300 via-gray-400 to-zinc-600
-  dark:from-gray-600 dark:to-gray-900
-  bg-clip-text text-transparent tracking-tighter mb-8">
-        Experience
-      </h2>
-      <div>
+    <section
+      className={`section-block transition duration-700 ${
+        isVisible ? 'translate-y-0 opacity-100 blur-none' : 'translate-y-4 opacity-0 blur-md'
+      }`}
+    >
+      <div className="mb-4">
+        <p className="section-kicker">Experience</p>
+        <h2 className="section-title">Where I worked</h2>
+      </div>
+
+      <div className="folio-panel divide-y divide-[#171514]/10">
         {experiences.map((exp, index) => (
-          <div
-            key={index}
-            className="bg-zinc-800/20 dark:bg-gray-100/30 rounded-lg p-6 hover:shadow-lg transition-all duration-300 backdrop-blur-sm mb-3"
+          <article
+            key={`${exp.company}-${exp.role}`}
+            className="grid gap-3 py-5 first:pt-0 last:pb-0 sm:grid-cols-[auto_1fr_auto] sm:items-start"
             style={{
-              transitionDelay: `${index * 200}ms`,
+              transitionDelay: `${index * 90}ms`,
               opacity: isVisible ? 1 : 0,
-              transform: isVisible
-                ? 'translateY(0) scale(1)'
-                : 'translateY(20px) scale(0.95)'
+              transform: isVisible ? 'translateY(0)' : 'translateY(14px)',
             }}
           >
-            <div className="md:flex  items-start gap-4">
-              {/* Company Logo */}
-              <div className="shrink-0">
-                <img
-                  src={exp.logo}
-                  alt={`${exp.company} logo`}
-                  className="w-16 h-16 rounded-full object-contain bg-white/10"
-                />
-              </div>
-
-              {/* Content */}
-              <div className="flex-1">
-                <div className="flex justify-between items-start mb-2">
-                  <div>
-                    <h3 className="text-md font-bold text-white dark:text-black mb-1">
-                      {exp.role}
-                    </h3>
-                    <p className="text-green-500 dark:text-purple-700 text-sm">
-                      {exp.company}
-                    </p>
-                  </div>
-                  <span className="text-sm text-gray-400 dark:text-gray-600 whitespace-nowrap">
-                    {exp.duration}
-                  </span>
-                </div>
-
-                <p className="text-gray-400 dark:text-gray-700 mt-2 text-sm">
-                  {exp.description}
-                </p>
-              </div>
+            <div className="grid h-10 w-10 place-items-center overflow-hidden rounded-full border border-[#171514]/10 bg-[#fbfaf6]">
+              {exp.logo ? (
+                <img src={exp.logo} alt={`${exp.company} logo`} className="h-7 w-7 object-contain" />
+              ) : (
+                <span className="font-code text-[10px] font-black text-[#415477]">{exp.mark}</span>
+              )}
             </div>
-          </div>
+
+            <div>
+              <h3 className="text-[13px] font-bold text-[#171514]">{exp.role}</h3>
+              <p className="mt-1 text-[12px] font-semibold text-[#70695f]">{exp.company}</p>
+              <ul className="mt-3 space-y-2">
+                {exp.highlights.map((highlight) => (
+                  <li key={highlight} className="grid grid-cols-[auto_1fr] gap-2 text-[12px] leading-6 text-[#7f786e]">
+                    <span className="mt-[0.55rem] h-1 w-1 rounded-full bg-[#171514]/45" />
+                    <span>{highlight}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+
+            <span className="font-code text-[10px] font-semibold uppercase text-[#9a9389] sm:text-right">
+              {exp.duration}
+            </span>
+          </article>
         ))}
       </div>
     </section>
