@@ -29,9 +29,11 @@ const NameCard = () => {
       .from(
         '.hero-photo',
         {
-          scale: 0.95,
+          y: 14,
           opacity: 0,
-          duration: 0.55,
+          filter: 'blur(6px)',
+          duration: 0.5,
+          stagger: 0.05,
         },
         '-=0.42'
       );

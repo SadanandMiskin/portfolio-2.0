@@ -7,7 +7,7 @@ import Projects from "./components/Projects";
 // import Blogs from "./components/About";
 // import Contact from "./components/Contact";
 import NotFoundPage from "./components/NotFoundPage";
-// import About from "./components/About";
+import About from "./components/About";
 import Resume from "./components/Resume";
 import { BlogDetail } from "./components/blogs/BlogDetail";
 import { BlogList } from "./components/blogs/BlogList";
@@ -27,7 +27,7 @@ const App = () => {
         <Routes>
           <Route path="/" element={<Homepage />} />
           <Route path="/projects" element={<Projects />} />
-          {/* <Route path="/about" element={<About />} /> */}
+          <Route path="/about" element={<About />} />
           {/* <Route path="/contact" element={<Contact />} /> */}
           <Route path="/projects/:id" element={<ProjectDetail />} />
           <Route path="*" element={<NotFoundPage />} />

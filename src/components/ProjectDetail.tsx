@@ -24,12 +24,12 @@ const ProjectDetail = () => {
       </Link>
 
       <div className="overflow-hidden rounded-[18px] border border-[#171514]/10 bg-[#fbfaf6]/70 p-1.5">
-        <img
-          src={project.image}
-          alt={project.title}
-          className="aspect-[16/9] w-full rounded-[14px] object-cover"
-        />
-      </div>
+  <img
+    src={project.image}
+    alt={project.title}
+    className="w-full rounded-[14px] object-contain max-h-[500px]"
+  />
+</div>
 
       <div className="mt-7 grid gap-6 md:grid-cols-[1fr_0.42fr]">
         <div>

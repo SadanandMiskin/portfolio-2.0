@@ -58,7 +58,7 @@ const Contact = () => {
     setStatus('sending');
 
     try {
-      const response = await axios.post('https://mail.0sm.bar/messageme', formData, {
+      const response = await axios.post('https://mail.sadanand.me/messageme', formData, {
         headers: { Authorization: 'Bearer sadanandbhai' },
       });
 

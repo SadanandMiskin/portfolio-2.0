@@ -3,6 +3,7 @@ import { BiArrowToRight } from 'react-icons/bi';
 import { works } from '../data/works';
 import { useGSAP } from '@gsap/react';
 import gsap from 'gsap';
+import { useEffect } from 'react';
 
 const Projects = () => {
   useGSAP(() => {
@@ -15,6 +16,9 @@ const Projects = () => {
     });
   });
 
+  useEffect(()=>{
+     window.scrollTo({ top: 0, behavior: 'smooth' });
+  },[])
   return (
     <section className="page-shell py-8">
       <div className="mb-5">
