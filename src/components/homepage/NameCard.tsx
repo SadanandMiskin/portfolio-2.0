@@ -1,7 +1,7 @@
 import { FaGithub } from 'react-icons/fa';
-import { FaFileArrowDown, FaLinkedin } from 'react-icons/fa6';
+import {  FaLinkedin } from 'react-icons/fa6';
 import { MdEmail } from 'react-icons/md';
-import { driveLink } from '../../data/resume';
+// import { driveLink } from '../../data/resume';
 import gsap from 'gsap';
 import { useGSAP } from '@gsap/react';
 
