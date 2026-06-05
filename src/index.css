@@ -130,4 +130,38 @@ button {
   .tracking-widest {
     letter-spacing: 0 !important;
   }
+
+  .solution-packet-y {
+    animation: solution-packet-flow-y 2.8s ease-in-out infinite;
+  }
+}
+
+@keyframes solution-packet-flow-y {
+  0%,
+  12% {
+    top: 0;
+    transform: translateX(-50%) translateY(0);
+    opacity: 0.55;
+  }
+
+  28% {
+    transform: translateX(-72%) translateY(0);
+  }
+
+  45%,
+  55% {
+    transform: translateX(-50%) translateY(0);
+    opacity: 1;
+  }
+
+  72% {
+    transform: translateX(-28%) translateY(0);
+  }
+
+  88%,
+  100% {
+    top: calc(100% - 1.45rem);
+    transform: translateX(-50%) translateY(0);
+    opacity: 0.55;
+  }
 }
