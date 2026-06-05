@@ -1,0 +1,30 @@
+// react-syntax-highlighter.d.ts
+declare module 'react-syntax-highlighter';
+declare module 'react-syntax-highlighter/dist/cjs/styles/prism';
+declare module 'react-syntax-highlighter/dist/esm/styles/prism';
+declare module 'react-syntax-highlighter/dist/cjs/styles/prism/index.js';
+declare module 'react-syntax-highlighter';
+declare module 'react-syntax-highlighter/dist/esm/styles/prism/a11y-dark';
+declare module 'react-syntax-highlighter/dist/esm/styles/prism/atom-dark';
+declare module 'react-syntax-highlighter/dist/esm/styles/prism/base16-ateliersulphurpool.light'; // not dark but listed here if needed
+declare module 'react-syntax-highlighter/dist/esm/styles/prism/cb';
+declare module 'react-syntax-highlighter/dist/esm/styles/prism/coldark-dark';
+declare module 'react-syntax-highlighter/dist/esm/styles/prism/darcula';
+declare module 'react-syntax-highlighter/dist/esm/styles/prism/dracula';
+declare module 'react-syntax-highlighter/dist/esm/styles/prism/duotone-dark';
+declare module 'react-syntax-highlighter/dist/esm/styles/prism/gruvbox-dark';
+declare module 'react-syntax-highlighter/dist/esm/styles/prism/holi-theme';
+declare module 'react-syntax-highlighter/dist/esm/styles/prism/lucario';
+declare module 'react-syntax-highlighter/dist/esm/styles/prism/material-dark';
+declare module 'react-syntax-highlighter/dist/esm/styles/prism/material-oceanic';
+declare module 'react-syntax-highlighter/dist/esm/styles/prism/night-owl';
+declare module 'react-syntax-highlighter/dist/esm/styles/prism/nord';
+declare module 'react-syntax-highlighter/dist/esm/styles/prism/one-dark';
+declare module 'react-syntax-highlighter/dist/esm/styles/prism/pojoaque';
+declare module 'react-syntax-highlighter/dist/esm/styles/prism/shades-of-purple';
+declare module 'react-syntax-highlighter/dist/esm/styles/prism/solarized-dark-atom';
+declare module 'react-syntax-highlighter/dist/esm/styles/prism/synthwave84';
+declare module 'react-syntax-highlighter/dist/esm/styles/prism/twilight';
+declare module 'react-syntax-highlighter/dist/esm/styles/prism/vs-dark-plus';
+declare module 'react-syntax-highlighter/dist/esm/styles/prism/xonokai';
+declare module 'react-syntax-highlighter/dist/esm/styles/prism/z-touch';

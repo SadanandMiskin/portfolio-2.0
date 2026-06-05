@@ -1,137 +1,83 @@
-// import  { ReactElement } from 'react';
 import { Link } from 'react-router-dom';
-
-import { works } from '../data/works';
 import { BiArrowToRight } from 'react-icons/bi';
-// import { works } from '../../data/works';
-// interface tech {
-//   logo: ReactElement,
-//   t: string
-// }
-
-// interface workType {
-//   id: number,
-//   title: string,
-//   github: string,
-//   liveLink: string,
-//   image: string,
-//   desc: string,
-//   technologies: tech[]
-// }
-
-//  const works: workType[] = [
-//   {
-//     id:1,
-//     title: "ProfilesMe",
-//     github: "https://github.com/SadanandMiskin/profilesme",
-//     liveLink: "https://profilesme.site",
-//     technologies: [
-//       {
-//       logo: <FaReact/> ,
-//       t: 'React'
-//       },
-//       {
-//         logo: <SiExpress />,
-//         t: 'Express'
-//       },
-//       {
-//         logo: <FaAws />,
-//         t: 'EC2'
-//       },
-//       {
-//         logo: <DiMongodb />,
-//         t: 'MongoDB'
-//       }
-
-//     ],
-//     desc: 'A profile builder platform',
-//     image: "public/projects/profilesme.png",
-//   },
-//   {
-//     id:2,
-//     title: "NotFlix",
-//     github: "https://github.com/SadanandMiskin/notflix",
-//     liveLink: "https://notflixpage.vercel.app/",
-//     technologies: [
-//       {
-//         logo: <FaReact />,
-//         t: 'React'
-//       },
-//       {
-//         logo: <SiRedux />,
-//         t: 'Redux Toolkit'
-//       },
-//       {
-//         logo: <SiExpress />,
-//         t: 'Express'
-//       }
-//     ],
-//     desc: 'A Netflix clone with JWT authentication, advanced search, and YouTube trailer streaming',
-//     image: "public/projects/notflix.png",
-//   }
-//   // Add more work objects here
-// ];
+import { works } from '../data/works';
+import { useGSAP } from '@gsap/react';
+import gsap from 'gsap';
+import { useEffect } from 'react';
 
 const Projects = () => {
-  return (
-    <div className="max-w-3xl w-full flex flex-col p-3">
-      
-      <div className="flex flex-col gap-8 max-w-3xl mx-auto w-full">
-        <h1 className="text-4xl font-bold text-center mb-1 text-white dark:text-black">
-          Project Works
-        </h1>
+  useGSAP(() => {
+    gsap.from(".a-blog", {
+      y: 16,
+      opacity: 0,
+      stagger: 0.055,
+      duration: 0.45,
+      ease: "power3.out",
+    });
+  });
 
-        {works.map((work) => (
+  useEffect(()=>{
+     window.scrollTo({ top: 0, behavior: 'smooth' });
+  },[])
+  return (
+    <section className="page-shell py-8">
+      <div className="mb-5">
+        <p className="section-kicker">Archive</p>
+        <h1 className="section-title">Work index</h1>
+      </div>
+
+      <div className="folio-panel divide-y divide-[#171514]/10">
+        {works.map((work, index) => (
           <Link
             key={work.id}
             to={`/projects/${work.id}`}
-            className="group relative flex flex-col justify-between overflow-hidden rounded-xl bg-zinc-900
-                       border border-gray-500/50 dark:border-[rgba(255,255,255,.1)] shadow-sm
-                       min-h-[300px] sm:min-h-[400px] md:min-h-[500px]"
-            style={{ margin: "unset" }}
+            className="a-blog group grid gap-4 py-4 first:pt-0 last:pb-0 sm:grid-cols-[5.75rem_1fr_auto] sm:items-center"
           >
-            {/* Background Image */}
-            <div>
+            <div className="overflow-hidden rounded-[12px] border border-[#171514]/10 bg-[#ebe6dc]">
               <img
                 src={work.image}
-                alt={`${work.title} background`}
-                className="absolute left-0 top-0 h-full w-full border-none transition-all duration-300 ease-out opacity-70
-                           [mask-image:linear-gradient(to_top,transparent_20%,#000_100%)] group-hover:scale-105 object-cover"
+                alt={work.title}
+                className="aspect-square h-full w-full object-cover transition duration-500 group-hover:scale-105"
               />
             </div>
 
-            {/* Content Section */}
-            <div className="relative z-10 p-4 text-white flex flex-col justify-between h-full transition-all duration-300 group-hover:translate-y-[-50px]">
-              <h2 className="md:text-4xl text-2xl font-semibold">{work.title}</h2>
-              <div className="flex gap-2 sm:gap-2 mt-2 ">
-                {work.technologies.map((tech, techIndex) => (
-                  <div
-                    key={techIndex}
-                    className="md:text-2xl text-sm flex flex-wrap justify-center items-center gap-1 md:gap-1 bg-white/10 py-1 px-2 rounded-md mb-3 border border-solid border-gray-700"
-                  >
-                     <tech.logo />
-                    <span>{tech.t}</span>
-                  </div>
+            <div>
+              <div className="flex items-center gap-2">
+                <span className="font-code text-[10px] font-semibold text-[#a09a90]">
+                  {String(index + 1).padStart(2, '0')}
+                </span>
+                <h2 className="text-[15px] font-extrabold text-[#171514]">{work.title}</h2>
+              </div>
+
+              <p className="mt-2 text-[12.5px] leading-6 text-[#736d63]">
+                {work.desc}
+              </p>
+
+              <div className="mt-3 flex flex-wrap gap-x-3 gap-y-1">
+                {work.technologies.map((tech) => (
+                  <span key={tech.t} className="font-code text-[10px] font-semibold uppercase text-[#8a8378]">
+                    {tech.t}
+                  </span>
                 ))}
               </div>
-              <p>{work.desc}</p>
-
-
             </div>
-            <Link
-            to={`/projects/${work.id}`}
-            // target="_blank"
-            // rel="noopener noreferrer"
-            className="mb-0 absolute flex items-center gap-2 bottom-0 left-4 bg-white text-center  text-black py-1 px-2 rounded-lg
-                       transition-transform transform translate-y-full group-hover:translate-y-[-10px] duration-300"
-          >
-            Learn More <BiArrowToRight className='w-6 h-6'/>
-          </Link>
+
+            <BiArrowToRight className="hidden h-5 w-5 text-[#171514] transition group-hover:translate-x-1 sm:block" />
           </Link>
         ))}
       </div>
-      <p className='mt-3 text-lg flex justify-center underline text-green-600'>Many more on Github {`->`}</p>
-    </div>
+
+      <div className="mt-5 flex justify-center">
+        <a
+          href="https://github.com/sadanandmiskin"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="ghost-button"
+        >
+          More on GitHub
+        </a>
+      </div>
+    </section>
   );
 };
 
