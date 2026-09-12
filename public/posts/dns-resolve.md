@@ -1,3 +1,5 @@
+![Image](dns.png)
+
 
 I ran into a strange networking issue on my Ubuntu PC:
 
