@@ -22,6 +22,12 @@
     "date": "Jun 15, 2024",
     "image": "blogs/promise.png",
     "file": "promise-vs-async"
-  }
+  },
+{
+  "title": "When Some Websites Worked and Others Didn't --- A DNS + Routing Debugging Story",
+    "date": "Sep 12, 2026",
+    "image": "blogs/promise.png",
+    "file": "dns-resolve"
+}
 
 ]
