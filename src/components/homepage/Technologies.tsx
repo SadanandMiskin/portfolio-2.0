@@ -1,42 +1,51 @@
-
-import { FaReact, FaNodeJs, FaDatabase, FaGitAlt, FaJava } from "react-icons/fa";
-import { FaDocker } from "react-icons/fa6";
-import { SiJavascript, SiTypescript, SiTailwindcss, SiMongodb, SiExpress, SiVite } from "react-icons/si";
+const skillGroups = [
+  {
+    title: 'Frontend',
+    skills: ['React', 'TypeScript', 'JavaScript', 'TailwindCSS'],
+  },
+  {
+    title: 'Backend',
+    skills: ['Node.js', 'Express', 'Python'],
+  },
+  {
+    title: 'Data',
+    skills: ['MongoDB', 'MySQL'],
+  },
+  {
+    title: 'Infra',
+    skills: ['Docker', 'Linux', 'AWS EC2', 'S3', 'Lambda', 'Caddy', 'Nginx', 'Git', 'CI/CD'],
+  },
+  {
+    title: 'Networking',
+    skills: ['CCNA', 'TCP/IP', 'DNS', 'HTTP/HTTPS', 'Subnetting', 'Routing & Switching'],
+  },
+];
 
 const Work = () => {
-  const technologies = [
-    { icon: <FaReact />, name: "React" },
-    { icon: <SiJavascript />, name: "JavaScript" },
-    { icon: <SiTypescript />, name: "TypeScript" },
-    { icon: <SiMongodb />, name: "MongoDB" },
-    { icon: <SiExpress />, name: "Express" },
-    {icon: <FaJava/> , name:  'Java'},
-    { icon: <FaNodeJs />, name: "Node.js" },
-    { icon: <FaDatabase />, name: "MySQL" },
-    {icon: <FaDocker/> , name: "Docker"},
-    { icon: <SiTailwindcss />, name: "TailwindCSS" },
-    { icon: <SiVite />, name: "Vite" },
-    { icon: <FaGitAlt />, name: "Git" },
-    // { icon: <SiVercel />, name: "Vercel" },
-  ];
-
   return (
-    <div className="py-8 px-4 max-w-4xl w-full">
-      <h2 className="text-3xl md:text-3xl font-bold text-center mb-6 text-white dark:text-black">
-        I work with...
-      </h2>
-      <div className="flex flex-wrap gap-3 justify-center">
-        {technologies.map((tech, index) => (
-          <div
-            key={index}
-            className="flex flex-row items-center gap-2 px-4 py-2 bg-gray-300 dark:bg-gray-950/80 border border-gray-300 dark:border-white rounded-md hover:bg-slate-500 dark:hover:bg-slate-700 transition-colors duration-200"
-          >
-            <span className="text-black dark:text-white text-xl">{tech.icon}</span>
-            <span className="text-sm font-medium text-gray-700 dark:text-white">{tech.name}</span>
+    <section className="section-block">
+      <div className="mb-4">
+        <p className="section-kicker">Skills</p>
+        <h2 className="section-title">Things I work with</h2>
+      </div>
+
+      <div className="folio-panel divide-y divide-[#171514]/10">
+        {skillGroups.map((group) => (
+          <div key={group.title} className="grid gap-3 py-4 first:pt-0 last:pb-0 sm:grid-cols-[7.5rem_1fr]">
+            <h3 className="font-code text-[10px] font-bold uppercase text-[#827b70]">
+              {group.title}
+            </h3>
+            <div className="flex flex-wrap gap-2">
+              {group.skills.map((skill) => (
+                <span key={`${group.title}-${skill}`} className="chip">
+                  {skill}
+                </span>
+              ))}
+            </div>
           </div>
         ))}
       </div>
-    </div>
+    </section>
   );
 };
 
