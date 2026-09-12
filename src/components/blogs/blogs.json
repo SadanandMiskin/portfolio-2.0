@@ -26,7 +26,7 @@
 {
   "title": "When Some Websites Worked and Others Didn't --- A DNS + Routing Debugging Story",
     "date": "Sep 12, 2026",
-    "image": "blogs/promise.png",
+    "image": "blogs/dns.png",
     "file": "dns-resolve"
 }
 
