@@ -1,4 +1,3 @@
-# When Some Websites Worked and Others Didn't --- A DNS + Routing Debugging Story
 
 I ran into a strange networking issue on my Ubuntu PC:
 
