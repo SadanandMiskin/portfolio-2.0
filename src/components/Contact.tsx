@@ -26,12 +26,10 @@ const Contact = () => {
       {
         opacity: 0,
         y: 40,
-        filter: 'blur(8px)',
       },
       {
         opacity: 1,
         y: 0,
-        filter: 'blur(0px)',
         duration: 0.7,
         ease: 'power3.out',
       }
@@ -84,13 +82,13 @@ const Contact = () => {
 
         <div className="folio-panel grid gap-4 md:grid-cols-[0.75fr_1.25fr]">
           <aside>
-            <p className="text-xs leading-6 text-[#736d63]">
+            <p className="text-xs leading-6 text-[#9ba69f]">
               Have an opportunity, collaboration, or project idea? Send a note and I will get back with a focused reply.
             </p>
 
             <a
               href="mailto:miskinsadanand@gmail.com"
-              className="mt-4 inline-flex text-xs font-bold text-[#171514] underline decoration-[#171514]/20 underline-offset-4 hover:decoration-[#171514]"
+              className="mt-4 inline-flex text-xs font-bold text-[#edf1ef] underline decoration-[#edf1ef]/20 underline-offset-4 hover:decoration-[#edf1ef]"
             >
               miskinsadanand@gmail.com
             </a>
@@ -102,7 +100,7 @@ const Contact = () => {
                   href={social.link}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="grid h-9 place-items-center rounded-full border border-[#171514]/10 bg-[#fbfaf6]/55 text-base text-[#625c53] transition hover:border-[#171514]/25 hover:bg-[#fffdf8] hover:text-[#171514]"
+                  className="grid h-9 place-items-center rounded-full border border-[#edf1ef]/10 bg-[#111716]/55 text-base text-[#a8b2ad] transition hover:border-[#edf1ef]/25 hover:bg-[#fffdf8] hover:text-[#edf1ef]"
                   aria-label={social.name}
                 >
                   <social.icon />

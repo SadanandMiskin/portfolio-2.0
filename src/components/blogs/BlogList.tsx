@@ -22,22 +22,22 @@ export const BlogList = () => {
         <h2 className="section-title">Writing</h2>
       </div>
 
-      <div className="folio-panel divide-y divide-[#171514]/10">
+      <div className="folio-panel divide-y divide-[#edf1ef]/10">
         {blogs.map((blog, index) => (
           <Link
             key={blog.file}
             to={`/blogs/${blog.file}`}
             className="a-blog group grid gap-3 py-4 first:pt-0 last:pb-0 sm:grid-cols-[auto_1fr_auto] sm:items-center"
           >
-            <span className="font-code text-[10px] font-semibold text-[#a09a90]">
+            <span className="font-code text-[10px] font-semibold text-[#68746d]">
               {String(index + 1).padStart(2, '0')}
             </span>
 
-            <h3 className="text-[13px] font-bold leading-6 text-[#171514] transition group-hover:translate-x-0.5">
+            <h3 className="text-[13px] font-bold leading-6 text-[#edf1ef] transition group-hover:translate-x-0.5">
               {blog.title}
             </h3>
 
-            <p className="flex items-center gap-1.5 text-[11px] font-semibold text-[#827b70]">
+            <p className="flex items-center gap-1.5 text-[11px] font-semibold text-[#7f8b84]">
               <SlCalender className="h-3 w-3" />
               {blog.date}
             </p>

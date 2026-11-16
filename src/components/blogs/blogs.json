@@ -1,5 +1,16 @@
 [
   {
+    "title": "Cisco Meraki MX: One-Armed VPN Concentrator Mode vs. Routed (NAT) Mode – Which Architecture Should You Choose?",
+    "date": "Nov 16, 2026",
+    "file": "meraki-mx-modes"
+  },
+ {
+    "title": "When Some Websites Worked and Others Didn't --- A DNS + Routing Debugging Story",
+    "date": "Sept 12, 2026",
+    "image": "blogs/dns.png",
+    "file": "dns-resolve"
+},
+  {
     "title": "Practical Git: Commands Every Developer Should Know",
     "date": "Jul 21, 2025",
     "image": "blogs/blog4/1.png",
@@ -22,12 +33,6 @@
     "date": "Jun 15, 2024",
     "image": "blogs/promise.png",
     "file": "promise-vs-async"
-  },
-{
-  "title": "When Some Websites Worked and Others Didn't --- A DNS + Routing Debugging Story",
-    "date": "Sept 12, 2026",
-    "image": "blogs/dns.png",
-    "file": "dns-resolve"
-}
+  }
 
 ]

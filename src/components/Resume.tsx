@@ -26,7 +26,7 @@ const Resume: React.FC<ResumeProps> = ({ driveLink }) => {
       <div className="mb-6 flex flex-col justify-between gap-4 sm:flex-row sm:items-end">
         <div>
           <p className="section-kicker text-left">Resume</p>
-          <h1 className="font-display text-3xl font-bold leading-tight text-[#171514] sm:text-4xl">
+          <h1 className="font-display text-3xl font-bold leading-tight text-[#edf1ef] sm:text-4xl">
             Sadanand&apos;s Resume
           </h1>
         </div>
@@ -43,7 +43,7 @@ const Resume: React.FC<ResumeProps> = ({ driveLink }) => {
       </div>
 
       <div
-        className={`min-h-[70vh] flex-1 overflow-hidden rounded-[18px] border border-[#171514]/10 bg-[#fbfaf6] ${
+        className={`min-h-[70vh] flex-1 overflow-hidden rounded-[18px] border border-[#edf1ef]/10 bg-[#111716] ${
           isReadyToShow ? "block" : "hidden"
         }`}
       >
@@ -57,8 +57,8 @@ const Resume: React.FC<ResumeProps> = ({ driveLink }) => {
 
       {!isReadyToShow && (
         <div className="surface-card flex min-h-[70vh] flex-1 items-center justify-center gap-3">
-          <CgSpinner className="h-6 w-6 animate-spin text-[#171514]" />
-          <h2 className="text-sm font-semibold text-[#625c53]">Loading resume</h2>
+          <CgSpinner className="h-6 w-6 animate-spin text-[#edf1ef]" />
+          <h2 className="text-sm font-semibold text-[#a8b2ad]">Loading resume</h2>
         </div>
       )}
     </section>

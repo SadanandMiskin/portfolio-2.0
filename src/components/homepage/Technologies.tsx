@@ -1,23 +1,15 @@
 const skillGroups = [
   {
-    title: 'Frontend',
-    skills: ['React', 'TypeScript', 'JavaScript', 'TailwindCSS'],
-  },
-  {
-    title: 'Backend',
-    skills: ['Node.js', 'Express', 'Python'],
-  },
-  {
-    title: 'Data',
-    skills: ['MongoDB', 'MySQL'],
-  },
-  {
-    title: 'Infra',
-    skills: ['Docker', 'Linux', 'AWS EC2', 'S3', 'Lambda', 'Caddy', 'Nginx', 'Git', 'CI/CD'],
-  },
-  {
     title: 'Networking',
-    skills: ['CCNA', 'TCP/IP', 'DNS', 'HTTP/HTTPS', 'Subnetting', 'Routing & Switching'],
+    skills: ['TCP/IP', 'DNS', 'DHCP', 'Subnetting', 'VLANs', 'Routing & Switching', 'Wireless'],
+  },
+  {
+    title: 'Meraki',
+    skills: ['Meraki Dashboard', 'Wireless troubleshooting', 'Switching', 'Security appliances'],
+  },
+  {
+    title: 'Foundations',
+    skills: ['Linux', 'Python', 'CCNA'],
   },
 ];
 
@@ -29,16 +21,16 @@ const Work = () => {
         <h2 className="section-title">Things I work with</h2>
       </div>
 
-      <div className="folio-panel divide-y divide-[#171514]/10">
+      <div className="divide-y divide-white/10 border-y border-white/10">
         {skillGroups.map((group) => (
           <div key={group.title} className="grid gap-3 py-4 first:pt-0 last:pb-0 sm:grid-cols-[7.5rem_1fr]">
-            <h3 className="font-code text-[10px] font-bold uppercase text-[#827b70]">
+            <h3 className="font-code text-[10px] font-bold uppercase text-[#7f8b84]">
               {group.title}
             </h3>
-            <div className="flex flex-wrap gap-2">
-              {group.skills.map((skill) => (
-                <span key={`${group.title}-${skill}`} className="chip">
-                  {skill}
+            <div className="flex flex-wrap gap-x-2.5 gap-y-1.5 text-[12px] text-stone-300">
+              {group.skills.map((skill, index) => (
+                <span key={`${group.title}-${skill}`} className="inline-flex items-center gap-2.5">
+                  {skill}{index < group.skills.length - 1 && <span className="text-stone-600" aria-hidden="true">·</span>}
                 </span>
               ))}
             </div>

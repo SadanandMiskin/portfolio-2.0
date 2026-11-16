@@ -38,7 +38,7 @@ const Works = () => {
         </Link>
       </div>
 
-      <div className="folio-panel divide-y divide-[#171514]/10">
+      <div className="divide-y divide-white/10 border-y border-white/10">
         {works.slice(0, 4).map((work, index) => (
           <Link
             key={work.id}
@@ -48,7 +48,7 @@ const Works = () => {
             }`}
             style={{ transitionDelay: `${index * 70}ms` }}
           >
-            <div className="overflow-hidden rounded-[12px] border border-[#171514]/10 bg-[#ebe6dc]">
+            <div className="overflow-hidden rounded-[12px] border border-[#edf1ef]/10 bg-[#151c1a]">
               <img
                 src={work.image}
                 alt={work.title}
@@ -58,24 +58,24 @@ const Works = () => {
 
             <div>
               <div className="flex items-center gap-2">
-                <span className="font-code text-[10px] font-semibold text-[#a09a90]">
+                <span className="font-code text-[10px] font-semibold text-[#68746d]">
                   0{index + 1}
                 </span>
-                <h3 className="text-[15px] font-extrabold text-[#171514]">{work.title}</h3>
+                <h3 className="text-[15px] font-extrabold text-[#edf1ef]">{work.title}</h3>
               </div>
-              <p className="mt-2 line-clamp-2 text-[12.5px] leading-6 text-[#736d63]">
+              <p className="mt-2 line-clamp-2 text-[12.5px] leading-6 text-[#9ba69f]">
                 {work.desc}
               </p>
               <div className="mt-3 flex flex-wrap gap-1.5">
                 {work.technologies.slice(0, 3).map((tech) => (
-                  <span key={tech.t} className="font-code text-[10px] font-semibold uppercase text-[#8a8378]">
+                  <span key={tech.t} className="font-code text-[10px] font-semibold uppercase text-[#7f8b84]">
                     {tech.t}
                   </span>
                 ))}
               </div>
             </div>
 
-            <BiArrowToRight className="hidden h-5 w-5 text-[#171514] transition group-hover:translate-x-1 sm:block" />
+            <BiArrowToRight className="hidden h-5 w-5 text-[#edf1ef] transition group-hover:translate-x-1 sm:block" />
           </Link>
         ))}
       </div>

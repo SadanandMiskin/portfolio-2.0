@@ -13,7 +13,7 @@ const ProjectDetail = () => {
   }, [id]);
 
   if (!project) {
-    return <p className="page-shell py-16 text-center text-sm text-[#736d63]">Project not found.</p>;
+    return <p className="page-shell py-16 text-center text-sm text-[#9ba69f]">Project not found.</p>;
   }
 
   return (
@@ -23,7 +23,7 @@ const ProjectDetail = () => {
         Back to projects
       </Link>
 
-      <div className="overflow-hidden rounded-[18px] border border-[#171514]/10 bg-[#fbfaf6]/70 p-1.5">
+      <div className="overflow-hidden rounded-[18px] border border-[#edf1ef]/10 bg-[#111716]/70 p-1.5">
   <img
     src={project.image}
     alt={project.title}
@@ -34,16 +34,16 @@ const ProjectDetail = () => {
       <div className="mt-7 grid gap-6 md:grid-cols-[1fr_0.42fr]">
         <div>
           <p className="section-kicker text-left">Project</p>
-          <h1 className="font-display text-3xl font-bold leading-tight text-[#171514] sm:text-4xl">
+          <h1 className="font-display text-3xl font-bold leading-tight text-[#edf1ef] sm:text-4xl">
             {project.title}
           </h1>
-          <p className="mt-4 text-[13px] leading-7 text-[#736d63]">
+          <p className="mt-4 text-[13px] leading-7 text-[#9ba69f]">
             {project.desc}
           </p>
         </div>
 
         <aside className="surface-card h-fit p-4">
-          <h2 className="font-code text-[10px] font-semibold uppercase text-[#827b70]">
+          <h2 className="font-code text-[10px] font-semibold uppercase text-[#7f8b84]">
             Stack
           </h2>
           <div className="mt-3 flex flex-wrap gap-1.5">
@@ -80,15 +80,15 @@ const ProjectDetail = () => {
         </aside>
       </div>
 
-      <section className="mt-10 border-t border-[#171514]/10 pt-7">
+      <section className="mt-10 border-t border-[#edf1ef]/10 pt-7">
         <h2 className="section-title">Features</h2>
-        <ul className="mt-4 grid gap-2 text-[#736d63]">
+        <ul className="mt-4 grid gap-2 text-[#9ba69f]">
           {project.features
             .split('\n')
             .map((feature) => feature.trim())
             .filter(Boolean)
             .map((feature) => (
-              <li key={feature} className="rounded-[10px] border border-[#171514]/10 bg-[#fbfaf6]/60 px-3 py-2.5 text-xs leading-6">
+              <li key={feature} className="rounded-[10px] border border-[#edf1ef]/10 bg-[#111716]/60 px-3 py-2.5 text-xs leading-6">
                 {feature.replace(/^- /, '')}
               </li>
             ))}

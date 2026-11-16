@@ -66,7 +66,7 @@ export const BlogDetail = () => {
           <p className="section-kicker">
             {blog?.date} / {Math.max(1, Math.round(content.length / 500))} min read
           </p>
-          <h1 className="font-display text-3xl font-bold leading-tight text-[#171514] sm:text-4xl">
+          <h1 className="font-display text-3xl font-bold leading-tight text-[#edf1ef] sm:text-4xl">
             {blog?.title}
           </h1>
         </header>
@@ -100,25 +100,25 @@ export const BlogDetail = () => {
                     </SyntaxHighlighter>
                   </div>
                 ) : (
-                  <code className="rounded-md border border-[#171514]/10 bg-[#fbfaf6]/70 px-1.5 py-0.5 font-mono text-xs text-[#171514]">
+                  <code className="rounded-md border border-[#edf1ef]/10 bg-[#111716]/70 px-1.5 py-0.5 font-mono text-xs text-[#edf1ef]">
                     {children}
                   </code>
                 );
               },
               h1: ({ ...props }) => (
-                <h1 className="mt-12 text-3xl font-bold text-[#171514]" {...props} />
+                <h1 className="mt-12 text-3xl font-bold text-[#edf1ef]" {...props} />
               ),
               h2: ({ ...props }) => (
-                <h2 className="mt-10 border-t border-[#171514]/10 pt-7 text-2xl font-bold text-[#171514]" {...props} />
+                <h2 className="mt-10 border-t border-[#edf1ef]/10 pt-7 text-2xl font-bold text-[#edf1ef]" {...props} />
               ),
               h3: ({ ...props }) => (
-                <h3 className="mt-8 text-xl font-bold text-[#171514]" {...props} />
+                <h3 className="mt-8 text-xl font-bold text-[#edf1ef]" {...props} />
               ),
               h4: ({ ...props }) => (
-                <h4 className="mt-7 text-lg font-bold text-[#171514]" {...props} />
+                <h4 className="mt-7 text-lg font-bold text-[#edf1ef]" {...props} />
               ),
               p: ({ ...props }) => (
-                <p className="mb-5 text-sm leading-7 text-[#625c53]" {...props} />
+                <p className="mb-5 text-sm leading-7 text-[#a8b2ad]" {...props} />
               ),
               a: ({ href, ...props }) => {
                 const isInternalLink = href?.startsWith('#');
@@ -134,7 +134,7 @@ export const BlogDetail = () => {
                   <a
                     href={href}
                     onClick={handleClick}
-                    className="font-bold text-[#171514] underline decoration-[#171514]/20 underline-offset-4 transition hover:decoration-[#171514]"
+                    className="font-bold text-[#edf1ef] underline decoration-[#edf1ef]/20 underline-offset-4 transition hover:decoration-[#edf1ef]"
                     {...props}
                   />
                 );
@@ -142,38 +142,38 @@ export const BlogDetail = () => {
               ul: ({ ...props }) => <ul className="my-6 space-y-3" {...props} />,
               ol: ({ ...props }) => <ol className="my-6 list-decimal space-y-3 pl-5" {...props} />,
               li: ({ ...props }) => (
-                <li className="text-sm leading-7 text-[#625c53] marker:text-[#171514]" {...props} />
+                <li className="text-sm leading-7 text-[#a8b2ad] marker:text-[#edf1ef]" {...props} />
               ),
               blockquote: ({ ...props }) => (
-                <blockquote className="my-8 rounded-[12px] border border-[#171514]/10 bg-[#fbfaf6]/70 px-4 py-3 text-sm text-[#625c53]" {...props} />
+                <blockquote className="my-8 rounded-[12px] border border-[#edf1ef]/10 bg-[#111716]/70 px-4 py-3 text-sm text-[#a8b2ad]" {...props} />
               ),
               img: ({ src, alt, ...props }) => (
                 <button className="my-10 block cursor-zoom-in text-left" onClick={() => src && setZoomedImage(src)} type="button">
                   <img
-                    className="rounded-[14px] border border-[#171514]/10"
+                    className="rounded-[14px] border border-[#edf1ef]/10"
                     src={src}
                     alt={alt}
                     {...props}
                   />
                   {alt && (
-                    <span className="mt-3 block text-center text-xs text-[#827b70]">{alt}</span>
+                    <span className="mt-3 block text-center text-xs text-[#7f8b84]">{alt}</span>
                   )}
                 </button>
               ),
               table: ({ ...props }) => (
-                <div className="my-8 overflow-x-auto rounded-[12px] border border-[#171514]/10">
-                  <table className="min-w-full divide-y divide-[#171514]/10" {...props} />
+                <div className="my-8 overflow-x-auto rounded-[12px] border border-[#edf1ef]/10">
+                  <table className="min-w-full divide-y divide-[#edf1ef]/10" {...props} />
                 </div>
               ),
               th: ({ ...props }) => (
-                <th className="bg-[#fbfaf6]/70 px-4 py-3 text-left text-xs font-bold text-[#4f4941]" {...props} />
+                <th className="bg-[#111716]/70 px-4 py-3 text-left text-xs font-bold text-[#dce4df]" {...props} />
               ),
               td: ({ ...props }) => (
-                <td className="border-t border-[#171514]/10 px-4 py-3 text-xs text-[#625c53]" {...props} />
+                <td className="border-t border-[#edf1ef]/10 px-4 py-3 text-xs text-[#a8b2ad]" {...props} />
               ),
-              hr: ({ ...props }) => <hr className="my-10 border-[#171514]/10" {...props} />,
-              strong: ({ ...props }) => <strong className="font-bold text-[#171514]" {...props} />,
-              em: ({ ...props }) => <em className="text-[#4f4941]" {...props} />,
+              hr: ({ ...props }) => <hr className="my-10 border-[#edf1ef]/10" {...props} />,
+              strong: ({ ...props }) => <strong className="font-bold text-[#edf1ef]" {...props} />,
+              em: ({ ...props }) => <em className="text-[#dce4df]" {...props} />,
             }}
           >
             {content}
@@ -181,14 +181,14 @@ export const BlogDetail = () => {
         </div>
 
         {suggestedBlog && (
-          <section className="mx-auto mt-14 max-w-3xl border-t border-[#171514]/10 pt-8">
+          <section className="mx-auto mt-14 max-w-3xl border-t border-[#edf1ef]/10 pt-8">
             <p className="section-kicker text-left">Read next</p>
             <Link to={`/blogs/${suggestedBlog.file}`} className="surface-card surface-card-hover mt-4 block p-4">
-              <p className="text-xs text-[#827b70]">{suggestedBlog.date}</p>
-              <h2 className="mt-2 text-lg font-bold text-[#171514]">
+              <p className="text-xs text-[#7f8b84]">{suggestedBlog.date}</p>
+              <h2 className="mt-2 text-lg font-bold text-[#edf1ef]">
                 {suggestedBlog.title}
               </h2>
-              <span className="mt-4 inline-flex text-xs font-bold text-[#171514]">
+              <span className="mt-4 inline-flex text-xs font-bold text-[#edf1ef]">
                 Read more
               </span>
             </Link>

@@ -18,12 +18,12 @@ const NotFoundPage = () => {
   return (
     <section className="page-shell flex min-h-[calc(100vh-8rem)] flex-col items-center justify-center text-center">
       <p className="section-kicker">Not found</p>
-      <h1 className="font-display text-7xl font-bold leading-none text-[#171514] sm:text-8xl">
+      <h1 className="font-display text-7xl font-bold leading-none text-[#edf1ef] sm:text-8xl">
         404
       </h1>
-      <p className="mt-4 max-w-md text-sm leading-7 text-[#736d63]">
+      <p className="mt-4 max-w-md text-sm leading-7 text-[#9ba69f]">
         This page is quiet because it does not exist. Maybe you meant{' '}
-        <button onClick={handleNavigate} className="font-bold text-[#171514] underline underline-offset-4">
+        <button onClick={handleNavigate} className="font-bold text-[#edf1ef] underline underline-offset-4">
           {randomRoutes || 'projects'}
         </button>
         .

@@ -1,17 +1,35 @@
 import { useEffect, useState } from 'react';
 import { useLocation } from 'react-router-dom';
 
-const experiences = [
+type ExperienceItem = {
+  company: string;
+  role: string;
+  duration?: string;
+  logo?: string;
+  mark?: string;
+  highlights: string[];
+};
+
+const experiences: ExperienceItem[] = [
   {
-    company: "Cisco Systems Pvt. Ltd",
-    role: "Technical Consulting Engineer",
-    duration: "Aug 2025 - Present",
-    mark: "CS",
+    company: "Cisco Meraki",
+    role: "Meraki Network Support Engineer",
+    duration: "Present",
+    logo: "/cisco.svg",
     highlights: [
-      "Resolved enterprise ACI incidents by analyzing APIC logs, fault records, and fabric telemetry, reducing customer downtime by 30%.",
-      "Restored and migrated 5+ ACI pods, including 3 full rebuilds, by reconfiguring tenants, bridge domains, and contracts with zero data loss.",
-      "Diagnosed complex L2/L3 connectivity issues across multi-tenant fabrics using TCP/IP, ARP, and MAC learning analysis.",
-      "Automated troubleshooting workflows with Python-assisted scripting to streamline issue triaging and improve engineer efficiency by 20%.",
+      "Support customers with troubleshooting across Meraki network environments.",
+      "Investigate connectivity issues and help identify practical paths to resolution.",
+      "Keep communication clear and customer focused throughout the support process.",
+    ],
+  },
+  {
+    company: "Cisco Systems",
+    role: "Technical Consulting Trainee",
+    logo: "/cisco.svg",
+    highlights: [
+      "Supported enterprise customers by investigating network incidents and connectivity issues.",
+      "Used TCP/IP, ARP, and MAC learning analysis to troubleshoot Layer 2 and Layer 3 behavior.",
+      "Worked with Cisco ACI concepts including tenants, bridge domains, and contracts.",
     ],
   },
   {
@@ -43,7 +61,7 @@ const Experience = () => {
   return (
     <section
       className={`section-block transition duration-700 ${
-        isVisible ? 'translate-y-0 opacity-100 blur-none' : 'translate-y-4 opacity-0 blur-md'
+        isVisible ? 'translate-y-0 opacity-100' : 'translate-y-2 opacity-0'
       }`}
     >
       <div className="mb-4">
@@ -51,7 +69,7 @@ const Experience = () => {
         <h2 className="section-title">Where I worked</h2>
       </div>
 
-      <div className="folio-panel divide-y divide-[#171514]/10">
+      <div className="divide-y divide-white/10 border-y border-white/10">
         {experiences.map((exp, index) => (
           <article
             key={`${exp.company}-${exp.role}`}
@@ -62,7 +80,7 @@ const Experience = () => {
               transform: isVisible ? 'translateY(0)' : 'translateY(14px)',
             }}
           >
-            <div className="grid h-10 w-10 place-items-center overflow-hidden rounded-full border border-[#171514]/10 bg-[#fbfaf6]">
+            <div className="grid h-10 w-10 place-items-center overflow-hidden rounded-full border border-[#edf1ef]/10 bg-[#111716]">
               {exp.logo ? (
                 <img src={exp.logo} alt={`${exp.company} logo`} className="h-7 w-7 object-contain" />
               ) : (
@@ -71,21 +89,19 @@ const Experience = () => {
             </div>
 
             <div>
-              <h3 className="text-[13px] font-bold text-[#171514]">{exp.role}</h3>
-              <p className="mt-1 text-[12px] font-semibold text-[#70695f]">{exp.company}</p>
+              <h3 className="text-[13px] font-bold text-[#edf1ef]">{exp.role}</h3>
+              <p className="mt-1 text-[12px] font-semibold text-[#929d97]">{exp.company}</p>
               <ul className="mt-3 space-y-2">
                 {exp.highlights.map((highlight) => (
-                  <li key={highlight} className="grid grid-cols-[auto_1fr] gap-2 text-[12px] leading-6 text-[#7f786e]">
-                    <span className="mt-[0.55rem] h-1 w-1 rounded-full bg-[#171514]/45" />
+                  <li key={highlight} className="grid grid-cols-[auto_1fr] gap-2 text-[12px] leading-6 text-[#9ba69f]">
+                    <span className="mt-[0.55rem] h-1 w-1 rounded-full bg-[#edf1ef]/45" />
                     <span>{highlight}</span>
                   </li>
                 ))}
               </ul>
             </div>
 
-            <span className="font-code text-[10px] font-semibold uppercase text-[#9a9389] sm:text-right">
-              {exp.duration}
-            </span>
+            {exp.duration && <span className="font-code text-[10px] font-semibold uppercase text-[#68746d] sm:text-right">{exp.duration}</span>}
           </article>
         ))}
       </div>
